@@ -26,12 +26,15 @@ classname ValueManager
 # 设置变量
 
 # RingCard变量
-areas: Array[Area]
+area_cards: dict{area_name: AreaCard}
+# pIFs、cIFs: dict{area_name: int} 看是否需要快速取IF
 ```
 
 #### 地点
 
-每个地点表现为一张地点卡，左下为玩家影响力pIF，右下为ai影响力cIF
+地点主要数据为玩家/ai影响力。每个地点初始影响力不同
+
+AreaInfo用于初始化信息
 
 ```python
 classname AreaInfo
@@ -39,26 +42,35 @@ classname AreaInfo
 var name: string
 var init_pIF: int
 var init_cIF: int
+```
+
+实际流程中每个地点表现为一张地点卡，左下为pIF，右下为cIF
+
+```python
+classname AreaCard
+
+var area_info: AreaInfo
 var pIF: int
 var cIF: int
 
+func init_card(){
+  # 初始化UI
+}
+
 func update(){
-  # 更新该地点状态总调用
+  # 更新该地点状态的总调用函数
   updateIF()
-  updateCard()
 }
 
 func updateIF(){
   # 更新IF
   # 上报并更新全局IF
 }
-
-func updateAreaCard(){
-  # 更新对应的地点卡
-}
 ```
 
 目前地点：西郊（1,6），自治会本部（7,0），第一食堂（2,1），学生宿舍（3,0），第一教学楼（3,1），纠察队办公室（4,0），第五教学楼（2,2），活动中心（2,1）
+
+
 
 #### 玩家/ai
 
@@ -67,13 +79,6 @@ func updateAreaCard(){
 公有数据：手牌数量、弃牌堆数量、抽牌堆数量、稳定度、行动力、绝对控制数量、政策buff
 
 私有数据：手牌、弃牌堆、抽牌堆(?)
-
-```python
-classname Player
-
-var hand: Array[HandCard]
-var 
-```
 
 
 
