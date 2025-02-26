@@ -6,8 +6,8 @@ extends CheckButton
 @export var color_off_bg: Color
 @export var duration: float = 0.25
 
-@export var cursor_normal = preload("res://addons/godot_ui_components-main/scenes/shared/visuals/cursor.png")
-@export var cursor_hover = preload("res://addons/godot_ui_components-main/scenes/shared/visuals/cursor_hover.png")
+@export var cursor_normal = preload("res://scenes/shared/visuals/cursor.png")
+@export var cursor_hover = preload("res://scenes/shared/visuals/cursor_hover.png")
 
 var offset_x: float = 70.0
 var pos_x_off: float = 5.0

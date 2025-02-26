@@ -1,5 +1,6 @@
 @tool
 extends Button
+class_name Card
 
 signal put_back()
 
@@ -9,10 +10,10 @@ signal put_back()
 		$SubViewportContainer/SubViewport/Card.self_modulate = color
 	get:
 		return color
-
-@export var threshold: float = 100.0
-@export var threshold_speed: float = 200.0
-@export var use_speed: bool = true
+		
+@export var threshold: float = 100.0	#根据距离判断放回初始位置 阈值
+@export var threshold_speed: float = 200.0	#根据拖牌速度判断放回初始位置 阈值
+@export var use_speed: bool = true	#是否根据速度
 
 var tween_grab: Tween
 var tween_movement: Tween
@@ -26,6 +27,9 @@ var last_speed: float = 0.0
 func _ready() -> void:
 	set_process(false)
 	pivot_offset = size / 2.0
+	# 随机旋转和偏移，模拟手牌堆叠
+	rotation_degrees = randf_range(-5, 5)
+	position.y += randf_range(-10, 10)
 	
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint(): return
@@ -38,6 +42,7 @@ func set_3D_rotation_y(y: float) -> void:
 	$SubViewportContainer.material.set_shader_parameter("y_rot", y)
 
 func _on_button_down() -> void:
+	emit_signal("dragged", true)
 	if Engine.is_editor_hint(): return
 	offset = global_position - get_global_mouse_position()
 	picked_up = true
@@ -48,11 +53,15 @@ func _on_button_down() -> void:
 	tween_grab.tween_property(self, "scale", Vector2(1.1, 1.1), 0.15)
 
 func _on_button_up() -> void:
+	emit_signal("dragged", false)
 	if Engine.is_editor_hint(): return
 	picked_up = false
 	set_process(false)
 	var dist: float = abs(original_position.y - global_position.y)
 	print("Distance: ", dist)
+	
+	# 判断是否在出牌区域（如屏幕上半部分）
+	var is_play_area = get_global_mouse_position().y < 300
 	
 	if use_speed:
 		if last_speed <= -threshold_speed:

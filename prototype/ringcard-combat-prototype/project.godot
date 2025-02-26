@@ -15,6 +15,11 @@ run/main_scene="res://scenes/cards_stack/cards_stack.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="新建游戏项目"

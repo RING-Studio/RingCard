@@ -10,9 +10,9 @@ signal put_back()
 	get:
 		return color
 
-@export var threshold: float = 100.0
-@export var threshold_speed: float = 200.0
-@export var use_speed: bool = true
+@export var threshold: float = 100.0	#根据距离判断放回初始位置 阈值
+@export var threshold_speed: float = 200.0	#根据拖牌速度判断放回初始位置 阈值
+@export var use_speed: bool = true	#是否根据速度
 
 var tween_grab: Tween
 var tween_movement: Tween
