@@ -1,8 +1,8 @@
-@tool
 extends Button
 class_name Card
 
 signal put_back()
+signal dragged(flag: bool)
 
 @export var color: Color:
 	set(new_val):
