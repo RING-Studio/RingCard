@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsx7bu7313g30"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/start_game_button.gd" id="1_jnjlg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "开始游戏"
+script = ExtResource("1_jnjlg")
