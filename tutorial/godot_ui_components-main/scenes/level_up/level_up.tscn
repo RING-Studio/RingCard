@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://bh44t48g0wayk"]
 
-[ext_resource type="Shader" path="res://scenes/shared/shaders/gradientgdshader.gdshader" id="1_o2e1d"]
-[ext_resource type="Script" path="res://scenes/level_up/level_up.gd" id="1_wg25o"]
+[ext_resource type="Shader" uid="uid://d5pwbovkgfmh" path="res://scenes/shared/shaders/gradientgdshader.gdshader" id="1_o2e1d"]
+[ext_resource type="Script" uid="uid://dis6ncoaa748j" path="res://scenes/level_up/level_up.gd" id="1_wg25o"]
 [ext_resource type="Texture2D" uid="uid://dskgiwy06ecu0" path="res://scenes/level_up/assets/badge.png" id="2_v4eyb"]
 [ext_resource type="Texture2D" uid="uid://v63l28dn6u5g" path="res://scenes/level_up/assets/star.png" id="3_0l633"]
 [ext_resource type="FontFile" uid="uid://wh31x17oioib" path="res://scenes/shared/fonts/roboto_condensed/RobotoCondensed-Regular.ttf" id="3_c22g7"]
@@ -29,7 +29,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.372549, 1, 1, 1, 0.329412, 1, 1
 gradient = SubResource("Gradient_faj36")
 
 [sub_resource type="Curve" id="Curve_lfrbs"]
-max_value = 2.5
+_limits = [0.0, 2.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.5), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -107,9 +107,9 @@ texture = SubResource("GradientTexture2D_533cp")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(960, 540)
 amount = 3
-process_material = SubResource("ParticleProcessMaterial_ekdai")
 texture = ExtResource("8_s851w")
 lifetime = 6.5
+process_material = SubResource("ParticleProcessMaterial_ekdai")
 
 [node name="Card" type="Control" parent="."]
 layout_mode = 1
@@ -170,9 +170,9 @@ stretch_mode = 5
 position = Vector2(99, 94)
 emitting = false
 amount = 4
-process_material = SubResource("ParticleProcessMaterial_ddc2t")
 texture = ExtResource("3_0l633")
 lifetime = 2.5
+process_material = SubResource("ParticleProcessMaterial_ddc2t")
 
 [node name="LevelUp" type="Label" parent="Card/VBoxContainer"]
 layout_mode = 2

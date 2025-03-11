@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bas2gtilst0qe"]
+
+[ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scenes/game_board/game_board.tscn" id="1_afovi"]
+[ext_resource type="PackedScene" uid="uid://bmvqrpufg5pkj" path="res://scenes/hand.tscn" id="2_dh65g"]
+
+[node name="Combat" type="Node2D"]
+
+[node name="GameBoard" parent="." instance=ExtResource("1_afovi")]
+
+[node name="Hand" parent="." instance=ExtResource("2_dh65g")]
