@@ -1,22 +1,23 @@
 extends Control
 
 @export var card_data: CardData
+@onready var area_2d: Area2D = $Area2D
 
 var is_dragging := false
 var initial_position: Vector2
 var drag_offset: Vector2
 
 func _ready():
-	self.gui_input.connect(_on_gui_input)
-	mouse_filter = MOUSE_FILTER_PASS
+	gui_input.connect(_on_gui_input)
 	update_card_display()
 
 func update_card_display():
 	if card_data:
 		$CostLabel.text = "%d" % card_data.cost
-
+		
 # 使用Control的GUI输入事件
 func _on_gui_input(event: InputEvent):
+	print(1)
 	# 左键拖拽
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -33,11 +34,12 @@ func _on_gui_input(event: InputEvent):
 	if event is InputEventMouseMotion and is_dragging:
 		global_position = get_global_mouse_position() - drag_offset
 
+
 func start_drag(event: InputEventMouseButton):
 	initial_position = global_position
 	drag_offset = event.position
 	is_dragging = true
-	z_index = 100  # 提升层级
+	z_index += 1  # 提升层级
 	# 禁用父级容器输入
 	#get_parent().mouse_filter = MOUSE_FILTER_IGNORE
 
