@@ -1,72 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://coybu0kh1y26"]
+[gd_scene load_steps=3 format=3 uid="uid://llqljv1ksi4u"]
 
-[ext_resource type="Script" uid="uid://deyflb2dubfuu" path="res://scenes/card/card.gd" id="1_hfqwo"]
-[ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://assets/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="2_imta7"]
-[ext_resource type="Resource" uid="uid://njwqhvmxfh1u" path="res://card_data/test1/test1.tres" id="2_vtcvk"]
+[ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://assets/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="1_qnn7r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtcvk"]
-size = Vector2(140, 190)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imta7"]
+size = Vector2(141, 190)
 
 [node name="Card" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -95.0
-offset_right = -1210.0
-offset_bottom = -624.0
+offset_right = -1083.0
+offset_bottom = -555.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(70, 95)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("1_hfqwo")
-card_data = ExtResource("2_vtcvk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_imta7")
-centered = false
+texture = ExtResource("1_qnn7r")
 
-[node name="IFLabel1" type="Label" parent="."]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 159.0
-offset_right = 47.0
-offset_bottom = 182.0
-text = "33"
-horizontal_alignment = 1
+[node name="DropDetectArea" type="Area2D" parent="."]
 
-[node name="IFLabel2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 93.0
-offset_top = 159.0
-offset_right = 133.0
-offset_bottom = 182.0
-text = "4"
-horizontal_alignment = 1
-
-[node name="DurationLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 4.0
-offset_right = 143.0
-offset_bottom = 27.0
-text = "3"
-horizontal_alignment = 1
-
-[node name="CostLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -2.0
-offset_top = 5.0
-offset_right = 38.0
-offset_bottom = 28.0
-text = "1"
-horizontal_alignment = 1
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(70, 95)
-shape = SubResource("RectangleShape2D_vtcvk")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropDetectArea"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_imta7")

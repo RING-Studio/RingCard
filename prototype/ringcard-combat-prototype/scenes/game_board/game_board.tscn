@@ -7,6 +7,6 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Map" type="Sprite2D" parent="."]
-position = Vector2(666, 355)
+position = Vector2(618, 330)
 scale = Vector2(0.699219, 0.654297)
 texture = ExtResource("1_xhck4")

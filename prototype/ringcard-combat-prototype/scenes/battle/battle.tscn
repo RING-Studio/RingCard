@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc1hubuv4h24p"]
+
+[ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scenes/game_board/game_board.tscn" id="1_7gynk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
+size = Vector2(835, 530)
+
+[node name="Battle" type="Node2D"]
+
+[node name="GameBoard" parent="." instance=ExtResource("1_7gynk")]
+visible = false
+
+[node name="CardPlayArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayArea"]
+position = Vector2(571.5, 265)
+shape = SubResource("RectangleShape2D_ffvsa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 327.0
+offset_top = 532.0
+offset_right = 827.0
+offset_bottom = 644.0

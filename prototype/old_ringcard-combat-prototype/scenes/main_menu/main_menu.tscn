@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsx7bu7313g30"]
+
+[ext_resource type="Script" uid="uid://bobf82tojvqih" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+[ext_resource type="PackedScene" uid="uid://coybu0kh1y26" path="res://scenes/card/card.tscn" id="2_0ebjn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_fsom3")
+
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "开始游戏"
+
+[node name="Card" parent="." instance=ExtResource("2_0ebjn")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 139.0
+offset_bottom = 191.0
+
+[connection signal="pressed" from="StartGameButton" to="." method="_on_start_game_button_pressed"]
