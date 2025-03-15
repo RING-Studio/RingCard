@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc1hubuv4h24p"]
+[gd_scene load_steps=4 format=3 uid="uid://bc1hubuv4h24p"]
 
 [ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scenes/game_board/game_board.tscn" id="1_7gynk"]
+[ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scenes/card/card.tscn" id="2_ffvsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
-size = Vector2(835, 530)
+size = Vector2(835, 428)
 
 [node name="Battle" type="Node2D"]
 
@@ -13,13 +14,30 @@ visible = false
 [node name="CardPlayArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayArea"]
-position = Vector2(571.5, 265)
+position = Vector2(571.5, 214)
 shape = SubResource("RectangleShape2D_ffvsa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 327.0
-offset_top = 532.0
-offset_right = 827.0
-offset_bottom = 644.0
+[node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(140, 190)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -190.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 140
+
+[node name="Card" parent="CanvasLayer/Hand" instance=ExtResource("2_ffvsa")]
+layout_mode = 2
+
+[node name="Card2" parent="CanvasLayer/Hand" instance=ExtResource("2_ffvsa")]
+layout_mode = 2
+
+[node name="Card3" parent="CanvasLayer/Hand" instance=ExtResource("2_ffvsa")]
+layout_mode = 2
