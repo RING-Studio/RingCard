@@ -176,4 +176,4 @@ var card_info: CardInfo
 
 ##### 系统
 
-​	esc
+​	esc，menu
