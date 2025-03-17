@@ -10,13 +10,27 @@ config_version=5
 
 [application]
 
-config/name="新建游戏项目"
+config/name="RingCard-combat-prototype"
+run/main_scene="uid://bc1hubuv4h24p"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*res://global/events.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 
 project/assembly_name="新建游戏项目"
+
+[global_group]
+
+battle=""
 
 [input]
 
@@ -30,6 +44,11 @@ mouse_right={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(440, 19),"global_position":Vector2(449, 67),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="card"
+2d_physics/layer_2="card_drop_area"
 
 [rendering]
 

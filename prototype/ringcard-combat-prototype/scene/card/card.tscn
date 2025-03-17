@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://llqljv1ksi4u"]
+
+[ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="1_qnn7r"]
+[ext_resource type="Script" uid="uid://by2fnxyd3ugk8" path="res://scene/card/card.gd" id="1_vtcvk"]
+[ext_resource type="Resource" uid="uid://bp846wfrv6hna" path="res://card_data/test_policy/test_policy.tres" id="2_pa2gb"]
+[ext_resource type="Script" uid="uid://bjq1or5qwivha" path="res://scene/card/card_state_machine.gd" id="3_g65cd"]
+[ext_resource type="Script" uid="uid://c510clbpr0jbw" path="res://scene/card/card_idle_state.gd" id="4_g65cd"]
+[ext_resource type="Script" uid="uid://gk6hti4iyckl" path="res://scene/card/card_dragging_state.gd" id="5_kaf1t"]
+[ext_resource type="Script" uid="uid://ce3efxoqu1uss" path="res://scene/card/card_released_state.gd" id="6_ri62e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imta7"]
+size = Vector2(14, 19)
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1140.0
+offset_bottom = -529.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(70, 95)
+script = ExtResource("1_vtcvk")
+card_data = ExtResource("2_pa2gb")
+
+[node name="DropAreaDetector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropAreaDetector"]
+position = Vector2(70, 95)
+shape = SubResource("RectangleShape2D_imta7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qnn7r")
+centered = false
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("3_g65cd")
+init_state = NodePath("CardIdleState")
+
+[node name="CardIdleState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_g65cd")
+
+[node name="CardDraggingState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_kaf1t")
+state = 1
+
+[node name="CardReleasedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_ri62e")
+state = 2
+
+[connection signal="gui_input" from="." to="CardStateMachine" method="_on_card_gui_input"]
+[connection signal="mouse_entered" from="." to="CardStateMachine" method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="." to="CardStateMachine" method="_on_card_mouse_exited"]

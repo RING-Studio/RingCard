@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://bc1hubuv4h24p"]
+
+[ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scene/game_board/game_board.tscn" id="1_7gynk"]
+[ext_resource type="Script" uid="uid://byjjo1ssa2cgm" path="res://scene/battle/battle.gd" id="1_yjev4"]
+[ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scene/card/card.tscn" id="2_ffvsa"]
+[ext_resource type="Script" uid="uid://6wut77ldw337" path="res://scene/battle/card_drop_area.gd" id="3_53mgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
+size = Vector2(800, 480)
+
+[sub_resource type="Animation" id="Animation_6en87"]
+resource_name = "glint"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 0.210224, 0.466514),
+"update": 0,
+"values": [Color(0.352941, 0.607843, 0.647059, 0.431373), Color(0.352941, 0.607843, 0.647059, 0), Color(0.352941, 0.607843, 0.647059, 0.431373)]
+}
+
+[sub_resource type="Animation" id="Animation_wq6iy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.352941, 0.607843, 0.647059, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yjev4"]
+_data = {
+&"RESET": SubResource("Animation_wq6iy"),
+&"glint": SubResource("Animation_6en87")
+}
+
+[node name="Battle" type="Node2D" groups=["battle"]]
+script = ExtResource("1_yjev4")
+
+[node name="GameBoard" parent="." instance=ExtResource("1_7gynk")]
+visible = false
+
+[node name="CardDropArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_53mgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(640, 240)
+shape = SubResource("RectangleShape2D_ffvsa")
+
+[node name="ColorRect" type="ColorRect" parent="CardDropArea"]
+offset_left = 240.0
+offset_right = 1040.0
+offset_bottom = 480.0
+color = Color(0.352941, 0.607843, 0.647059, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CardDropArea/ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_yjev4")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
+visible = false
+custom_minimum_size = Vector2(140, 190)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -190.0
+offset_right = 140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 140
+
+[node name="Card" parent="CanvasLayer" instance=ExtResource("2_ffvsa")]
+offset_left = 569.0
+offset_top = 551.0
+offset_right = -571.0
+offset_bottom = 22.0
