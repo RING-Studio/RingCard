@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SiteData" load_steps=3 format=3 uid="uid://ce08xp1n0merx"]
+
+[ext_resource type="Script" uid="uid://fpdcv4gl4mn3" path="res://resources/site_data/site_data.gd" id="1_h40xr"]
+[ext_resource type="Texture2D" uid="uid://b7c70o221laak" path="res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_multi06.png" id="2_b2y5o"]
+
+[resource]
+script = ExtResource("1_h40xr")
+site_name = "test site 1"
+texture = ExtResource("2_b2y5o")
+init_pIF = 2
+init_cIF = 4
+discription = "test site 1 discription"
+metadata/_custom_type_script = "uid://fpdcv4gl4mn3"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://llqljv1ksi4u"]
 
-[ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="1_qnn7r"]
 [ext_resource type="Script" uid="uid://by2fnxyd3ugk8" path="res://scene/card/card.gd" id="1_vtcvk"]
-[ext_resource type="Resource" uid="uid://bp846wfrv6hna" path="res://card_data/test_policy/test_policy.tres" id="2_pa2gb"]
+[ext_resource type="Resource" uid="uid://bp846wfrv6hna" path="res://resources/card_data/test_policy/test_policy.tres" id="2_pa2gb"]
 [ext_resource type="Script" uid="uid://bjq1or5qwivha" path="res://scene/card/card_state_machine.gd" id="3_g65cd"]
+[ext_resource type="Texture2D" uid="uid://bao75cgfyyeie" path="res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png" id="3_pa2gb"]
 [ext_resource type="Script" uid="uid://c510clbpr0jbw" path="res://scene/card/card_idle_state.gd" id="4_g65cd"]
 [ext_resource type="Script" uid="uid://gk6hti4iyckl" path="res://scene/card/card_dragging_state.gd" id="5_kaf1t"]
 [ext_resource type="Script" uid="uid://ce3efxoqu1uss" path="res://scene/card/card_released_state.gd" id="6_ri62e"]
@@ -17,7 +17,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1140.0
-offset_bottom = -529.0
+offset_bottom = -530.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(70, 95)
@@ -31,9 +31,53 @@ collision_mask = 2
 position = Vector2(70, 95)
 shape = SubResource("RectangleShape2D_imta7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_qnn7r")
+[node name="CardVisual" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TemplateSprite" type="Sprite2D" parent="CardVisual"]
 centered = false
+
+[node name="IllustSprite" type="Sprite2D" parent="CardVisual"]
+position = Vector2(70, 50)
+scale = Vector2(0.984375, 0.671875)
+
+[node name="BackSprite" type="Sprite2D" parent="CardVisual"]
+visible = false
+
+[node name="DiscriptionLabel" type="Label" parent="CardVisual"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "test card discription"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CostSprite" type="Sprite2D" parent="CardVisual"]
+position = Vector2(12, 12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_pa2gb")
+
+[node name="CostLabel" type="Label" parent="CardVisual"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
 script = ExtResource("3_g65cd")

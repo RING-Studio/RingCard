@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo4g6cjlvlhlp"]
+[gd_scene load_steps=3 format=3 uid="uid://bo4g6cjlvlhlp"]
 
 [ext_resource type="Texture2D" uid="uid://bwdibch637jec" path="res://asset/kenney_cartography-pack/Textures/parchmentBasic.png" id="1_xhck4"]
+[ext_resource type="PackedScene" uid="uid://fusraiemv1iq" path="res://scene/site/site.tscn" id="2_7bohx"]
 
 [node name="GameBoard" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="Map" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(618, 330)
 scale = Vector2(0.699219, 0.654297)
 texture = ExtResource("1_xhck4")
+
+[node name="Site" parent="." instance=ExtResource("2_7bohx")]
+position = Vector2(428, 138)
