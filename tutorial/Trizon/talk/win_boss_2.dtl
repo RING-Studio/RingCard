@@ -1,0 +1,19 @@
+join heroine rightmost
+join character_test leftmost
+heroine (shock): 我，我们赢了！ #id:cd
+[signal arg="hunter"]
+update heroine (shame)
+hunter: 耶！\
+来抱一个！ #id:ce
+[signal arg="Bird"]
+Bird: ……真没想到，\
+只花了几周就走到了这么远的地方。 #id:cf
+[signal arg="hunter"]
+update heroine (happy)
+hunter: 这是我们应得的！\
+真是的，你就不能表现得再开心一点儿吗？ #id:d0
+[signal arg="Bird"]
+Bird: ……\
+好吧，\
+我当然是高兴的。 #id:d1
+leave heroine

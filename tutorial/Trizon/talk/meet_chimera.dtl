@@ -1,0 +1,26 @@
+join character_test leftmost
+[signal arg="chimera"]
+chimera: …… #id:2c
+[signal arg="hunter"]
+hunter: 这里就是力量的源头。\
+……真不凑巧。 #id:2d
+[signal arg="chimera"]
+chimera: 玩家、敌人…\
+但是，优先，保护，卡。 #id:2e
+[signal arg="hunter"]
+hunter: 谢天谢地，\
+它好像没有要过来的意思。 #id:2f
+[signal arg="hunter"]
+hunter: 看起来它正死守着什么，\
+……\
+是一张卡。 #id:30
+
+join heroine (shock) rightmost
+呜，好强大的气场，\
+那张卡，它在召唤我。 #id:31
+[signal arg="Bird"]
+Bird: 那一定就是休斯没拿到的那张权势卡。\
+……该死的，\
+为什么喀迈拉会守着这玩意？ #id:32
+
+leave heroine

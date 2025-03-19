@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo4g6cjlvlhlp"]
+[gd_scene load_steps=5 format=3 uid="uid://bo4g6cjlvlhlp"]
 
 [ext_resource type="Texture2D" uid="uid://bwdibch637jec" path="res://asset/kenney_cartography-pack/Textures/parchmentBasic.png" id="1_xhck4"]
 [ext_resource type="PackedScene" uid="uid://fusraiemv1iq" path="res://scene/site/site.tscn" id="2_7bohx"]
+[ext_resource type="Resource" uid="uid://cgx6ocejm2rvl" path="res://resources/site_data/test_site/test_site2.tres" id="3_aq4sx"]
+[ext_resource type="Resource" uid="uid://bms2rlq1ohe3s" path="res://resources/site_data/test_site/test_site3.tres" id="4_fuav2"]
 
-[node name="GameBoard" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="GameBoard" type="CanvasLayer"]
 
 [node name="Map" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.509804)
@@ -14,4 +14,12 @@ scale = Vector2(0.699219, 0.654297)
 texture = ExtResource("1_xhck4")
 
 [node name="Site" parent="." instance=ExtResource("2_7bohx")]
-position = Vector2(428, 138)
+position = Vector2(418, 186)
+
+[node name="Site2" parent="." instance=ExtResource("2_7bohx")]
+position = Vector2(852, 106)
+site_data = ExtResource("3_aq4sx")
+
+[node name="Site3" parent="." instance=ExtResource("2_7bohx")]
+position = Vector2(805, 486)
+site_data = ExtResource("4_fuav2")

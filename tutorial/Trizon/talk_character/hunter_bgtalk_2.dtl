@@ -1,0 +1,42 @@
+join character_test leftmost
+[signal arg="hunter"]
+hunter: 早上好，小杉。 #id:f9
+join heroine (shame) rightmost
+heroine (shame): 呼啊……早上好。 #id:fa
+heroine (confidence): 你起的总是比我们早呢。\
+做生意的都是这样么？ #id:fb
+[signal arg="hunter"]
+hunter: 嗯，大概不总是。 #id:fc
+[signal arg="hunter"]
+hunter: 创业初期那会，我每天都焦头烂额，\
+不知不觉就养成了早起……或者说失眠的习惯。 #id:fd
+[signal arg="hunter"]
+hunter: 哦，老天，我的事业啊。\
+等我真的回到现实，黄花菜都凉了。 #id:fe
+
+heroine (sad): …… #id:ff
+[signal arg="hunter"]
+hunter: 抱歉，说了些消沉的话题。 #id:100
+
+heroine (shame): 不，我很高兴你能告诉我。 #id:101
+[signal arg="hunter"]
+hunter: 那就好。\
+趁那只鸟还没醒……我也有些问题要问你，杉。 #id:102
+[signal arg="hunter"]
+hunter: 你们之前就认识吗？\
+还有，他到底是打哪儿来的？ #id:103
+
+heroine (sad): 嗯……并没有，\
+鸟是我成为玩家以后遇到的第一个同伴。\
+其实我也不太了解他，毕竟他从没说过自己的事。 #id:104
+[signal arg="hunter"]
+hunter: 唔嗯，\
+那么你最好学会表达自己的意见。 #id:105
+[signal arg="hunter"]
+hunter: 那家伙强硬又神秘。\
+……说实话我有点讨厌他。\
+这样下去你只会被他牵着鼻子走，这不见得是好事。 #id:106
+
+heroine (serious): ……\
+我会注意的。 #id:107
+leave heroine

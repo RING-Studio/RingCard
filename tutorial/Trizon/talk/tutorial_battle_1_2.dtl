@@ -1,0 +1,7 @@
+join heroine (shock) rightmost
+join character_test leftmost
+heroine: 哦哦……！ #id:a7
+[signal arg="Bird"]
+Bird:不错。\
+现在试试把你手中的这张熊叠到你刚刚部署的生物之上，\
+让他们重叠到一起。 #id:a8

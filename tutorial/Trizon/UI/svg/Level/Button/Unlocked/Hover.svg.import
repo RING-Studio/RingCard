@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://de2eun66a8qi4"
+path="res://.godot/imported/Hover.svg-35668ffbcca41625bbca0286f9b53cac.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Level/Button/Unlocked/Hover.svg"
+dest_files=["res://.godot/imported/Hover.svg-35668ffbcca41625bbca0286f9b53cac.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

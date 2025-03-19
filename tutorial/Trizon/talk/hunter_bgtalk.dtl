@@ -1,0 +1,31 @@
+join character_test leftmost
+[signal arg="hunter"]
+hunter: 真希望咱们别再遇上喀迈拉，\
+根本没有还手之力啊。 #id:11
+[signal arg="Bird"]
+Bird: 少说这些丧气话，\
+多想想对策。 #id:12
+[signal arg="hunter"]
+hunter: 陈述事实而已。\
+况且我只擅长打架，想不出什么好点子。 #id:13
+join heroine (confused) rightmost
+heroine (confused): 那个，塞泽尔……姐姐，\
+你为什么会想要加入我们呢？\
+如果只是为了回到现实，你应该早就加入休斯的队伍了。 #id:14
+[signal arg="hunter"]
+hunter: 嗯……我在找一个朋友。\
+她参加过第二次远征，\
+穿着红色的衣服，头发是青色的。 #id:15
+heroine (sad): 印象里没见过呢。 #id:16
+[signal arg="Bird"]
+Bird: ……\
+如果找不到呢？\
+就算能找到，找到之后怎么办？ #id:17
+[signal arg="hunter"]
+hunter: 不论如何，\
+我保证我会出力到最后，\
+……况且我也没抱太大期望。 #id:18
+[signal arg="hunter"]
+hunter: 所以别再这么咄咄逼人，鸟兄。\
+接下来咱们可要共处好一段时间了。 #id:19
+leave heroine

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://munli4caw5q2"]
+
+[ext_resource type="Script" uid="uid://cei4ibdbttpyo" path="res://translations_scripts/zh_CN.gd" id="1"]
+
+[node name="zh_CN" type="Node"]
+script = ExtResource("1")

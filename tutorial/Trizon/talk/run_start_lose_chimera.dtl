@@ -1,0 +1,14 @@
+join character_test leftmost
+join heroine (close_eyes) rightmost
+heroine (close_eyes): …… #id:98
+[signal arg="hunter"]
+
+早上好，小杉。\
+你看起来也没有很沮丧嘛。 #id:99
+
+heroine (shame): 毕竟……也不是第一次重新来过了。 #id:9a
+
+[signal arg="Bird"]
+Bird: 那个没脑子的肉块应该会一直呆在那。 #id:9b
+[signal arg="Bird"]
+Bird: 喀迈拉没有再生能力……终结它只是时间问题。 #id:9c

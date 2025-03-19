@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://gsmc24b37l3s"
+path="res://.godot/imported/Default.svg-cb436ff94caf9f099fe3766691566d53.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Buttons/Square-Medium/Pause/Default.svg"
+dest_files=["res://.godot/imported/Default.svg-cb436ff94caf9f099fe3766691566d53.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

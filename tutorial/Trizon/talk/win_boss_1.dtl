@@ -1,0 +1,12 @@
+join character_test leftmost
+join heroine rightmost
+heroine (shock): 哇，\
+我，我做到了！ #id:c9
+[signal arg="hunter"]
+hunter: 哈哈，这是我们伟大的一步。 #id:ca
+[signal arg="Bird"]
+Bird: 呵……这才哪到哪。 #id:cb
+[signal arg="hunter"]
+hunter: 拜托，\
+别总说这么扫兴的话。 #id:cc
+leave heroine

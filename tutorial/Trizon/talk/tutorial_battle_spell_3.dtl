@@ -1,0 +1,5 @@
+join character_test leftmost
+join heroine (happy) rightmost
+[signal arg="Bird"]
+Bird:和生物卡不同，法术卡在使用过后就会被烧毁，\
+生物卡则是在死亡时才会被烧毁 #id:b9

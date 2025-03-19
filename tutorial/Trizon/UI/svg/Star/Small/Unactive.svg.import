@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://5g46jxapp8uu"
+path="res://.godot/imported/Unactive.svg-acf74d46f174cd970ac24ca76dd96ec0.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Star/Small/Unactive.svg"
+dest_files=["res://.godot/imported/Unactive.svg-acf74d46f174cd970ac24ca76dd96ec0.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

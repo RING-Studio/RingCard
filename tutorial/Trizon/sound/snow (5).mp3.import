@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlgv3mhanhex8"
+path="res://.godot/imported/snow (5).mp3-dc4419bdfbb0e3e9c8f49d69e3fe1a94.mp3str"
+
+[deps]
+
+source_file="res://sound/snow (5).mp3"
+dest_files=["res://.godot/imported/snow (5).mp3-dc4419bdfbb0e3e9c8f49d69e3fe1a94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

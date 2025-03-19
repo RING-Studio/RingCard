@@ -1,0 +1,338 @@
+[gd_scene load_steps=17 format=3 uid="uid://c63j1iycd1g4d"]
+
+[ext_resource type="Script" uid="uid://cvthptoisu7xn" path="res://scripts/Esc.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://8fqb1jctjwhr" path="res://UI/gradient.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://b8tee5cidprli" path="res://scenes/card.tscn" id="3"]
+[ext_resource type="Shader" uid="uid://xxn1vfn5jas6" path="res://shader/dissolve.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://d0eswjpmr8815" path="res://shader/enchanted.png" id="5"]
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="6"]
+[ext_resource type="PackedScene" uid="uid://dgxn5o0e3rakm" path="res://scenes/aura.tscn" id="7"]
+
+[sub_resource type="Shader" id="Shader_aiphq"]
+code = "shader_type canvas_item;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform float lod: hint_range(0.0, 5) = 0.0;
+uniform float alpha: hint_range(0.0, 1.0) = 1.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+	color.rgb = color.rgb * 0.4;
+	color.a = alpha;
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp4rh"]
+shader = SubResource("Shader_aiphq")
+shader_parameter/lod = 3.0
+shader_parameter/alpha = 0.0
+
+[sub_resource type="GDScript" id="GDScript_1re30"]
+script/source = "extends Panel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$BGMSlider.value = Global.settings.bgm_volume
+	$SFXSlider.value = Global.settings.SFX_volume
+
+func _process(_delta):
+	pass
+
+func _on_bgm_slider_value_changed(value):
+	Music.change_bgm_volumn($BGMSlider.value)
+
+func _on_sfx_slider_value_changed(value):
+	Music.change_SFX_volumn($SFXSlider.value)
+
+func _on_slider_drag_ended(_value_changed):
+	Global.settings[\"bgm_volume\"] = $BGMSlider.value
+	Global.settings[\"SFX_volume\"] = $SFXSlider.value
+	Global.save_settings()
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u2edp"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_atv3h"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_u2edp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fe45g"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_atv3h")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/enchant = ExtResource("5")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.615686, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0901961, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.2
+shader_parameter/rainbow = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wi8pf"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iiuja"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_wi8pf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0c71y"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_iiuja")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/enchant = ExtResource("5")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.615686, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0901961, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.2
+shader_parameter/rainbow = false
+
+[node name="Esc" type="ColorRect"]
+process_mode = 3
+visible = false
+material = SubResource("ShaderMaterial_qp4rh")
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+script = ExtResource("1")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.541176)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2")
+
+[node name="AudioPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 798.0
+offset_right = 763.0
+offset_bottom = 926.0
+script = SubResource("GDScript_1re30")
+
+[node name="BGMSlider" type="HSlider" parent="AudioPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 48.0
+offset_right = 296.0
+offset_bottom = 64.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label" type="Label" parent="AudioPanel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 241.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 20
+text = "MUSICVOLUME"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="AudioPanel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 104.0
+offset_right = 296.0
+offset_bottom = 120.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Label2" type="Label" parent="AudioPanel"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 72.0
+offset_right = 298.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 20
+text = "SFXVOLUME"
+horizontal_alignment = 1
+
+[node name="PitchChange" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 398.0
+offset_right = 635.0
+offset_bottom = 470.0
+text = "PITCHCHANGE"
+flat = true
+
+[node name="Camerapanning" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 470.0
+offset_right = 702.0
+offset_bottom = 542.0
+text = "CAMERAPANNING"
+flat = true
+
+[node name="VSync" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(127, 31)
+layout_mode = 0
+offset_left = 443.0
+offset_top = 542.0
+offset_right = 635.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 25
+text = "VSYNC"
+flat = true
+
+[node name="Screenshake" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 614.0
+offset_right = 635.0
+offset_bottom = 686.0
+text = "SCREENSHAKE"
+flat = true
+
+[node name="FullScreen" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(127, 31)
+layout_mode = 0
+offset_left = 443.0
+offset_top = 686.0
+offset_right = 635.0
+offset_bottom = 758.0
+theme_override_font_sizes/font_size = 25
+text = "FULLSCREEN"
+flat = true
+text_overrun_behavior = 1
+
+[node name="Card1" parent="." instance=ExtResource("3")]
+material = SubResource("ShaderMaterial_fe45g")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.02195
+anchor_top = 1.03053
+anchor_right = 1.11195
+anchor_bottom = 1.25453
+offset_left = -541.153
+offset_top = -635.968
+offset_right = -541.153
+offset_bottom = -635.488
+rotation = 0.0872665
+scale = Vector2(2, 2)
+mouse_filter = 2
+movable = false
+
+[node name="Card2" parent="." instance=ExtResource("3")]
+material = SubResource("ShaderMaterial_0c71y")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.552396
+anchor_top = 0.233148
+anchor_right = 0.732396
+anchor_bottom = 0.682037
+offset_left = 86.4
+offset_top = 119.2
+offset_right = -86.3999
+offset_bottom = -123.2
+rotation = -0.0872665
+scale = Vector2(2.2, 2.2)
+mouse_filter = 2
+movable = false
+
+[node name="Continue" type="Button" parent="."]
+layout_mode = 0
+offset_top = 398.0
+offset_right = 352.0
+offset_bottom = 470.0
+theme_override_font_sizes/font_size = 25
+text = "CONTINUE"
+alignment = 2
+
+[node name="Allcards" type="Button" parent="."]
+layout_mode = 0
+offset_top = 470.0
+offset_right = 353.0
+offset_bottom = 542.0
+theme = ExtResource("6")
+theme_override_font_sizes/font_size = 25
+text = "LIBRARY"
+alignment = 2
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 0
+offset_top = 542.0
+offset_right = 352.0
+offset_bottom = 614.0
+theme_override_font_sizes/font_size = 25
+text = "SETTINGS"
+alignment = 2
+
+[node name="new_game" type="Button" parent="."]
+z_index = 5
+layout_mode = 0
+offset_top = 614.0
+offset_right = 352.0
+offset_bottom = 686.0
+theme_override_font_sizes/font_size = 25
+text = "ABANDON"
+alignment = 2
+
+[node name="aura_logic" parent="new_game" instance=ExtResource("7")]
+
+[node name="BackToTitle" type="Button" parent="."]
+z_index = 5
+layout_mode = 0
+offset_top = 686.0
+offset_right = 352.0
+offset_bottom = 758.0
+text = "BACKTOTITLE"
+alignment = 2
+
+[node name="aura_logic2" parent="BackToTitle" instance=ExtResource("7")]
+
+[node name="Exit" type="Button" parent="."]
+z_index = 5
+layout_mode = 0
+offset_top = 758.0
+offset_right = 352.0
+offset_bottom = 830.0
+theme_override_font_sizes/font_size = 25
+text = "SAVEQUIT"
+alignment = 2
+
+[node name="aura" parent="Exit" instance=ExtResource("7")]
+layout_mode = 0
+
+[connection signal="drag_ended" from="AudioPanel/BGMSlider" to="AudioPanel" method="_on_slider_drag_ended"]
+[connection signal="value_changed" from="AudioPanel/BGMSlider" to="AudioPanel" method="_on_bgm_slider_value_changed"]
+[connection signal="drag_ended" from="AudioPanel/SFXSlider" to="AudioPanel" method="_on_slider_drag_ended"]
+[connection signal="value_changed" from="AudioPanel/SFXSlider" to="AudioPanel" method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="PitchChange" to="." method="_on_pitch_change_toggled"]
+[connection signal="toggled" from="Camerapanning" to="." method="_on_camerapanning_toggled"]
+[connection signal="toggled" from="VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="toggled" from="Screenshake" to="." method="_on_screenshake_toggled"]
+[connection signal="toggled" from="FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Allcards" to="." method="_on_allcards_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="BackToTitle" to="." method="_on_back_to_title_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

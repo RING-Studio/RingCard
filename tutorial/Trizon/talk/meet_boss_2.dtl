@@ -1,0 +1,11 @@
+join heroine rightmost
+join character_test leftmost
+[signal arg="hunter"]
+……走到这可真不容易。 #id:28
+[signal arg="Bird"]
+我们离那道光柱还有大概一半的路。 #id:29
+[signal arg="hunter"]
+唉，在那之前，\
+又是一场硬仗要打。 #id:2a
+heroine (confidence): ……我已经决定就算会失败，\
+也要尽力去做了。 #id:2b

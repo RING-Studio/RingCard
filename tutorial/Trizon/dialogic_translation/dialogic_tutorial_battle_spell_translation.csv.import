@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dlvkfqjaf6h08"
+path="res://dialogic_translation/dialogic_tutorial_battle_spell_translation.en.translation"
+
+[deps]
+
+source_file="res://dialogic_translation/dialogic_tutorial_battle_spell_translation.csv"
+dest_files=["res://dialogic_translation/dialogic_tutorial_battle_spell_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_translation.zh_CN.translation"]
+
+[params]
+
+dummy_value_ignore_me=0

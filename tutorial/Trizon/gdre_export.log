@@ -1,0 +1,322 @@
+GDRE Tools v0.8.4
+Windows 10.0.19045, NVIDIA GeForce GTX 1050 Ti, opengl3
+Opening file: F:/SteamLibrary/steamapps/common/Trizon Demo/Trizon.exe
+Verified 2692 files, no errors detected!
+Total files: 2692; Checked: 2692; Broken: 0 Read PCK
+Extracted 2692 files, no errors detected!
+WARNING: Converting lossy imports, you may lose fidelity for indicated assets when re-importing upon loading the project
+   at: ImportExporter::_export_imports (modules\gdsdecomp\utility\import_exporter.cpp:237)
+Script version 4.3.0-stable (rev 0x77af6ca) detected
+Recreating plugin configs...
+Exporting resources in parallel...
+WARNING: Reached EOS: Recorded page size is 3201 but body fill is 1512.
+   at: OggStrExporter::get_data_from_ogg_stream (modules\gdsdecomp\exporters\oggstr_exporter.cpp:62)
+WARNING: Ogg stream had warnings: res://.godot/imported/Tube_Kick_1.ogg-72ec2190badc627400eef73ce1a80bff.oggvorbisstr
+   at: OggStrExporter::load_ogg_stream_data (modules\gdsdecomp\exporters\oggstr_exporter.cpp:123)
+WARNING: Reached EOS: Recorded page size is 3927 but body fill is 1958.
+   at: OggStrExporter::get_data_from_ogg_stream (modules\gdsdecomp\exporters\oggstr_exporter.cpp:62)
+WARNING: Ogg stream had warnings: res://.godot/imported/UI_Open_3.ogg-5c3fae3528e201fd0300a0c1d96b8b92.oggvorbisstr
+   at: OggStrExporter::load_ogg_stream_data (modules\gdsdecomp\exporters\oggstr_exporter.cpp:123)
+WARNING: Reached EOS: Recorded page size is 3448 but body fill is 89.
+   at: OggStrExporter::get_data_from_ogg_stream (modules\gdsdecomp\exporters\oggstr_exporter.cpp:62)
+WARNING: Reached EOS: Recorded page size is 2120 but body fill is 1186.
+   at: OggStrExporter::get_data_from_ogg_stream (modules\gdsdecomp\exporters\oggstr_exporter.cpp:62)
+WARNING: Ogg stream had warnings: res://.godot/imported/UI_Press_2.ogg-48cace59562cd1867f45a1fb8e9edd69.oggvorbisstr
+   at: OggStrExporter::load_ogg_stream_data (modules\gdsdecomp\exporters\oggstr_exporter.cpp:123)
+WARNING: Ogg stream had warnings: res://.godot/imported/UI_Press_3.ogg-466ba93f50441119431209c426af317e.oggvorbisstr
+   at: OggStrExporter::load_ogg_stream_data (modules\gdsdecomp\exporters\oggstr_exporter.cpp:123)
+WARNING: Reached EOS: Recorded page size is 3267 but body fill is 2666.
+   at: OggStrExporter::get_data_from_ogg_stream (modules\gdsdecomp\exporters\oggstr_exporter.cpp:62)
+WARNING: Ogg stream had warnings: res://.godot/imported/Water_Drop_3.ogg-e99a2bb7dc5f6e5f986f85bbe5a0732b.oggvorbisstr
+   at: OggStrExporter::load_ogg_stream_data (modules\gdsdecomp\exporters\oggstr_exporter.cpp:123)
+Loading resource strings, this may take a while!!
+Resource strings loaded!
+Saved project config project.godot.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     288
+Failed scripts:                         0
+Imported resources for export session:  989
+Successfully converted:                 989
+Lossy:                                  1
+Rewrote metadata:                       647
+Non-importable conversions:             174
+Not converted:                          0
+Failed conversions:                     0
+-------------
+
+
+The following files were converted from an import that was stored lossy.
+You may lose fidelity when re-importing these files upon loading the project.
+res://.godot/imported/rpg_box.webp-6ea0804b52e01599dbc94ffacc31d433.ctex to res://addons/dialogic/Example Assets/backgrounds/rpg_box.webp
+------
+
+The following files were converted and saved to a non-original path, but did not have their import data rewritten.
+These files will not be re-imported when loading the project.
+res://.godot/imported/Background.svg-324cd782d206c828216f1378767c3e06.ctex to res://.assets/UI/Background.png
+res://.godot/imported/Big.svg-28974e8d27e182d2fcdfa16c4eec0f23.ctex to res://.assets/UI/Big.png
+res://.godot/imported/Headless.svg-ebe09c7cf33ae6b4c65c459e83f4b0ab.ctex to res://.assets/UI/Headless.png
+res://.godot/imported/Line.svg-7974a74ffb65996ef5f87504c0807cec.ctex to res://.assets/UI/Line.png
+res://.godot/imported/Button.svg-c6cfa996d790d08c136ae625b1f5597e.ctex to res://.assets/UI/svg/@previews/Button.png
+res://.godot/imported/Buttons.svg-023029e158ed5a3dfc85626d9d28d3f1.ctex to res://.assets/UI/svg/@previews/Buttons.png
+res://.godot/imported/Icon.svg-7444f23b7a206006fb59173c7f0fb99e.ctex to res://.assets/UI/svg/@previews/Icon.png
+res://.godot/imported/Level.svg-096f75bd14d00d56eabce91870ecd671.ctex to res://.assets/UI/svg/@previews/Level.png
+res://.godot/imported/Panel.svg-24b1ad2420ca2a6d6930b5c33f75d551.ctex to res://.assets/UI/svg/@previews/Panel.png
+res://.godot/imported/ProgressBar.svg-fb1437d16f2921c52d97804708c32fce.ctex to res://.assets/UI/svg/@previews/ProgressBar.png
+res://.godot/imported/Star.svg-67cefe2309c1fa18e44661f593ecdcc1.ctex to res://.assets/UI/svg/@previews/Star.png
+res://.godot/imported/Default.svg-0f9fce45d5d06b0f2c3379a3dc59b4fe.ctex to res://.assets/UI/svg/Buttons/Rect-Medium/PlayIcon/Default.png
+res://.godot/imported/Hover.svg-c776e3373d5617938682764aa5bedbf0.ctex to res://.assets/UI/svg/Buttons/Rect-Medium/PlayIcon/Hover.png
+res://.godot/imported/Default.svg-073a5b487ae85cd5175db37df3f1bcbe.ctex to res://.assets/UI/svg/Buttons/Rect-Medium/PlayText/Default.png
+res://.godot/imported/Hover.svg-9d76c5463c01842f1c0de313172093dd.ctex to res://.assets/UI/svg/Buttons/Rect-Medium/PlayText/Hover.png
+res://.godot/imported/Default.svg-08c3020c213294eb7eecd7716bfaae21.ctex to res://.assets/UI/svg/Buttons/Square-Medium/ArrowLeft/Default.png
+res://.godot/imported/Hover.svg-c4962d73f150b8914c5db2fc1d8395c0.ctex to res://.assets/UI/svg/Buttons/Square-Medium/ArrowLeft/Hover.png
+res://.godot/imported/Default.svg-ae94a18c80ef1115994b0c3480ce7379.ctex to res://.assets/UI/svg/Buttons/Square-Medium/ArrowRight/Default.png
+res://.godot/imported/Hover.svg-ee25fc91e92a89fe406925bd5a2cc2d8.ctex to res://.assets/UI/svg/Buttons/Square-Medium/ArrowRight/Hover.png
+res://.godot/imported/Default.svg-043184e9d80cc799b50ce3c532c3fecf.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Home/Default.png
+res://.godot/imported/Hover.svg-b68ad6755e7e857da0425ff899ad20dc.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Home/Hover.png
+res://.godot/imported/Default.svg-1fd3681b48a94e5c28322f2bd53da219.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Levels/Default.png
+res://.godot/imported/Hover.svg-5848ff639b3b6422e31750622dd37edd.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Levels/Hover.png
+res://.godot/imported/Default.svg-cb436ff94caf9f099fe3766691566d53.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Pause/Default.png
+res://.godot/imported/Hover.svg-5c2a864ab3cf25a1b588f4d62569f043.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Pause/Hover.png
+res://.godot/imported/Default.svg-35d3102587972eb0594c322b6ef0e995.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Play/Default.png
+res://.godot/imported/Hover.svg-22afee4c38f6251f681c938a2e9cd8ca.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Play/Hover.png
+res://.godot/imported/Default.svg-26836b28325dde19e8c5597a4ea92d8e.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Repeat/Default.png
+res://.godot/imported/Hover.svg-6f46275e324838492e0a6e2b3c26cf5e.ctex to res://.assets/UI/svg/Buttons/Square-Medium/Repeat/Hover.png
+res://.godot/imported/Default.svg-80870e66917600327579c2413da9ad8d.ctex to res://.assets/UI/svg/Buttons/Square-Medium/SoundOff/Default.png
+res://.godot/imported/Hover.svg-f5d9f6375fcb78307dfdb3f2bf83a651.ctex to res://.assets/UI/svg/Buttons/Square-Medium/SoundOff/Hover.png
+res://.godot/imported/Default.svg-3f8121b77272559203b0627d6459f3ed.ctex to res://.assets/UI/svg/Buttons/Square-Medium/SoundOn/Default.png
+res://.godot/imported/Hover.svg-6a01fbdb20979cbaabd6e36edac533c2.ctex to res://.assets/UI/svg/Buttons/Square-Medium/SoundOn/Hover.png
+res://.godot/imported/ArrowLeft.svg-cbd8407e6d85cc8d341fed6bc64f5cb2.ctex to res://.assets/UI/svg/Icon/ArrowLeft.png
+res://.godot/imported/ArrowRight.svg-5f07075f25265f5b3aaaaae63d274064.ctex to res://.assets/UI/svg/Icon/ArrowRight.png
+res://.godot/imported/Home.svg-9f77a5bd2da9ffe8c194b7f646ecbc12.ctex to res://.assets/UI/svg/Icon/Home.png
+res://.godot/imported/Levels.svg-6617a8df8336cade8ab1196eca16362c.ctex to res://.assets/UI/svg/Icon/Levels.png
+res://.godot/imported/Locker.svg-783b0185aa93036c9c5cb0ca53921957.ctex to res://.assets/UI/svg/Icon/Locker.png
+res://.godot/imported/Pause.svg-1923450bb7e59941fb926bc2bb76a282.ctex to res://.assets/UI/svg/Icon/Pause.png
+res://.godot/imported/Play.svg-472a2a221ead93dee771809930bfd3c4.ctex to res://.assets/UI/svg/Icon/Play.png
+res://.godot/imported/Replay.svg-31d74905b7e78af16f1147f828d9ffae.ctex to res://.assets/UI/svg/Icon/Replay.png
+res://.godot/imported/SoundOff.svg-4ee67ffa839ea1724ed270da0e789608.ctex to res://.assets/UI/svg/Icon/SoundOff.png
+res://.godot/imported/SoundOn.svg-a0d235d6587741a4164f7fe448a5348a.ctex to res://.assets/UI/svg/Icon/SoundOn.png
+res://.godot/imported/Star.svg-7aedc06a7ebea2c807b82afc8828e719.ctex to res://.assets/UI/svg/Icon/Star.png
+res://.godot/imported/Default.svg-553f7c7d2b48402e1c9bff088cf172b4.ctex to res://.assets/UI/svg/Level/Button/Locked/Default.png
+res://.godot/imported/Hover.svg-6d393658ceb037053ff2bdf8a5ecdb62.ctex to res://.assets/UI/svg/Level/Button/Locked/Hover.png
+res://.godot/imported/Default.svg-3a6879ee29387b8f9630447cc3247319.ctex to res://.assets/UI/svg/Level/Button/Unlocked/Default.png
+res://.godot/imported/Hover.svg-35668ffbcca41625bbca0286f9b53cac.ctex to res://.assets/UI/svg/Level/Button/Unlocked/Hover.png
+res://.godot/imported/Headed.svg-88bbcb59b94b1773b6eff901b0c91661.ctex to res://.assets/UI/svg/Panel/Body/Headed.png
+res://.godot/imported/Headless.svg-4bbf16f4d2640705effb713ac3893de5.ctex to res://.assets/UI/svg/Panel/Body/Headless.png
+res://.godot/imported/Header.svg-8163be74acc3ecedf4622101a05ee6d4.ctex to res://.assets/UI/svg/Panel/Header.png
+res://.godot/imported/Big.svg-e82734aa12c05b36e1c34f9ea08e3a87.ctex to res://.assets/UI/svg/Panel/Window/Big.png
+res://.godot/imported/Medium.svg-c7dff677f661d0ff27d120d88792cc76.ctex to res://.assets/UI/svg/Panel/Window/Medium.png
+res://.godot/imported/Example.svg-a8c164bd048dfcb7cc6f05cca76b1fe9.ctex to res://.assets/UI/svg/ProgressBar/Example.png
+res://.godot/imported/GameOver(A).svg-1efddf507a1a4502f4d964660dcfe8ca.ctex to res://.assets/UI/svg/Scene/GameOver(A).png
+res://.godot/imported/Home.svg-e2ba15531addd37077c8c0db9d275633.ctex to res://.assets/UI/svg/Scene/Home.png
+res://.godot/imported/LevelComplete(A).svg-47b6bd94e143a2b881ea9dae52a67305.ctex to res://.assets/UI/svg/Scene/LevelComplete(A).png
+res://.godot/imported/Levels(A).svg-0b429ccfad36792ad821bf547d6a92d7.ctex to res://.assets/UI/svg/Scene/Levels(A).png
+res://.godot/imported/Loading.svg-5c4c57b5fcc4ad7e50275b16da90cfba.ctex to res://.assets/UI/svg/Scene/Loading.png
+res://.godot/imported/Pause(A).svg-c799a36a69bb853f86f59e54806f9b78.ctex to res://.assets/UI/svg/Scene/Pause(A).png
+res://.godot/imported/Active.svg-1bfb35c7ba96e960e69d48a89167687f.ctex to res://.assets/UI/svg/Star/Large/Active.png
+res://.godot/imported/Unactive.svg-2a40aa819e800d38036f2da9318db1fe.ctex to res://.assets/UI/svg/Star/Large/Unactive.png
+res://.godot/imported/Active.svg-05f38f8f3d3bad1434e4e0b2061ffec0.ctex to res://.assets/UI/svg/Star/Medium/Active.png
+res://.godot/imported/Unactive.svg-a9f81d286d6fcbc8e61370124591b49b.ctex to res://.assets/UI/svg/Star/Medium/Unactive.png
+res://.godot/imported/Active.svg-6949f7f35c719f93891cd1dd2b76580c.ctex to res://.assets/UI/svg/Star/Small/Active.png
+res://.godot/imported/0-3.svg-6763be46dd72301ab65de3d3b490c502.ctex to res://.assets/UI/svg/Star/Small/Group/0-3.png
+res://.godot/imported/1-3.svg-4a240137db2caa4dfd50463b51f3bdb7.ctex to res://.assets/UI/svg/Star/Small/Group/1-3.png
+res://.godot/imported/2-3.svg-874ada358ea97e04be4b83ed471849de.ctex to res://.assets/UI/svg/Star/Small/Group/2-3.png
+res://.godot/imported/3-3.svg-ada2ebd5eccb5c42cb17920ccd6e6e8d.ctex to res://.assets/UI/svg/Star/Small/Group/3-3.png
+res://.godot/imported/Unactive.svg-acf74d46f174cd970ac24ca76dd96ec0.ctex to res://.assets/UI/svg/Star/Small/Unactive.png
+res://.godot/imported/class-icon.svg-c17de51589a7d30572bf401526524f64.ctex to res://.assets/addons/SmoothScroll/class-icon.png
+res://.godot/imported/icon.svg-5b01e8115f19d6d63dc265815ce29c75.ctex to res://.assets/addons/SmoothScroll/scroll_damper/icon.png
+res://.godot/imported/default.svg-3f34de5e45bef5de4d9c15ef78c00c6c.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/default.png
+res://.godot/imported/divide.svg-4928f878a07ba93ebc44d8ae73ad4c1f.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/divide.png
+res://.godot/imported/join.svg-2f0d7b9e8e01cf0e62b8c3a85aff6213.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/join.png
+res://.godot/imported/leave.svg-c936f6e3d601b8c12c23f205a765084e.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/leave.png
+res://.godot/imported/minus.svg-29f22d1aa24635bae2c03057c07be8bc.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/minus.png
+res://.godot/imported/multiply.svg-0e9db99aafb66d43ee14adcca26c5b47.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/multiply.png
+res://.godot/imported/plus.svg-e094b0b8505b5d910717883d06553532.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/plus.png
+res://.godot/imported/set.svg-f100fad003be2285d5d0da5c58417203.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/set.png
+res://.godot/imported/update.svg-cefa0fe6bfa50911bb9a77982288e485.ctex to res://.assets/addons/dialogic/Editor/Images/Dropdown/update.png
+res://.godot/imported/decrement_icon.svg-9556cf56db91e200fb946372e010fd5e.ctex to res://.assets/addons/dialogic/Editor/Images/Interactable/decrement_icon.png
+res://.godot/imported/increment_icon.svg-081e6509e76349f0628c55a41e85fd65.ctex to res://.assets/addons/dialogic/Editor/Images/Interactable/increment_icon.png
+res://.godot/imported/add-folder.svg-41a970370f904038e63c13bddbdb6450.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/add-folder.png
+res://.godot/imported/close-icon.svg-c630c93ada599b08938f4854f5376f2f.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/close-icon.png
+res://.godot/imported/closed-icon.svg-b4f16653b91d6792313a130565319b2f.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/closed-icon.png
+res://.godot/imported/expand-icon.svg-26099b197ab0f314e2253848fcc22962.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/expand-icon.png
+res://.godot/imported/open-icon.svg-1a2ae6d0121a79b624c0fb87cc9ceea2.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/open-icon.png
+res://.godot/imported/variable.svg-50a50248b9d47e5556571e4111e8d5b4.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/variable.png
+res://.godot/imported/warning.svg-a48ae93c4663637f2aca88d055604495.ctex to res://.assets/addons/dialogic/Editor/Images/Pieces/warning.png
+res://.godot/imported/character.svg-48bc1c93fa13733a935ca2c669d933a7.ctex to res://.assets/addons/dialogic/Editor/Images/Resources/character.png
+res://.godot/imported/portrait.svg-7d29c7cfe3e086d65dce33c3d66c48cd.ctex to res://.assets/addons/dialogic/Editor/Images/Resources/portrait.png
+res://.godot/imported/add-character.svg-a658b65c1225b02657a50d5c965e0d5e.ctex to res://.assets/addons/dialogic/Editor/Images/Toolbar/add-character.png
+res://.godot/imported/add-timeline.svg-86961b528ebdf01f585931a15fea1755.ctex to res://.assets/addons/dialogic/Editor/Images/Toolbar/add-timeline.png
+res://.godot/imported/dialogic-logo.svg-e43201cabc9573eeb3f78fd91ea9d909.ctex to res://.assets/addons/dialogic/Editor/Images/dialogic-logo.png
+res://.godot/imported/plugin-icon.svg-aa6701e8ed73f5fe5d177dfddce3a0e3.ctex to res://.assets/addons/dialogic/Editor/Images/plugin-icon.png
+res://.godot/imported/icon.svg-4f340f6efbb83004dbd5c761dd1dc448.ctex to res://.assets/addons/dialogic/Modules/Character/icon.png
+res://.godot/imported/portrait_position.svg-f025767e40032b9ebdeab1f9e882467a.ctex to res://.assets/addons/dialogic/Modules/Character/portrait_position.png
+res://.godot/imported/update_mirror.svg-d6fa4832a7758cad02a7f32282433230.ctex to res://.assets/addons/dialogic/Modules/Character/update_mirror.png
+res://.godot/imported/update_portrait.svg-b90fa6163d3720d34df8578ce2aa35e1.ctex to res://.assets/addons/dialogic/Modules/Character/update_portrait.png
+res://.godot/imported/update_position.svg.2023_09_23_08_37_47.0.svg-d66e70a05e9de92a595b70fa88fca0d4.ctex to res://.assets/addons/dialogic/Modules/Character/update_position.svg.2023_09_23_08_37_47.0.png
+res://.godot/imported/update_position.svg-4be50608dc0768e715ff659ca62cf187.ctex to res://.assets/addons/dialogic/Modules/Character/update_position.png
+res://.godot/imported/update_z_index.svg-204064db9241de79bf8dfd23af57c6c6.ctex to res://.assets/addons/dialogic/Modules/Character/update_z_index.png
+res://.godot/imported/icon.svg-372a9bfce8bea67fff1988d7acf09a9a.ctex to res://.assets/addons/dialogic/Modules/Choice/icon.png
+res://.godot/imported/clear_background.svg-32f657ae646e5867a8ceb0543ae207de.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_background.png
+res://.godot/imported/clear_characters.svg-58481eec0869d46b2d90f2102edd1687.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_characters.png
+res://.godot/imported/clear_music.svg-ab19a5f3dc85de8ba17b7c720b838a73.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_music.png
+res://.godot/imported/clear_positions.svg-9c6ef9c2e28a63b87a3c7d0ed63620d8.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_positions.png
+res://.godot/imported/clear_style.svg-ab3288e6e47f45c4e12ce1862403a99c.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_style.png
+res://.godot/imported/clear_textbox.svg-04935e3d82350d24a197adcb47df6f57.ctex to res://.assets/addons/dialogic/Modules/Clear/clear_textbox.png
+res://.godot/imported/icon.svg-502d45c064cc30f576b7b105a01357ce.ctex to res://.assets/addons/dialogic/Modules/Condition/icon.png
+res://.godot/imported/background_layer_icon.svg-021cd7ab7c646ee621f9b89b8dfc9d60.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/background_layer_icon.png
+res://.godot/imported/popup_glossary_layer_icon.svg-4af96bdb70714a5289a4ffe42cf8f357.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/popup_glossary_layer_icon.png
+res://.godot/imported/history_icon.svg-0be9d23e65368ea3983968e4ce0e43d3.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_History/history_icon.png
+res://.godot/imported/input_layer_icon.svg-3f439e08e8c66cbf3522ce60714f7588.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/input_layer_icon.png
+res://.godot/imported/speaker-textbox-icon.svg-e67964032c31cfdc4bf5a376d48a985e.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_SpeakerPortraitTextbox/speaker-textbox-icon.png
+res://.godot/imported/text_input_layer_icon.svg-5a1e8bca317bf45f6805d82812407215.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer_icon.png
+res://.godot/imported/text_bubble_layer_icon.svg-d46d5806bbf83c1dc50f8d7fc8dac67d.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_Textbubble/text_bubble_layer_icon.png
+res://.godot/imported/choices_layer_icon.svg-2f676308da08dddba733cb2bfba8fc69.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/choices_layer_icon.png
+res://.godot/imported/portrait_layer_icon.svg-4bc8b0ebd4dd0977a12c09f30758d7e1.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/portrait_layer_icon.png
+res://.godot/imported/next.svg-689f85597f487815b8ddefa23d22bf6f.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.png
+res://.godot/imported/textbox_layer_icon.svg-d6678fedd53dcb59cc32e1c443754ad5.ctex to res://.assets/addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/textbox_layer_icon.png
+res://.godot/imported/add-glossary.svg-1cde77c043d3874d9bc84cc14d0ec9dc.ctex to res://.assets/addons/dialogic/Modules/Glossary/add-glossary.png
+res://.godot/imported/icon.svg-4fc0c12c53379638e37d654e7bbaea1a.ctex to res://.assets/addons/dialogic/Modules/Glossary/icon.png
+res://.godot/imported/definition.svg-dbaabe55d84e4ad95047a50fc6c13843.ctex to res://.assets/addons/dialogic/Modules/History/definition.png
+res://.godot/imported/icon.svg-82841efe3f86e947d4f66fd24dc8f52c.ctex to res://.assets/addons/dialogic/Modules/History/icon.png
+res://.godot/imported/icon_return.svg-dc7fb704ff391638f73cbbc2b30b32fa.ctex to res://.assets/addons/dialogic/Modules/Jump/icon_return.png
+res://.godot/imported/icon.svg-aad0408eebe298e9d92c76d6f2c79cf6.ctex to res://.assets/addons/dialogic/Modules/Save/icon.png
+res://.godot/imported/icon.svg-d4407cb145fa5c1d965de3d2bd63ce5f.ctex to res://.assets/addons/dialogic/Modules/Settings/icon.png
+res://.godot/imported/styles_icon.svg-c55f9f7d15c3512c8b20dbf30eed7047.ctex to res://.assets/addons/dialogic/Modules/StyleEditor/styles_icon.png
+res://.godot/imported/icon.svg-e2501ddcdef01c7f2c3538940f5abfc1.ctex to res://.assets/addons/dialogic/Modules/Text/icon.png
+res://.godot/imported/node_dialog_text_icon.svg-3cf845e99d76137d8156865c09f39e3e.ctex to res://.assets/addons/dialogic/Modules/Text/node_dialog_text_icon.png
+res://.godot/imported/node_name_label_icon.svg-d482939b74b41ec2da6edc97e41c8bf8.ctex to res://.assets/addons/dialogic/Modules/Text/node_name_label_icon.png
+res://.godot/imported/node_next_indicator_icon.svg-06167a3b3e290941c1c34386ebd60af8.ctex to res://.assets/addons/dialogic/Modules/Text/node_next_indicator_icon.png
+res://.godot/imported/add-variable.svg-26eb3bd7fac746c574d054e8416d3aac.ctex to res://.assets/addons/dialogic/Modules/Variable/add-variable.png
+res://.godot/imported/variable.svg-52aeb47fe1705a3f04d919f8dcd5d319.ctex to res://.assets/addons/dialogic/Modules/Variable/variable.png
+res://.godot/imported/icon.svg-7e9f52b17ae6e5e1f284e12048cb8f05.ctex to res://.assets/addons/dialogic/Modules/Wait/icon.png
+res://.godot/imported/icon.svg-cb8e50b081a310c64183b12c6d12fcf2.ctex to res://.assets/addons/dialogic/Modules/WaitInput/icon.png
+res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex to res://.assets/icon.png
+res://dialogic_translation/dialogic_chimera2_join_party_translation.*.translation to res://.assets/dialogic_translation/dialogic_chimera2_join_party_translation.csv
+res://dialogic_translation/dialogic_demo_clear_translation.*.translation to res://.assets/dialogic_translation/dialogic_demo_clear_translation.csv
+res://dialogic_translation/dialogic_hunter_bgtalk_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_hunter_bgtalk_2_translation.csv
+res://dialogic_translation/dialogic_hunter_bgtalk_translation.*.translation to res://.assets/dialogic_translation/dialogic_hunter_bgtalk_translation.csv
+res://dialogic_translation/dialogic_huse_first_intro_translation.*.translation to res://.assets/dialogic_translation/dialogic_huse_first_intro_translation.csv
+res://dialogic_translation/dialogic_meet_boss_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_boss_1_translation.csv
+res://dialogic_translation/dialogic_meet_boss_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_boss_2_translation.csv
+res://dialogic_translation/dialogic_meet_chimera_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_chimera_translation.csv
+res://dialogic_translation/dialogic_meet_fire_bird_first_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_fire_bird_first_translation.csv
+res://dialogic_translation/dialogic_meet_hunter_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_hunter_2_translation.csv
+res://dialogic_translation/dialogic_meet_hunter_translation.*.translation to res://.assets/dialogic_translation/dialogic_meet_hunter_translation.csv
+res://dialogic_translation/dialogic_new_map_Unican_first_translation.*.translation to res://.assets/dialogic_translation/dialogic_new_map_Unican_first_translation.csv
+res://dialogic_translation/dialogic_roffia_bird_translation.*.translation to res://.assets/dialogic_translation/dialogic_roffia_bird_translation.csv
+res://dialogic_translation/dialogic_run_start_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_run_start_1_translation.csv
+res://dialogic_translation/dialogic_run_start_act2_translation.*.translation to res://.assets/dialogic_translation/dialogic_run_start_act2_translation.csv
+res://dialogic_translation/dialogic_run_start_lose_chimera_translation.*.translation to res://.assets/dialogic_translation/dialogic_run_start_lose_chimera_translation.csv
+res://dialogic_translation/dialogic_speedrun_chimera_translation.*.translation to res://.assets/dialogic_translation/dialogic_speedrun_chimera_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_1_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_2_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_3_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_3_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_4_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_4_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_5_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_5_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_6_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_6_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_spell_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_1_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_spell_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_2_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_spell_3_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_3_translation.csv
+res://dialogic_translation/dialogic_tutorial_battle_spell_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_translation.csv
+res://dialogic_translation/dialogic_tutorial_finish_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_finish_translation.csv
+res://dialogic_translation/dialogic_tutorial_hello_translation.*.translation to res://.assets/dialogic_translation/dialogic_tutorial_hello_translation.csv
+res://dialogic_translation/dialogic_win_boss_1_translation.*.translation to res://.assets/dialogic_translation/dialogic_win_boss_1_translation.csv
+res://dialogic_translation/dialogic_win_boss_2_translation.*.translation to res://.assets/dialogic_translation/dialogic_win_boss_2_translation.csv
+res://dialogic_translation/dialogic_win_chimera_translation.*.translation to res://.assets/dialogic_translation/dialogic_win_chimera_translation.csv
+res://translations/ui_translation.*.translation to res://.assets/translations/ui_translation.csv
+
+
+
+---------------------------------IMPORTANT NOTES----------------------------------
+
+
+Translation Export Incomplete:
+WARNING: Could not recover 7 keys for res://dialogic_translation/dialogic_chimera2_join_party_translation.csv
+Saved dialogic_chimera2_join_party_translation.csv to res://.assets/dialogic_translation/dialogic_chimera2_join_party_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_demo_clear_translation.csv
+Saved dialogic_demo_clear_translation.csv to res://.assets/dialogic_translation/dialogic_demo_clear_translation.csv
+WARNING: Could not recover 15 keys for res://dialogic_translation/dialogic_hunter_bgtalk_2_translation.csv
+Saved dialogic_hunter_bgtalk_2_translation.csv to res://.assets/dialogic_translation/dialogic_hunter_bgtalk_2_translation.csv
+WARNING: Could not recover 9 keys for res://dialogic_translation/dialogic_hunter_bgtalk_translation.csv
+Saved dialogic_hunter_bgtalk_translation.csv to res://.assets/dialogic_translation/dialogic_hunter_bgtalk_translation.csv
+WARNING: Could not recover 9 keys for res://dialogic_translation/dialogic_huse_first_intro_translation.csv
+Saved dialogic_huse_first_intro_translation.csv to res://.assets/dialogic_translation/dialogic_huse_first_intro_translation.csv
+WARNING: Could not recover 5 keys for res://dialogic_translation/dialogic_meet_boss_1_translation.csv
+Saved dialogic_meet_boss_1_translation.csv to res://.assets/dialogic_translation/dialogic_meet_boss_1_translation.csv
+WARNING: Could not recover 4 keys for res://dialogic_translation/dialogic_meet_boss_2_translation.csv
+Saved dialogic_meet_boss_2_translation.csv to res://.assets/dialogic_translation/dialogic_meet_boss_2_translation.csv
+WARNING: Could not recover 7 keys for res://dialogic_translation/dialogic_meet_chimera_translation.csv
+Saved dialogic_meet_chimera_translation.csv to res://.assets/dialogic_translation/dialogic_meet_chimera_translation.csv
+WARNING: Could not recover 29 keys for res://dialogic_translation/dialogic_meet_fire_bird_first_translation.csv
+Saved dialogic_meet_fire_bird_first_translation.csv to res://.assets/dialogic_translation/dialogic_meet_fire_bird_first_translation.csv
+WARNING: Could not recover 19 keys for res://dialogic_translation/dialogic_meet_hunter_2_translation.csv
+Saved dialogic_meet_hunter_2_translation.csv to res://.assets/dialogic_translation/dialogic_meet_hunter_2_translation.csv
+WARNING: Could not recover 22 keys for res://dialogic_translation/dialogic_meet_hunter_translation.csv
+Saved dialogic_meet_hunter_translation.csv to res://.assets/dialogic_translation/dialogic_meet_hunter_translation.csv
+WARNING: Could not recover 5 keys for res://dialogic_translation/dialogic_new_map_Unican_first_translation.csv
+Saved dialogic_new_map_Unican_first_translation.csv to res://.assets/dialogic_translation/dialogic_new_map_Unican_first_translation.csv
+WARNING: Could not recover 21 keys for res://dialogic_translation/dialogic_roffia_bird_translation.csv
+Saved dialogic_roffia_bird_translation.csv to res://.assets/dialogic_translation/dialogic_roffia_bird_translation.csv
+WARNING: Could not recover 9 keys for res://dialogic_translation/dialogic_run_start_1_translation.csv
+Saved dialogic_run_start_1_translation.csv to res://.assets/dialogic_translation/dialogic_run_start_1_translation.csv
+WARNING: Could not recover 17 keys for res://dialogic_translation/dialogic_run_start_act2_translation.csv
+Saved dialogic_run_start_act2_translation.csv to res://.assets/dialogic_translation/dialogic_run_start_act2_translation.csv
+WARNING: Could not recover 5 keys for res://dialogic_translation/dialogic_run_start_lose_chimera_translation.csv
+Saved dialogic_run_start_lose_chimera_translation.csv to res://.assets/dialogic_translation/dialogic_run_start_lose_chimera_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_speedrun_chimera_translation.csv
+Saved dialogic_speedrun_chimera_translation.csv to res://.assets/dialogic_translation/dialogic_speedrun_chimera_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_1_1_translation.csv
+Saved dialogic_tutorial_battle_1_1_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_1_translation.csv
+WARNING: Could not recover 2 keys for res://dialogic_translation/dialogic_tutorial_battle_1_2_translation.csv
+Saved dialogic_tutorial_battle_1_2_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_2_translation.csv
+WARNING: Could not recover 2 keys for res://dialogic_translation/dialogic_tutorial_battle_1_3_translation.csv
+Saved dialogic_tutorial_battle_1_3_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_3_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.csv
+Saved dialogic_tutorial_battle_1_4_exception_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_1_4_translation.csv
+Saved dialogic_tutorial_battle_1_4_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_4_translation.csv
+WARNING: Could not recover 2 keys for res://dialogic_translation/dialogic_tutorial_battle_1_5_translation.csv
+Saved dialogic_tutorial_battle_1_5_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_5_translation.csv
+WARNING: Could not recover 7 keys for res://dialogic_translation/dialogic_tutorial_battle_1_6_translation.csv
+Saved dialogic_tutorial_battle_1_6_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_6_translation.csv
+WARNING: Could not recover 8 keys for res://dialogic_translation/dialogic_tutorial_battle_1_translation.csv
+Saved dialogic_tutorial_battle_1_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_1_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_spell_1_translation.csv
+Saved dialogic_tutorial_battle_spell_1_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_1_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_spell_2_translation.csv
+Saved dialogic_tutorial_battle_spell_2_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_2_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_spell_3_translation.csv
+Saved dialogic_tutorial_battle_spell_3_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_3_translation.csv
+WARNING: Could not recover 1 keys for res://dialogic_translation/dialogic_tutorial_battle_spell_translation.csv
+Saved dialogic_tutorial_battle_spell_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_battle_spell_translation.csv
+WARNING: Could not recover 10 keys for res://dialogic_translation/dialogic_tutorial_finish_translation.csv
+Saved dialogic_tutorial_finish_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_finish_translation.csv
+WARNING: Could not recover 5 keys for res://dialogic_translation/dialogic_tutorial_hello_translation.csv
+Saved dialogic_tutorial_hello_translation.csv to res://.assets/dialogic_translation/dialogic_tutorial_hello_translation.csv
+WARNING: Could not recover 4 keys for res://dialogic_translation/dialogic_win_boss_1_translation.csv
+Saved dialogic_win_boss_1_translation.csv to res://.assets/dialogic_translation/dialogic_win_boss_1_translation.csv
+WARNING: Could not recover 5 keys for res://dialogic_translation/dialogic_win_boss_2_translation.csv
+Saved dialogic_win_boss_2_translation.csv to res://.assets/dialogic_translation/dialogic_win_boss_2_translation.csv
+WARNING: Could not recover 39 keys for res://dialogic_translation/dialogic_win_chimera_translation.csv
+Saved dialogic_win_chimera_translation.csv to res://.assets/dialogic_translation/dialogic_win_chimera_translation.csv
+WARNING: Could not recover 26 keys for res://translations/ui_translation.csv
+Saved ui_translation.csv to res://.assets/translations/ui_translation.csv
+
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.3.0 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

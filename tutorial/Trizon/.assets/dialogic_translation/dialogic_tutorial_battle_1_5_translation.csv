@@ -1,0 +1,9 @@
+﻿key,en,ja,zh_CN
+"<!MissingKey:All is ready, now you can end your turn.>","All is ready, now you can end your turn.
+After ending the turn, creatures will start a round of attacks from left to right.
+However, our creatures always act before the enemy's.","すべて準備が整いました、今、ターンを終了できます。
+ターン終了後、クリーチャーは左から右に順番に攻撃を開始します。
+ただし、こちらのクリーチャーは必ず相手より先に行動します。","万事俱备，现在你可以结束你的回合。
+结束回合后，生物们会从左到右依次开始一轮攻击。
+不过，我方的生物总是会比对面先行动。"
+"<!MissingKey:If the enemy's creatures have no valid targets to attack, they will directly attack you.>","If the enemy's creatures have no valid targets to attack, they will directly attack you.",敵のクリーチャーが攻撃する対象がない場合、直接あなたを攻撃します。,如果敌方生物没有可以攻击的目标，它将会直接攻击你。

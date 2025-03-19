@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=4 uid="uid://cubbq4islk40u"]
+
+[ext_resource type="FontFile" uid="uid://iyn4m3md48ck" path="res://font/NotoSansJP-SemiBold.ttf" id="1"]
+
+[resource]
+base_font = ExtResource("1")
+baseline_offset = 0.02500000037252903

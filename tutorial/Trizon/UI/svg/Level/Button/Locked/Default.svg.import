@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://42vc6fo4ftrh"
+path="res://.godot/imported/Default.svg-553f7c7d2b48402e1c9bff088cf172b4.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Level/Button/Locked/Default.svg"
+dest_files=["res://.godot/imported/Default.svg-553f7c7d2b48402e1c9bff088cf172b4.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

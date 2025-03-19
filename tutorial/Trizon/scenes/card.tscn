@@ -1,0 +1,572 @@
+[gd_scene load_steps=51 format=3 uid="uid://b8tee5cidprli"]
+
+[ext_resource type="Shader" uid="uid://xxn1vfn5jas6" path="res://shader/dissolve.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://d0eswjpmr8815" path="res://shader/enchanted.png" id="2"]
+[ext_resource type="Script" uid="uid://l10hshpnvw7b" path="res://scripts/card.gd" id="3"]
+[ext_resource type="Shader" uid="uid://bwwqmilqsaaom" path="res://shader/rainbow.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://dw1g50d33uaxo" path="res://UI/card_bg.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://doic82oaabv0u" path="res://card_icons/default.png" id="6"]
+[ext_resource type="Shader" uid="uid://bd2kmn2mtspk2" path="res://shader/frost.gdshader" id="7"]
+[ext_resource type="Texture2D" uid="uid://8afwfd5edrw5" path="res://UI/frost.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bsatdg8bis1sq" path="res://UI/star.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://bgs7p3fyrhl4r" path="res://UI/shield.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dpygi787uiajm" path="res://UI/wet.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dvogtnkoebwon" path="res://UI/gradient3.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://brfh6qvcxc2oy" path="res://UI/hit.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://cw4km1sew7yq5" path="res://UI/dot.png" id="14"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qub0m"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i18rx"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_qub0m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2yrw7"]
+resource_local_to_scene = true
+shader = ExtResource("1")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_i18rx")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/enchant = ExtResource("2")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.615686, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0901961, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.0
+shader_parameter/rainbow = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvejw"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_exq0w"]
+noise_type = 0
+seed = 5
+frequency = 0.0028
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5kbgf"]
+seamless = true
+noise = SubResource("FastNoiseLite_exq0w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vkqp7"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/noise = SubResource("NoiseTexture2D_5kbgf")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6nwq2"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_qub0m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8x5n6"]
+resource_local_to_scene = true
+shader = ExtResource("1")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_6nwq2")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/enchant = ExtResource("2")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.9, 0.807, 0.342, 1)
+shader_parameter/burn_color2 = Color(1, 0.283333, 0, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.0
+shader_parameter/rainbow = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwflm"]
+resource_local_to_scene = true
+shader = ExtResource("7")
+shader_parameter/randomizer = 3.14
+shader_parameter/freeze_progress = 0.0
+
+[sub_resource type="Shader" id="Shader_r70l5"]
+code = "shader_type canvas_item;
+uniform float alpha : hint_range(0.0, 1.0);
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = alpha*COLOR.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cpu3k"]
+resource_local_to_scene = true
+shader = SubResource("Shader_r70l5")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="Curve" id="Curve_aebcm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ujhps"]
+curve = SubResource("Curve_aebcm")
+
+[sub_resource type="Curve" id="Curve_yepog"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ojdvp"]
+curve = SubResource("Curve_yepog")
+
+[sub_resource type="Curve" id="Curve_7hu4h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn6b1"]
+curve = SubResource("Curve_7hu4h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rjrrx"]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 120, 1)
+angle_min = -136.6
+angle_max = -91.1
+angle_curve = SubResource("CurveTexture_ojdvp")
+direction = Vector3(1, -0.2, 0)
+spread = 30.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.02
+scale_max = 0.05
+alpha_curve = SubResource("CurveTexture_ujhps")
+hue_variation_min = -0.8
+hue_variation_max = -0.75
+hue_variation_curve = SubResource("CurveTexture_sn6b1")
+
+[sub_resource type="Curve" id="Curve_l5kqc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8x5nn"]
+curve = SubResource("Curve_l5kqc")
+
+[sub_resource type="Curve" id="Curve_mksw8"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t1thm"]
+curve = SubResource("Curve_mksw8")
+
+[sub_resource type="Curve" id="Curve_qxftr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_r67j1"]
+curve = SubResource("Curve_qxftr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tg57i"]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 120, 1)
+angle_curve = SubResource("CurveTexture_t1thm")
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.2, 0)
+spread = 64.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.0
+scale_max = 0.06
+alpha_curve = SubResource("CurveTexture_8x5nn")
+hue_variation_min = -0.1
+hue_variation_max = 0.07
+hue_variation_curve = SubResource("CurveTexture_r67j1")
+
+[sub_resource type="Curve" id="Curve_yl0bi"]
+_data = [Vector2(0, 0), 0.0, 7.15385, 0, 0, Vector2(0.248848, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.94191, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_um7mb"]
+curve = SubResource("Curve_yl0bi")
+
+[sub_resource type="Gradient" id="Gradient_y7lmm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lx174"]
+gradient = SubResource("Gradient_y7lmm")
+
+[sub_resource type="Curve" id="Curve_l7oip"]
+_data = [Vector2(0, 0.725275), 0.0, 2.11966, 0, 0, Vector2(1, 0.296703), -2.93491, 1.4, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xv0f"]
+curve = SubResource("Curve_l7oip")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pmw4u"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 20, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 209.49
+gravity = Vector3(0, -98, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_4xv0f")
+color_ramp = SubResource("GradientTexture1D_lx174")
+alpha_curve = SubResource("CurveTexture_um7mb")
+hue_variation_min = 0.11
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8q5kx"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 20, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 209.49
+gravity = Vector3(0, -98, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_4xv0f")
+color_ramp = SubResource("GradientTexture1D_lx174")
+alpha_curve = SubResource("CurveTexture_um7mb")
+hue_variation_min = 0.11
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_at7cg"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 140, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 209.49
+gravity = Vector3(0, -98, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_4xv0f")
+color_ramp = SubResource("GradientTexture1D_lx174")
+alpha_curve = SubResource("CurveTexture_um7mb")
+hue_variation_min = 0.11
+hue_variation_max = 0.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4r3gw"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 140, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 209.49
+gravity = Vector3(0, -98, 0)
+scale_min = 0.1
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_4xv0f")
+color_ramp = SubResource("GradientTexture1D_lx174")
+alpha_curve = SubResource("CurveTexture_um7mb")
+hue_variation_min = 0.11
+hue_variation_max = 0.2
+
+[node name="Card" type="Button"]
+material = SubResource("ShaderMaterial_2yrw7")
+custom_minimum_size = Vector2(172.8, 242.4)
+offset_right = 172.8
+offset_bottom = 242.4
+pivot_offset = Vector2(86.4, 121.2)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tvejw")
+flat = true
+script = ExtResource("3")
+
+[node name="aura" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vkqp7")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.231481
+anchor_top = -0.189769
+anchor_right = 1.23843
+anchor_bottom = 1.18812
+offset_right = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CardIcon" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8x5n6")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0173611
+anchor_top = 0.169142
+anchor_right = 0.0173611
+anchor_bottom = 0.169142
+offset_right = 167.0
+offset_bottom = 165.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="Enchant" type="AspectRatioContainer" parent="CardIcon"]
+unique_name_in_owner = true
+modulate = Color(0.3, 0.3, 0.3, 0.6)
+show_behind_parent = true
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0060241
+anchor_top = -0.0242425
+anchor_right = 1.00602
+anchor_bottom = 1.01818
+offset_left = 1.00602
+offset_top = 4.00001
+offset_right = 0.994675
+offset_bottom = 4.00031
+mouse_filter = 2
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Frost" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_jwflm")
+layout_mode = 0
+anchor_left = -0.0983796
+anchor_top = -0.070132
+anchor_right = 1.09375
+anchor_bottom = 1.05198
+offset_bottom = -1.52588e-05
+mouse_filter = 2
+texture = ExtResource("8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Constant" type="VBoxContainer" parent="."]
+modulate = Color(0.903598, 0.903598, 0.903598, 1)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.313531
+anchor_right = 0.260417
+anchor_bottom = 0.841584
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="easy_draw" type="TextureRect" parent="Constant"]
+use_parent_material = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("9")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="protect" type="TextureRect" parent="Constant"]
+use_parent_material = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WET" type="TextureRect" parent="Constant"]
+use_parent_material = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("11")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Stack" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.443137)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0115741
+anchor_top = 0.210396
+anchor_right = 0.271991
+anchor_bottom = 0.367162
+mouse_filter = 2
+texture = ExtResource("12")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="StackNum" type="Label" parent="Stack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22449
+anchor_top = 0.0263157
+anchor_right = 0.745323
+anchor_bottom = 1.09739
+theme_override_font_sizes/font_size = 22
+text = "x9"
+metadata/_edit_use_anchors_ = true
+
+[node name="card_bg" type="TextureRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.127315
+anchor_top = -0.0660066
+anchor_right = 1.12269
+anchor_bottom = 1.08498
+offset_bottom = 1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="atk" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.173611
+anchor_top = 0.820957
+anchor_right = 0.451389
+anchor_bottom = 1.01898
+offset_bottom = 1.52588e-05
+pivot_offset = Vector2(18, 33)
+theme_override_font_sizes/font_size = 27
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="hp" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56713
+anchor_top = 0.820957
+anchor_right = 0.844907
+anchor_bottom = 1.01898
+pivot_offset = Vector2(30, 33)
+theme_override_font_sizes/font_size = 27
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="cost" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.237269
+anchor_bottom = 0.181518
+pivot_offset = Vector2(32, 24)
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CardName" type="Label" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.219907
+anchor_top = 0.00412538
+anchor_right = 0.983796
+anchor_bottom = 0.833333
+offset_right = 1.52588e-05
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 25
+text = "test"
+horizontal_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="hit" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_cpu3k")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25463
+anchor_top = -0.0577558
+anchor_right = 1.30787
+anchor_bottom = 1.05611
+pivot_offset = Vector2(135, 135)
+mouse_filter = 2
+texture = ExtResource("13")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+show_behind_parent = true
+position = Vector2(87, 120)
+emitting = false
+amount = 12
+texture = ExtResource("9")
+process_material = SubResource("ParticleProcessMaterial_rjrrx")
+
+[node name="Enchanted" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.490196)
+show_behind_parent = true
+position = Vector2(87, 120)
+emitting = false
+texture = ExtResource("14")
+process_material = SubResource("ParticleProcessMaterial_tg57i")
+
+[node name="BurnParticleUP" type="GPUParticles2D" parent="."]
+modulate = Color(0.73, 0.73, 0.73, 0.796078)
+show_behind_parent = true
+position = Vector2(87, 0)
+emitting = false
+amount = 7
+texture = ExtResource("14")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_pmw4u")
+
+[node name="BurnParticleDOWN" type="GPUParticles2D" parent="."]
+modulate = Color(0.73, 0.73, 0.73, 0.796078)
+show_behind_parent = true
+position = Vector2(87, 242)
+emitting = false
+amount = 7
+texture = ExtResource("14")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_8q5kx")
+
+[node name="BurnParticleLEFT" type="GPUParticles2D" parent="."]
+modulate = Color(0.73, 0.73, 0.73, 0.796078)
+show_behind_parent = true
+position = Vector2(2, 120)
+emitting = false
+amount = 10
+texture = ExtResource("14")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_at7cg")
+
+[node name="BurnParticleRIGHT" type="GPUParticles2D" parent="."]
+modulate = Color(0.73, 0.73, 0.73, 0.796078)
+show_behind_parent = true
+position = Vector2(170, 120)
+emitting = false
+amount = 10
+texture = ExtResource("14")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_4r3gw")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cdh04syqdp6t6"
+path="res://.godot/imported/LevelComplete(A).svg-47b6bd94e143a2b881ea9dae52a67305.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Scene/LevelComplete(A).svg"
+dest_files=["res://.godot/imported/LevelComplete(A).svg-47b6bd94e143a2b881ea9dae52a67305.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

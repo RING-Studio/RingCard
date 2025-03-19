@@ -1,0 +1,74 @@
+join character_test leftmost
+[signal arg="black"]
+[signal arg="Bird"]
+unkown: ……\
+洛菲亚，告诉我后来发生了什么，\
+…… #id:118
+[signal arg="fire_bird"]
+unkown: ……\
+你在期望什么？塞泽尔死了。\
+…… #id:119
+[signal arg="Bird"]
+unkown: …… #id:11a
+[signal arg="fire_bird"]
+unkown: ……\
+你想瞒到什么时候？ #id:11b
+[signal arg="fire_bird"]
+unkown: 阿瑞丝不是你们一次就能击败的对手。\
+…… #id:11c
+[signal arg="Bird"]
+unkown: ……\
+就算我全盘托出也不会有任何好处。 #id:11d
+[signal arg="Bird"]
+unkown: 她不可能理解我的决定，\
+甚至会一蹶不振。\
+…… #id:11e
+[signal arg="fire_bird"]
+unkown: ……\
+我是为了防止玩家被软禁才出面帮你。 #id:11f
+[signal arg="fire_bird"]
+unkown: 这一次你让塞泽尔挡住了，\
+下一次呢？ #id:120
+[signal arg="fire_bird"]
+unkown: 你们束手无策。\
+杉还是会被阿瑞丝捉走。\
+…… #id:121
+[signal arg="Bird"]
+unkown: …… #id:122
+[signal arg="Bird"]
+unkown: 如果你只是为了嘲讽我而来，\
+请你离开吧，趁杉还没醒。\
+…… #id:123
+[signal arg="fire_bird"]
+unkown: ……\
+唉，还有一件事——\
+关于莉维娜的下落…… #id:124
+[signal arg="Bird"]
+unkown: ……！\
+你说的都是真的？ #id:125
+[signal arg="fire_bird"]
+unkown: …… #id:126
+[signal arg="Bird"]
+unkown: ……\
+不，抱歉，\
+我不该这么说的。 #id:127
+[signal arg="fire_bird"]
+unkown: 这下你不得不全部告诉她了，\
+迟早的事。 #id:128
+[signal arg="fire_bird"]
+unkown: 言尽于此，诺兹，我该走了。\
+……\
+不论结果如何，这将会是我最后一次帮你。 #id:129
+join heroine (sad) rightmost
+heroine (sad): 唔……好吵，\
+是有人在说话吗？ #id:12a
+[signal arg="white"]
+[signal arg="Bird"]
+Bird: ……\
+没什么，\
+有个好心人给我们指了下路而已。 #id:12b
+
+heroine (shame): ……那个人，\
+是我们之前遇到过一次的那个？\
+太好了，看来她平安无事呢。 #id:12c
+leave heroine

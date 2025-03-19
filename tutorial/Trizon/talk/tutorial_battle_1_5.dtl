@@ -1,0 +1,8 @@
+join character_test leftmost
+join heroine rightmost
+[signal arg="Bird"]
+Bird:万事俱备，现在你可以结束你的回合。\
+结束回合后，生物们会从左到右依次开始一轮攻击。\
+不过，我方的生物总是会比对面先行动。 #id:ad
+[signal arg="Bird"]
+Bird:如果敌方生物没有可以攻击的目标，它将会直接攻击你。 #id:ae

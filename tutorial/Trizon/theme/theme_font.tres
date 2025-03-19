@@ -1,0 +1,9 @@
+[gd_resource type="FontVariation" load_steps=3 format=4 uid="uid://bccj85k25xb1p"]
+
+[ext_resource type="FontFile" uid="uid://brlxcqh1q6n5r" path="res://font/AlibabaHealthFont20CN-85B.ttf" id="1"]
+[ext_resource type="FontVariation" uid="uid://cubbq4islk40u" path="res://theme/ja_theme_font.tres" id="2"]
+
+[resource]
+fallbacks = [ExtResource("2")]
+base_font = ExtResource("1")
+spacing_top = 4

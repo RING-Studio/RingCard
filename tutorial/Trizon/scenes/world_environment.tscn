@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://du7kkiyir8jly"]
+
+[ext_resource type="Environment" uid="uid://pa7wwmvp7e38" path="res://shader/fever_environment.tres" id="1"]
+[ext_resource type="Script" uid="uid://cuddcb5qa58ie" path="res://scripts/WorldEnvironment.gd" id="2"]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1")
+script = ExtResource("2")

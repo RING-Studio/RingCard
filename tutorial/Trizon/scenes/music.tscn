@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3 uid="uid://kxj7ljmaf5av"]
+
+[ext_resource type="AudioStream" uid="uid://b1y10rpbm8o2e" path="res://bgm/A_START.wav" id="1"]
+
+[sub_resource type="GDScript" id="GDScript_vw60o"]
+script/source = "extends AudioStreamPlayer
+# pitch_scale = 0.68
+func change_bgm_volumn(linear):
+	volume_db = linear_to_db(linear)
+
+func change_SFX_volumn(linear):
+	$Sound.volume_db = linear_to_db(linear)
+
+func play_start():
+	var ease_out_twn = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	ease_out_twn.tween_method(change_bgm_volumn, 0.0, Global.settings.bgm_volume, 5.0)
+	#change_bgm_volumn(Global.settings.bgm_volume)
+	change_bgm_volumn(Global.settings.SFX_volume)
+	await get_tree().create_timer(0.1).timeout
+	play()
+
+var speed_twn: Tween
+func accelerate(to: float = 0.72):
+	if speed_twn != null: speed_twn.kill()
+	speed_twn = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	speed_twn.tween_property(self, \"pitch_scale\", to, 8 * abs(to-pitch_scale))
+
+var time_scale_last_frame = 1
+func _process(delta):
+	if not Global.settings[\"pitchchange\"]: return
+	if time_scale_last_frame != Engine.time_scale:
+		var to = 0.74 + 0.04 * Engine.time_scale
+		accelerate(to)
+	time_scale_last_frame = Engine.time_scale
+
+func sound(stream_name):
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	sound.stream = load(\"res://sound/\" + stream_name)
+	sound.play()
+	await sound.finished
+	sound.queue_free()
+
+func sound_random_UI():
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	sound.stream = load(\"res://sound/Tube_Kick_\" + str(randi() % 3 + 1) + \".ogg\")
+	sound.play(0.01)
+	await sound.finished
+	sound.queue_free()
+
+func sound_random_fire():
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	var rnd = randi() % 3 + 1
+	if rnd == 4: sound.stream = load(\"res://sound/fire4.wav\")
+	else: sound.stream = load(\"res://sound/fire\" + str(randi() % 3 + 1) + \".mp3\")
+	sound.play()
+	await sound.finished
+	sound.queue_free()
+
+func sound_random_punch():
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	sound.stream = load(\"res://sound/punch\" + str(randi() % 6 + 1) + \".mp3\")
+	sound.play()
+	await sound.finished
+	sound.queue_free()
+
+func sound_random_wave():
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	sound.stream = load(\"res://sound/wave\" + str(randi() % 2 + 1) + \".mp3\")
+	sound.play()
+	await sound.finished
+	sound.queue_free()
+
+func sound_random_snow():
+	var sound = $Sound.duplicate()
+	add_child(sound)
+	sound.stream = load(\"res://sound/snow (\" + str(randi() % 7 + 1) + \").mp3\")
+	sound.play()
+	await sound.finished
+	sound.queue_free()
+
+
+func _on_finished():
+	stream = A
+	play()
+
+var A = load(\"res://bgm/A_LOOP.wav\")
+var A_start = load(\"res://bgm/A_START.wav\")
+var B = load(\"res://bgm/B_LOOP.wav\")
+var A_start_bar = 17
+var A_bar = 97
+var B_bar = 65
+func transin(toB: bool = true):
+	if toB and stream == B: return
+	elif !toB and (stream == A or stream == A_start): return
+	var A_bar_length = A.get_length() / pitch_scale / A_bar
+	var B_bar_length = B.get_length() / pitch_scale / B_bar
+	var bar_length = A_bar_length#B_bar_length
+	var trans_to = A
+	if stream == A or stream == A_start:
+		bar_length = A_bar_length
+		trans_to = B
+	var position: float = get_playback_position()
+	var position_by_bar = position / pitch_scale / bar_length
+	var time_until_next_bar: float = (1 + int(position_by_bar) - position_by_bar) * bar_length
+	await get_tree().create_timer(time_until_next_bar).timeout
+	stream = trans_to
+	play()
+
+func reverb(): bus = \"Reverb\"
+func master(): bus = \"Master\"
+"
+
+[node name="Music" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1")
+volume_db = -80.0
+pitch_scale = 0.78
+script = SubResource("GDScript_vw60o")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -21.944
+bus = &"VEF"
+
+[connection signal="finished" from="." to="." method="_on_finished"]

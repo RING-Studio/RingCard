@@ -1,0 +1,6 @@
+join heroine (close_eyes) rightmost
+join character_test leftmost
+[signal arg="Bird"]
+Bird:只有费用为零的卡才能直接打出。\
+现在试试把手中这两张费用为零的卡部署上场，\
+把卡放在我方任意一个格子上就行。 #id:a6

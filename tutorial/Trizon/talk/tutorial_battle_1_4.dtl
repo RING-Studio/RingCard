@@ -1,0 +1,5 @@
+join character_test leftmost
+join heroine (shock) rightmost
+[signal arg="Bird"]
+Bird:现在它的费用为0了，试试把它部署在敌人的面前。\
+除非有特殊效果，否则生物只会攻击他们正对面的敌人。 #id:ab

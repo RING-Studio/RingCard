@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=4 uid="uid://dbr0qo4655g15"]
+
+[ext_resource type="Shader" uid="uid://bwwqmilqsaaom" path="res://shader/rainbow.tres" id="1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_exq0w"]
+noise_type = 0
+seed = 5
+frequency = 0.00279999990016222
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5kbgf"]
+seamless = true
+noise = SubResource("FastNoiseLite_exq0w")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1")
+shader_parameter/alpha = 0.0
+shader_parameter/noise = SubResource("NoiseTexture2D_5kbgf")

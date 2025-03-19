@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c861aopvum768"
+path="res://.godot/imported/Star.svg-7aedc06a7ebea2c807b82afc8828e719.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Icon/Star.svg"
+dest_files=["res://.godot/imported/Star.svg-7aedc06a7ebea2c807b82afc8828e719.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

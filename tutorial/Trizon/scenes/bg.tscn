@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://blsgo0fxs1ywi"]
+
+[ext_resource type="Script" uid="uid://bwffdmxdjtjkt" path="res://scripts/bg.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://hdfvj7uyo02t" path="res://UI/bg.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://6kdml2d3hfgd" path="res://UI/bg_flow.png" id="3"]
+
+[sub_resource type="Shader" id="Shader_32xgx"]
+code = "shader_type canvas_item;
+void vertex() {
+	UV.x += TIME/8.0;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srifd"]
+shader = SubResource("Shader_32xgx")
+
+[sub_resource type="Shader" id="Shader_gngmx"]
+code = "shader_type canvas_item;
+uniform sampler2D flow : source_color, repeat_enable;
+uniform float shift;
+void fragment() {
+	float time = TIME + shift / 30.0;
+	vec4 main_texture = texture(flow, UV + (vec2(0.1 * time * -0.05, (UV[0]-0.5) * cos(time/20.0)/2.0)));
+	main_texture.rbg = vec3(sin(time/4.0)/2.0+1.0, cos(time/4.0)/2.0+1.0, 0.7);
+	main_texture.rbg = main_texture.rbg/6.0;
+	main_texture.rbg = main_texture.rbg +(2.0*UV[0] + UV[1])/15.0;
+	COLOR = main_texture;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78j1h"]
+resource_local_to_scene = true
+shader = SubResource("Shader_gngmx")
+shader_parameter/flow = ExtResource("3")
+shader_parameter/shift = 0.0
+
+[node name="bg" type="CanvasLayer"]
+layer = -1
+script = ExtResource("1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(0.447059, 0.447059, 0.447059, 1)
+z_index = -10
+material = SubResource("ShaderMaterial_srifd")
+offset_left = 281.0
+offset_top = -1126.0
+offset_right = 14569.0
+offset_bottom = 10590.0
+rotation = 0.500651
+scale = Vector2(0.2, 0.2)
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(100, 100, 100, 1)
+self_modulate = Color(100, 100, 100, 1)
+material = SubResource("ShaderMaterial_78j1h")
+offset_left = -19.0
+offset_top = 117.0
+offset_right = 1941.0
+offset_bottom = 776.0
+color = Color(100, 100, 100, 1)

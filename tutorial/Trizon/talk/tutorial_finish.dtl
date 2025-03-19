@@ -1,0 +1,41 @@
+join character_test leftmost
+[signal arg="hunter"]
+hunter: 呼，小事一桩。 #id:ba
+[signal arg="hunter"]
+hunter: 前面好像很开阔。\
+总算可以脱离这里了。 #id:bb
+join heroine (close_eyes) rightmost
+heroine (close_eyes): …… #id:bc
+heroine (confused): 是不是有股……硫磺的味道？ #id:bd
+[signal arg="hunter"]
+hunter: 真奇特，我也闻到了。 #id:be
+[signal arg="Bird"]
+Bird: ！？\
+这股臭味是…… #id:bf
+
+[signal arg="chimera"]
+chimera: 发现……玩家，\
+敌人，敌人—— #id:c0
+[signal arg="hunter"]
+hunter: 嘿，给我停下！\
+你看起来可不太友善。 #id:c1
+[signal arg="Bird"]
+Bird: 喀迈拉？\
+该死的，\
+它怎么会出现在这里？ #id:c2
+
+[signal arg="chimera"]
+chimera: 开始……歼灭…… #id:c3
+
+do Global.gain_LP(-50)
+update heroine (fear)
+[wait time="0.5"]
+[signal arg="hunter"]
+[wait time="0.5"]
+[signal arg="hit333"]
+[wait time="0.5"]
+[signal arg="Bird"]
+[wait time="0.5"]
+[signal arg="hit333"]
+[wait time="1.0"]
+leave heroine

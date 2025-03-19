@@ -1,0 +1,496 @@
+[gd_scene load_steps=27 format=3 uid="uid://3024kxv6xswv"]
+
+[ext_resource type="Script" uid="uid://ttmtmfktesd4" path="res://scripts/TopLayerUI.gd" id="1"]
+[ext_resource type="Shader" uid="uid://cckhwymtrqtxp" path="res://shader/shakewave.gdshader" id="2"]
+[ext_resource type="PackedScene" uid="uid://cb0un0n5e7t8w" path="res://scenes/map.tscn" id="3"]
+[ext_resource type="Shader" uid="uid://dv3mgn6fcr8wu" path="res://shader/blur_bg.gdshader" id="4"]
+[ext_resource type="Shader" uid="uid://bp36vpprtd5b3" path="res://shader/map_sample_node.gdshader" id="5"]
+[ext_resource type="Texture2D" uid="uid://b56p6k0p35g05" path="res://UI/gradient2.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://c613d2lms1y6c" path="res://scenes/HP_bar.tscn" id="7"]
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="8"]
+[ext_resource type="Texture2D" uid="uid://5ti5gk05w5yq" path="res://UI/map.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://coj0tsg6623or" path="res://UI/deck.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://c6p0ny27sim2q" path="res://UI/threecards.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dsnurryxp3a6o" path="res://UI/flag.png" id="12"]
+[ext_resource type="Shader" uid="uid://b0wpxx0p3w4bk" path="res://shader/wavey_text.gdshader" id="13"]
+[ext_resource type="Script" uid="uid://cqjjrfkbkygfc" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="14"]
+[ext_resource type="Script" uid="uid://bvk1kngo26t8i" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="15"]
+[ext_resource type="Texture2D" uid="uid://7f8ocl8rcxmy" path="res://UI/Gear.png" id="16"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5jr1"]
+shader = ExtResource("2")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.03
+shader_parameter/size = 0.0
+shader_parameter/thickness = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwp4e"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/lod = 3.0
+shader_parameter/alpha = 1.0
+shader_parameter/edge = 0.05
+shader_parameter/darken = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_05hin"]
+resource_local_to_scene = true
+shader = ExtResource("5")
+shader_parameter/randomizer = 0.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="GDScript" id="GDScript_fbwfl"]
+script/source = "extends TextureRect
+
+var tween: Tween
+@onready var original_pos = global_position
+
+func _on_mouse_entered():
+	if tween != null: tween.kill()
+	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tween.tween_property(self, \"global_position\", Vector2(1464, 0), 0.4)
+
+
+func _on_mouse_exited():
+	if tween != null: tween.kill()
+	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	tween.tween_property(self, \"global_position\", original_pos, 0.4)
+"
+
+[sub_resource type="GDScript" id="GDScript_7t0x0"]
+script/source = "extends TextureRect
+
+func _on_mouse_entered():
+	Popups.pop_at(global_position + Vector2( size.x + 18.0, + size.y + 8.0), tr(\"PICKCHANCE\"))
+
+func _on_mouse_exited():
+	Popups.unpop()
+"
+
+[sub_resource type="GDScript" id="GDScript_ymlcx"]
+script/source = "extends TextureRect
+
+func _on_gui_input(event):
+	Popups.pop_at(global_position + size + Vector2(-100, 10), tr(\"RELICFLAG\") + \"\\n\" + tr(\"RELICFLAGinfo\"))
+
+func _on_mouse_exited():
+	Popups.unpop()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6s4nj"]
+shader = ExtResource("13")
+shader_parameter/height = 20.0
+shader_parameter/frequency = 0.5
+shader_parameter/speed = 3.0
+shader_parameter/offset = -100.0
+shader_parameter/offset2 = 0.0
+
+[sub_resource type="GDScript" id="GDScript_6kfoc"]
+script/source = "extends Label
+var tween: Tween
+@onready var last_frame = Global.current_map.map_info.duplicate()
+@onready var lang_last_frame = Global.settings.language
+func _on_mouse_entered():
+	var display = \"\"
+	if Global.current_map.map_info.is_empty(): return
+	for biome in Global.current_map.map_info.biome:
+		display += tr(biome + \"pop\") + \"\\n\"
+	#var display = Global.current_map.map_info.biome[0] + \"pop\"
+	Popups.pop_at(global_position + Vector2( - 18.0, + size.y + 8.0), display)
+
+func _on_mouse_exited():
+	Popups.unpop()
+
+func _process(delta):
+	if Global.current_map.map_info.is_empty(): return
+	if Global.current_map.map_info != last_frame or Global.settings.language != lang_last_frame:
+		if tween != null: tween.kill()
+		tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+		tween.tween_property(self.material, \"shader_parameter/offset\", -100.0, 0.5)
+		tween.tween_property(self, \"text\", tr(Global.current_map.map_info.terra) + \" + \" + tr(Global.current_map.map_info.biome[0]), 0.0)
+		if Global.current_map.map_info.depth != 1:
+			tween.tween_property(self.material, \"shader_parameter/offset\", 0.0, 0.5)
+		tween.parallel().tween_property(self.material, \"shader_parameter/height\", 0.0, 4.0).from(16.0)
+		last_frame = Global.current_map.map_info.duplicate()
+		lang_last_frame = Global.settings.language
+"
+
+[sub_resource type="Resource" id="Resource_xyj02"]
+script = ExtResource("15")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_fxwkv"]
+script = ExtResource("15")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[node name="TopLayerUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.0777778
+mouse_filter = 2
+script = ExtResource("1")
+metadata/_edit_use_anchors_ = true
+
+[node name="Wave" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_a5jr1")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Map" parent="." instance=ExtResource("3")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 39.0
+offset_top = 143.0
+offset_right = 1704.0
+offset_bottom = 1056.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="BlurBg" parent="Map" index="0"]
+material = SubResource("ShaderMaterial_jwp4e")
+offset_left = -257.0
+offset_top = -46.0
+offset_right = 2129.0
+offset_bottom = 944.0
+
+[node name="Mask" parent="Map" index="1"]
+offset_left = -195.0
+offset_top = -46.0
+offset_right = 2078.0
+offset_bottom = 945.0
+
+[node name="SampleNode" parent="Map" index="2"]
+material = SubResource("ShaderMaterial_05hin")
+
+[node name="RefreshMap" parent="Map" index="4"]
+offset_left = 1665.0
+offset_top = 17.0
+offset_right = 1865.0
+offset_bottom = 93.0
+
+[node name="DarkSide" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.411765)
+layout_mode = 0
+offset_left = -88.0
+offset_top = -7.0
+offset_right = 1994.0
+offset_bottom = 42.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+
+[node name="DarkSide2" type="TextureRect" parent="DarkSide"]
+self_modulate = Color(1, 1, 1, 0.411765)
+layout_mode = 0
+offset_right = 2082.0
+offset_bottom = 87.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+
+[node name="DarkSide3" type="TextureRect" parent="DarkSide"]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 2082.0
+offset_bottom = 28.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+
+[node name="DarkSide4" type="TextureRect" parent="DarkSide"]
+layout_mode = 0
+offset_top = 1038.0
+offset_right = 2082.0
+offset_bottom = 1157.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+flip_v = true
+
+[node name="DarkSide5" type="TextureRect" parent="DarkSide"]
+layout_mode = 0
+offset_top = 1059.0
+offset_right = 2082.0
+offset_bottom = 1150.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+flip_v = true
+
+[node name="HPBar" parent="." instance=ExtResource("7")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.203125
+anchor_bottom = 0.571429
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 111.0
+offset_bottom = 8.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="LP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 56.0
+offset_right = 39.0
+offset_bottom = 89.8333
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 20
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MapButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1702.0
+offset_top = 14.0
+offset_right = 1828.0
+offset_bottom = 82.0
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 25
+text = "MAP"
+flat = true
+
+[node name="MapCorner" type="TextureRect" parent="MapButton"]
+self_modulate = Color(0.39, 0.3627, 0.3627, 1)
+show_behind_parent = true
+z_index = -1
+layout_mode = 0
+offset_left = -215.0
+offset_top = -58.0
+offset_right = 241.0
+offset_bottom = 98.0
+texture = ExtResource("9")
+expand_mode = 1
+script = SubResource("GDScript_fbwfl")
+
+[node name="Deck" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 13.0
+offset_right = 1692.0
+offset_bottom = 80.0
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 25
+text = "DECK"
+flat = true
+
+[node name="DeckIcon" type="TextureRect" parent="Deck"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+show_behind_parent = true
+layout_mode = 0
+offset_left = -7.0
+offset_right = 77.0
+offset_bottom = 67.0
+texture = ExtResource("10")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PickChancesIcon" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 0
+offset_left = 512.0
+offset_top = 2.0
+offset_right = 605.0
+offset_bottom = 66.0
+texture = ExtResource("11")
+expand_mode = 1
+stretch_mode = 5
+script = SubResource("GDScript_7t0x0")
+
+[node name="PickChances" type="Label" parent="."]
+self_modulate = Color(0.838897, 0.838897, 0.838897, 1)
+layout_mode = 0
+offset_left = 590.0
+offset_top = 36.0
+offset_right = 630.0
+offset_bottom = 82.75
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="RelicFlag" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.52549)
+layout_mode = 0
+offset_left = 1334.0
+offset_top = 2.0
+offset_right = 1428.0
+offset_bottom = 82.0
+texture = ExtResource("12")
+expand_mode = 1
+stretch_mode = 4
+script = SubResource("GDScript_ymlcx")
+
+[node name="Label" type="Label" parent="RelicFlag"]
+self_modulate = Color(0.84, 0.84, 0.84, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 34.0
+offset_right = 138.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 30
+text = "0 / 2"
+vertical_alignment = 2
+
+[node name="TerraBiome" type="Label" parent="."]
+visible = false
+modulate = Color(0.838897, 0.838897, 0.838897, 1)
+material = SubResource("ShaderMaterial_6s4nj")
+layout_mode = 0
+offset_left = 776.0
+offset_top = 18.0
+offset_right = 948.0
+offset_bottom = 85.0
+mouse_filter = 0
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 30
+text = "Terra"
+script = SubResource("GDScript_6kfoc")
+
+[node name="ItemColumnScroll" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 1473.0
+offset_top = 89.0
+offset_right = 2298.0
+offset_bottom = 177.0
+rotation = 3.14159
+script = ExtResource("14")
+wheel_scroll_damper = SubResource("Resource_xyj02")
+dragging_scroll_damper = SubResource("Resource_fxwkv")
+drag_with_mouse = false
+drag_with_touch = false
+hide_scrollbar_over_time = true
+scrollbar_hide_time = 2.0
+
+[node name="ItemColumn" type="VFlowContainer" parent="ItemColumnScroll"]
+layout_mode = 2
+alignment = 1
+
+[node name="OpenEsu" type="Button" parent="."]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
+layout_mode = 0
+offset_left = 1856.0
+offset_top = 28.0
+offset_right = 1901.0
+offset_bottom = 66.0
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 25
+flat = true
+
+[node name="GearIcon" type="TextureRect" parent="OpenEsu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="streak" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 428.0
+offset_top = 82.0
+offset_right = 468.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[node name="streakText" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 80.0
+offset_right = 423.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 30
+text = "Level:"
+
+[node name="Help" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(75, 31)
+layout_mode = 0
+offset_left = 777.0
+offset_top = 8.0
+offset_right = 948.0
+offset_bottom = 83.0
+theme = ExtResource("8")
+theme_override_font_sizes/font_size = 25
+text = "TUTORIAL"
+
+[node name="FPS" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1232.0
+offset_top = 1.0
+offset_right = 1347.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+vertical_alignment = 1
+
+[node name="FPStext" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1160.0
+offset_top = 2.0
+offset_right = 1275.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 30
+text = "FPS:"
+vertical_alignment = 1
+
+[node name="resolvingText" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 27.0
+offset_top = 87.0
+offset_right = 174.0
+offset_bottom = 129.0
+theme_override_font_sizes/font_size = 30
+text = "Resolving:"
+
+[node name="resolving" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 182.0
+offset_top = 89.0
+offset_right = 222.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+
+[connection signal="mouse_entered" from="HPBar" to="HPBar" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HPBar" to="HPBar" method="_on_mouse_exited"]
+[connection signal="pressed" from="MapButton" to="." method="_on_map_pressed"]
+[connection signal="mouse_entered" from="MapButton/MapCorner" to="MapButton/MapCorner" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MapButton/MapCorner" to="MapButton/MapCorner" method="_on_mouse_exited"]
+[connection signal="pressed" from="Deck" to="." method="_on_deck_pressed"]
+[connection signal="mouse_entered" from="PickChancesIcon" to="PickChancesIcon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PickChancesIcon" to="PickChancesIcon" method="_on_mouse_exited"]
+[connection signal="gui_input" from="RelicFlag" to="RelicFlag" method="_on_gui_input"]
+[connection signal="mouse_exited" from="RelicFlag" to="RelicFlag" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="TerraBiome" to="TerraBiome" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TerraBiome" to="TerraBiome" method="_on_mouse_exited"]
+[connection signal="pressed" from="OpenEsu" to="." method="_on_open_esu_pressed"]
+[connection signal="pressed" from="Help" to="." method="_on_check_button_3_pressed"]
+
+[editable path="Map"]

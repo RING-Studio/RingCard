@@ -1,0 +1,54 @@
+join heroine (confidence) rightmost
+heroine (fear): ……为什么我感觉心里毛毛的。 #id:50
+join character_test leftmost
+[signal arg="Bird"]
+Bird: 可能有人在暗处观察我们。 #id:51
+heroine (shock): 呜，怎，怎么办？\
+要跑吗？ #id:52
+[signal arg="Bird"]
+Bird: 别那么慌张，应该不是怪物。 #id:53
+[signal arg="Bird"]
+Bird: 喂，出来吧！\
+你已经被发现了！ #id:54
+[signal arg="hunter"]
+…… #id:55
+[signal arg="hunter"]
+hunter: 好吧，两位，看这里。 #id:56
+heroine (shock): ！ #id:57
+[signal arg="Bird"]
+Bird: ……初次见面，对吧？ #id:58
+[signal arg="hunter"]
+hunter: 当然，初次见面。\
+你认识我？ #id:59
+[signal arg="Bird"]
+Bird: 不，没什么。 #id:5a
+heroine (fear): 你，你好。 #id:5b
+[signal arg="hunter"]
+hunter: 你好，\
+不一般的小家伙。 #id:5c
+[signal arg="hunter"]
+hunter: 我看到在你打倒怪物之后，\
+那些原本已经烧毁但又复原的卡片；\
+而且你还保持着人形—— #id:5d
+[signal arg="hunter"]
+hunter: 没想到我能遇到一名玩家，\
+虽然不是我所熟知的那一位。\
+队伍也很渺小。 #id:5e
+heroine (sad): …… #id:5f
+[signal arg="hunter"]
+hunter: 在这儿呆的太久，我已经习惯了所有活物都是一张纸片……\
+她让我怀念起朋友家的小孩——这才是一个人该有的样子。 #id:60
+[signal arg="Bird"]
+Bird: 挺好，看来我们立场相同。 #id:61
+[signal arg="hunter"]
+……嗯嗯！ #id:62
+[signal arg="Bird"]
+Bird: 那么，如果你没有别的事要讲，请让开吧。\
+我们要继续前进了。 #id:63
+[signal arg="hunter"]
+hunter: 嗯……嗯？ #id:64
+[signal arg="hunter"]
+hunter: 等等，你不邀请我入队吗？\
+呃，我是说，\
+可不可以让我也加入呢？ #id:65
+leave heroine

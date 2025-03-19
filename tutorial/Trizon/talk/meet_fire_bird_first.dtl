@@ -1,0 +1,88 @@
+join character_test leftmost
+join heroine (shame) rightmost
+heroine (shock): 唔，\
+那里是不是有个人？ #id:33
+
+[signal arg="hunter"]
+hunter: 你是不是眼花了？\
+我们已经走的相当深入了，\
+有谁会在这么危险的地方瞎逛。 #id:34
+[signal arg="hunter"]
+hunter: 等等，我也看到了。\
+……真是难以置信，\
+一个人是到不了这里的。 #id:35
+
+heroine (confused): 可她身边没有其他人…… #id:36
+[signal arg="hunter"]
+hunter: 别让我说的这么直白，小杉。\
+我的意思是，\
+她的同伴们要么丢下她跑了，要么都死了。 #id:37
+
+heroine (sad): …… #id:38
+[signal arg="Bird"]
+Bird: 可能是陷阱，绕开她走吧。 #id:39
+[signal arg="hunter"]
+hunter: 我没听错吧，鸟兄？\
+你比我想象的还要冷血十倍。 #id:3a
+
+heroine (serious): ……就算是陷阱，我们也可以复活。\
+至少应该问问她的情况。 #id:3b
+[signal arg="Bird"]
+Bird: ……\
+好吧。 #id:3c
+[signal arg="fire_bird"]
+fire_bird: …… #id:3d
+[signal arg="hunter"]
+hunter: 嗨，你还好吗？ #id:3e
+[signal arg="fire_bird"]
+fire_bird: ……\
+诺兹？ #id:3f
+[signal arg="hunter"]
+hunter: 呃，诺兹？ #id:40
+
+heroine (confused): 那是谁？ #id:41
+[signal arg="Bird"]
+Bird: 我也不认识。 #id:42
+[signal arg="fire_bird"]
+fire_bird: ……抱歉，\
+是我认错人了。 #id:43
+[signal arg="hunter"]
+hunter: 没关系。\
+你需要帮助吗？\
+孤身一人很危险。 #id:44
+[signal arg="hunter"]
+hunter: 如果你暂时加入我们，\
+我们可以护送你到安全的地方。 #id:45
+[signal arg="fire_bird"]
+fire_bird: 谢谢你的好意，\
+但是不用了。 #id:46
+[signal arg="hunter"]
+hunter: 你，你确定？\
+我们是一支有玩家的队伍，\
+这样说你明白吗？ #id:47
+
+heroine (confidence): 就算团灭了也会在别处复活，\
+你不用担心会成为我们的累赘。 #id:48
+[signal arg="fire_bird"]
+fire_bird: 我很清楚。\
+你们为了回到现实而战斗。\
+所以……我无法与你们同行。 #id:49
+[signal arg="hunter"]
+hunter: 啊，\
+走掉了。 #id:4a
+
+heroine (sad): 我不明白…… #id:4b
+[signal arg="hunter"]
+hunter: 别在意，小杉，\
+总是有那种家伙的。 #id:4c
+
+heroine (shock): 如果她不想回到现实，\
+为什么要深入到这种地方？ #id:4d
+[signal arg="hunter"]
+hunter: 嗯……我也想不通。\
+不过既然她不想说，那就随她去吧。\
+只要不起冲突就好。 #id:4e
+[signal arg="Bird"]
+Bird: …… #id:4f
+
+leave heroine

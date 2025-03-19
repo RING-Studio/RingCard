@@ -1,0 +1,539 @@
+[gd_scene load_steps=50 format=3 uid="uid://b217ueaw2j11o"]
+
+[ext_resource type="Script" uid="uid://bgi0kg8vddxcr" path="res://scripts/cards_manager.gd" id="1"]
+[ext_resource type="Shader" uid="uid://cfelik5jw5r27" path="res://shader/card_enchant.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://dbqtm1y403jud" path="res://card_icons/bloody_coin.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://dxuxxlxfn8wjx" path="res://scenes/deck_to_draw_button.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dhkuehl1vdv62" path="res://scenes/gy_button.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://dvogtnkoebwon" path="res://UI/gradient3.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://cndxgdo1treq7" path="res://scenes/grid.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://b56p6k0p35g05" path="res://UI/gradient2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://fjqdv0wer0rm" path="res://UI/ban.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://b8tee5cidprli" path="res://scenes/card.tscn" id="10"]
+[ext_resource type="Shader" uid="uid://xxn1vfn5jas6" path="res://shader/dissolve.gdshader" id="11"]
+[ext_resource type="Texture2D" uid="uid://d0eswjpmr8815" path="res://shader/enchanted.png" id="12"]
+[ext_resource type="Shader" uid="uid://bd2kmn2mtspk2" path="res://shader/frost.gdshader" id="13"]
+[ext_resource type="Shader" uid="uid://b0wpxx0p3w4bk" path="res://shader/wavey_text.gdshader" id="14"]
+[ext_resource type="Script" uid="uid://cch7q755lbqso" path="res://scripts/turn.gd" id="15"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_joowl"]
+shader = ExtResource("2")
+shader_parameter/randomizer = 0.0
+shader_parameter/edge = 0.11
+
+[sub_resource type="Shader" id="Shader_7oyja"]
+code = "shader_type canvas_item;
+
+uniform float offset = -200;
+
+void vertex() {
+	VERTEX.x += offset;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xtvd0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_7oyja")
+shader_parameter/offset = -200.0
+
+[sub_resource type="GDScript" id="GDScript_4llki"]
+script/source = "extends Button
+var tween: Tween
+var bg_tween: Tween
+func appear():
+	mouse_filter = MOUSE_FILTER_STOP
+	if tween != null: tween.kill()
+	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, \"modulate\", Color.WHITE, 0.3)
+
+func disappear():
+	mouse_filter = MOUSE_FILTER_IGNORE
+	if tween != null: tween.kill()
+	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, \"modulate\", Color.TRANSPARENT, 0.3)
+
+func _on_mouse_entered():
+	if bg_tween != null: bg_tween.kill()
+	bg_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	bg_tween.tween_property($buttonbg.material, \"shader_parameter/offset\", 0, 0.22)
+
+func _on_mouse_exited():
+	if bg_tween != null: bg_tween.kill()
+	bg_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	bg_tween.tween_property($buttonbg.material, \"shader_parameter/offset\", 170, 0.22)
+"
+
+[sub_resource type="Shader" id="Shader_wypou"]
+code = "shader_type canvas_item;
+
+uniform float offset = 170;
+
+void vertex() {
+	VERTEX.x += offset;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dr1dr"]
+shader = SubResource("Shader_wypou")
+shader_parameter/offset = 170.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q7xie"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vc7an"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_q7xie")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pbst"]
+resource_local_to_scene = true
+shader = ExtResource("11")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_vc7an")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/enchant = ExtResource("12")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.615686, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0901961, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.2
+shader_parameter/rainbow = false
+
+[sub_resource type="Shader" id="Shader_nbpeg"]
+code = "shader_type canvas_item;
+uniform sampler2D noise: repeat_enable;
+uniform float alpha: hint_range(0.0, 1.0) = 0;
+void fragment() {
+	vec4 main_texture = texture(TEXTURE, UV);
+	main_texture.a = 1.0;
+	vec4 noise_texture = texture(noise, UV + TIME/50.0);
+	//vec4 main_texture = texture(TEXTURE, UV+vec2(0.02, 0.02)) + texture(TEXTURE, UV+vec2(-0.02, -0.02)) +
+	//					texture(TEXTURE, UV+vec2(-0.02, 0.02)) + texture(TEXTURE, UV+vec2(0.02, -0.02));
+	main_texture.a = sign(main_texture.a);
+	main_texture.rbg = vec3(sin(TIME/0.5 + 3.14*UV[0])/1.5+0.55, cos(TIME/0.7 + 3.14*UV[1])/1.5+0.55, 0.0);
+	main_texture.rbg = main_texture.rbg + (noise_texture.rbg)/1.0;
+	main_texture.a = main_texture.a * ((noise_texture.x)) * alpha;
+	//main_texture.a = 1.0;
+	vec2 to_origin = vec2(smoothstep(0.0, 1.0, abs(UV[0]-0.5)), smoothstep(0.0, 1.0, abs(UV[1]-0.5)));
+	main_texture.a = main_texture.a * smoothstep(1.0, 0.0, 2.0*max(to_origin[0], to_origin[1]));
+	COLOR = main_texture;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_exq0w"]
+noise_type = 4
+frequency = 0.0039
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5kbgf"]
+seamless = true
+noise = SubResource("FastNoiseLite_exq0w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6234"]
+resource_local_to_scene = true
+shader = SubResource("Shader_nbpeg")
+shader_parameter/noise = SubResource("NoiseTexture2D_5kbgf")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yd4vf"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_igxdn"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_yd4vf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yybo6"]
+resource_local_to_scene = true
+shader = ExtResource("11")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_igxdn")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/enchant = ExtResource("12")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.9, 0.807, 0.342, 1)
+shader_parameter/burn_color2 = Color(1, 0.283333, 0, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.2
+shader_parameter/rainbow = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p24eo"]
+resource_local_to_scene = true
+shader = ExtResource("13")
+shader_parameter/randomizer = 3.14
+shader_parameter/freeze_progress = 0.0
+
+[sub_resource type="Shader" id="Shader_r70l5"]
+code = "shader_type canvas_item;
+uniform float alpha : hint_range(0.0, 1.0);
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = alpha*COLOR.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kybng"]
+resource_local_to_scene = true
+shader = SubResource("Shader_r70l5")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="Curve" id="Curve_icmtj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ossa"]
+curve = SubResource("Curve_icmtj")
+
+[sub_resource type="Curve" id="Curve_fibon"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tu4ac"]
+curve = SubResource("Curve_fibon")
+
+[sub_resource type="Curve" id="Curve_yhytm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qqghv"]
+curve = SubResource("Curve_yhytm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bsi4o"]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 120, 1)
+angle_min = -253.4
+angle_max = -150.8
+angle_curve = SubResource("CurveTexture_tu4ac")
+inherit_velocity_ratio = 0.1
+direction = Vector3(1, -0.2, 0)
+spread = 25.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.02
+scale_max = 0.05
+alpha_curve = SubResource("CurveTexture_2ossa")
+hue_variation_min = -0.85
+hue_variation_max = -0.8
+hue_variation_curve = SubResource("CurveTexture_qqghv")
+
+[sub_resource type="Curve" id="Curve_l5kqc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ujhps"]
+curve = SubResource("Curve_l5kqc")
+
+[sub_resource type="Curve" id="Curve_mksw8"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ojdvp"]
+curve = SubResource("Curve_mksw8")
+
+[sub_resource type="Curve" id="Curve_qxftr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn6b1"]
+curve = SubResource("Curve_qxftr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v6mxm"]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 120, 1)
+angle_curve = SubResource("CurveTexture_ojdvp")
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.2, 0)
+spread = 64.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.0
+scale_max = 0.06
+alpha_curve = SubResource("CurveTexture_ujhps")
+hue_variation_min = -0.1
+hue_variation_max = 0.07
+hue_variation_curve = SubResource("CurveTexture_sn6b1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2jwj"]
+shader = ExtResource("14")
+shader_parameter/height = 5.0
+shader_parameter/frequency = 0.25
+shader_parameter/speed = 2.0
+shader_parameter/offset = 0.0
+shader_parameter/offset2 = 0.0
+
+[node name="CardsManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(2000, 600)
+script = ExtResource("1")
+
+[node name="bgCardIcon" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(0.796078, 0.796078, 0.796078, 0.196078)
+z_index = -10
+material = SubResource("ShaderMaterial_joowl")
+layout_mode = 0
+offset_left = 956.0
+offset_top = 54.0
+offset_right = 1952.0
+offset_bottom = 1037.0
+texture = ExtResource("3")
+stretch_mode = 4
+
+[node name="DeckToDrawButton" parent="." instance=ExtResource("4")]
+layout_mode = 1
+anchor_left = 0.903125
+anchor_top = 0.852126
+anchor_right = 0.979688
+anchor_bottom = 0.959533
+
+[node name="gyButton" parent="." instance=ExtResource("5")]
+layout_mode = 1
+anchor_left = 0.0276042
+anchor_top = 0.850277
+anchor_right = 0.0984375
+anchor_bottom = 0.956758
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Chain" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.423529)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_xtvd0")
+layout_mode = 0
+offset_left = -88.0
+offset_top = 384.0
+offset_right = 231.0
+offset_bottom = 480.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Chain"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 88.0
+offset_right = 280.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 30
+text = "CHAIN x 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MyField" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -555.0
+offset_top = -75.0
+offset_right = 555.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="Grid" parent="MyField" node_paths=PackedStringArray("grid_in_front", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../YourField/Grid")
+grid_right = NodePath("../Grid2")
+
+[node name="Grid2" parent="MyField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../YourField/Grid2")
+grid_left = NodePath("../Grid")
+grid_right = NodePath("../Grid3")
+
+[node name="Grid3" parent="MyField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../YourField/Grid3")
+grid_left = NodePath("../Grid2")
+grid_right = NodePath("../Grid4")
+
+[node name="Grid4" parent="MyField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../YourField/Grid4")
+grid_left = NodePath("../Grid3")
+grid_right = NodePath("../Grid5")
+
+[node name="Grid5" parent="MyField" node_paths=PackedStringArray("grid_in_front", "grid_left") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../YourField/Grid5")
+grid_left = NodePath("../Grid4")
+
+[node name="YourField" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -555.0
+offset_top = -384.0
+offset_right = 555.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="Grid" parent="YourField" node_paths=PackedStringArray("grid_in_front", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../MyField/Grid")
+grid_right = NodePath("../Grid2")
+
+[node name="Grid2" parent="YourField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../MyField/Grid2")
+grid_left = NodePath("../Grid")
+grid_right = NodePath("../Grid3")
+
+[node name="Grid3" parent="YourField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../MyField/Grid3")
+grid_left = NodePath("../Grid2")
+grid_right = NodePath("../Grid4")
+
+[node name="Grid4" parent="YourField" node_paths=PackedStringArray("grid_in_front", "grid_left", "grid_right") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../MyField/Grid4")
+grid_left = NodePath("../Grid3")
+grid_right = NodePath("../Grid5")
+
+[node name="Grid5" parent="YourField" node_paths=PackedStringArray("grid_in_front", "grid_left") instance=ExtResource("7")]
+layout_mode = 2
+grid_in_front = NodePath("../../MyField/Grid5")
+grid_left = NodePath("../Grid4")
+
+[node name="BanMask" type="TextureRect" parent="."]
+visible = false
+z_index = 99
+layout_mode = 0
+offset_left = -119.0
+offset_top = 1000.0
+offset_right = 2036.0
+offset_bottom = 3252.0
+mouse_filter = 2
+texture = ExtResource("8")
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="BanMask"]
+self_modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.5
+offset_top = 557.0
+offset_right = 143.5
+offset_bottom = 726.0
+grow_horizontal = 2
+texture = ExtResource("9")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EndTurn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1652.0
+offset_top = 681.0
+offset_right = 1846.0
+offset_bottom = 770.0
+theme_override_font_sizes/font_size = 25
+text = "ENDTURN"
+flat = true
+script = SubResource("GDScript_4llki")
+
+[node name="buttonbg" type="TextureRect" parent="EndTurn"]
+self_modulate = Color(1, 1, 1, 0.423529)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_dr1dr")
+layout_mode = 0
+offset_left = -66.0
+offset_right = 464.0
+offset_bottom = 89.0
+mouse_filter = 2
+texture = ExtResource("6")
+expand_mode = 1
+flip_h = true
+
+[node name="ShowCard" parent="." instance=ExtResource("10")]
+material = SubResource("ShaderMaterial_6pbst")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.865625
+anchor_top = 0.303142
+anchor_right = 0.956
+anchor_bottom = 0.527
+offset_top = -19.0
+offset_right = -0.719849
+offset_bottom = -18.3667
+mouse_filter = 2
+movable = false
+
+[node name="aura" parent="ShowCard" index="0"]
+material = SubResource("ShaderMaterial_d6234")
+
+[node name="CardIcon" parent="ShowCard" index="1"]
+material = SubResource("ShaderMaterial_yybo6")
+
+[node name="Frost" parent="ShowCard" index="2"]
+material = SubResource("ShaderMaterial_p24eo")
+
+[node name="hit" parent="ShowCard" index="10"]
+material = SubResource("ShaderMaterial_kybng")
+
+[node name="Particles" parent="ShowCard" index="11"]
+process_material = SubResource("ParticleProcessMaterial_bsi4o")
+
+[node name="Enchanted" parent="ShowCard" index="12"]
+process_material = SubResource("ParticleProcessMaterial_v6mxm")
+
+[node name="Turn" type="Label" parent="."]
+modulate = Color(0.791999, 0.791999, 0.791999, 1)
+material = SubResource("ShaderMaterial_l2jwj")
+layout_mode = 0
+offset_left = 1632.0
+offset_top = 583.0
+offset_right = 1872.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("15")
+
+[connection signal="mouse_entered" from="EndTurn" to="EndTurn" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="EndTurn" to="EndTurn" method="_on_mouse_exited"]
+[connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]
+
+[editable path="ShowCard"]

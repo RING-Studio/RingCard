@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=4 uid="uid://dromlfc6cutbj"]
+
+[ext_resource type="Texture2D" uid="uid://b8y2pwyj5m1fo" path="res://UI/Headless.svg" id="1"]
+
+[resource]
+texture = ExtResource("1")
+texture_margin_left = 13.9753999710083
+texture_margin_top = 14.0
+texture_margin_right = 14.431300163269043
+texture_margin_bottom = 14.315799713134766
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(4, 0, 600, 200)
+modulate_color = Color(0.960784, 0.894118, 0.933333, 0.686275)

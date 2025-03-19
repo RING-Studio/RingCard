@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://w1jtvxro6lhs"]
+
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://cjdgywcdum2k0" path="res://scripts/damage_pop.gd" id="2"]
+
+[node name="Label" type="Label"]
+modulate = Color(0.82606, 0.82606, 0.82606, 1)
+offset_right = 40.0
+offset_bottom = 22.3333
+theme = ExtResource("1")
+theme_override_font_sizes/font_size = 50
+text = "-333"
+script = ExtResource("2")

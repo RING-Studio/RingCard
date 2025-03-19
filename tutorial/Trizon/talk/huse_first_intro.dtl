@@ -1,0 +1,31 @@
+join character_test leftmost
+[signal arg="Bird"]
+Bird: ……如上。\
+下次遇到怪物就用这种策略应对……\
+杉，你在听吗？ #id:1a
+join heroine (sad) rightmost
+heroine (shock): 哦，不好意思，鸟先生。\
+我只是在想，\
+上一任玩家都失败了的事情，我们真的能办到吗？ #id:1b
+[signal arg="Bird"]
+Bird: ……\
+我也不知道。 #id:1c
+[signal arg="Bird"]
+Bird: 休斯，上一任玩家，\
+据说人们最后一次见到她时，\
+她已经获得了两张权势卡。 #id:1d
+heroine (sad): 权势卡——拥有强大权柄的卡片……\
+只差最后一张，她就能通关这个游戏，\
+让大家回到现实了。 #id:1e
+[signal arg="Bird"]
+Bird: 自那以后，音讯全无。\
+那支队伍已经失踪很久了。 #id:1f
+heroine (sad): …… #id:20
+[signal arg="Bird"]
+Bird: 不论如何，\
+现在只有你能获得权势卡，\
+也只有你可以重新来过。 #id:21
+[signal arg="Bird"]
+Bird: 尽快习惯你的新身份吧，\
+如果你还想回家的话。 #id:22
+leave heroine

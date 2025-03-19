@@ -1,0 +1,59 @@
+join character_test leftmost
+join heroine (sad) rightmost
+heroine (shock): ！…… #id:87
+
+[signal arg="Bird"]
+Bird: ……\
+你总算醒了。 #id:88
+
+heroine (sad): 呃……\
+我失去意识多久了？ #id:89
+
+Bird: 好几天。\
+身体无恙吧？ #id:8a
+
+heroine (confidence): 我没事。\
+……那张权势卡，\
+它似乎完全为我所用了。 #id:8b
+
+Bird: ……\
+希望这一切都是值得的。 #id:8c
+
+heroine (confused): 我们是被团灭了吗？ #id:8d
+
+Bird: ……是的。\
+你在获得伟旋以后便昏迷不醒，\
+我们束手无策。 #id:8e
+
+heroine (sad): 好吧。\
+塞泽尔呢？\
+她去哪了？ #id:8f
+
+Bird: 她见你一直不醒，\
+于是决定自己上路，\
+去找她的那个朋友。 #id:90
+
+heroine (shock): 脱离玩家的队伍……一个人……\
+这太危险了……！\
+她真的这么做了？ #id:91
+
+Bird: ……至少她给我的解释就是如此。 #id:92
+
+heroine (sad): …… #id:93
+
+Bird: 她会没事的，杉。\
+比起那个，\
+更重要的是你打败了喀迈拉，获得了伟旋。 #id:94
+
+Bird: 有了这股力量，\
+我们可以深入到之前从未抵达过的地方。 #id:95
+
+Bird: 如果我们能找到休斯，\
+凑齐三张权势卡，\
+大家就能回到现实了。 #id:96
+
+heroine (sad): ……\
+我只是还有些不适应。 #id:97
+do Global.add_to_constant_deck(Global.card_prototypes.get("Unican"))
+leave heroine
+jump demo_clear/

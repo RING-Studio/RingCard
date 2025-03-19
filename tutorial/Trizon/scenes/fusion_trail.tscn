@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://n6tlquvaek4u"]
+
+[ext_resource type="Script" uid="uid://c8dfonlgel4sr" path="res://scripts/fusion_trail.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b8tee5cidprli" path="res://scenes/card.tscn" id="2"]
+[ext_resource type="Shader" uid="uid://xxn1vfn5jas6" path="res://shader/dissolve.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://d0eswjpmr8815" path="res://shader/enchanted.png" id="4"]
+
+[sub_resource type="Curve2D" id="Curve2D_um0rf"]
+_data = {
+"points": PackedVector2Array(-70.7189, 661.42, 70.7189, -661.42, -214, 1696, -169.449, 173.736, 169.449, -173.736, 338, 479, -180.215, 46.3041, 180.215, -46.3041, 850, 162, -118.284, -78.8314, 118.284, 78.8314, 1309, 248, 101.403, -273.127, -101.403, 273.127, 1483, 808, -28.3259, 547.376, 28.3259, -547.376, 856, 646)
+}
+point_count = 6
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_slsva"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_osbbe"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_slsva")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u2q3e"]
+resource_local_to_scene = true
+shader = ExtResource("3")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_osbbe")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/enchant = ExtResource("4")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.615686, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0901961, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = true
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.0
+shader_parameter/rainbow = false
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(139, -145)
+curve = SubResource("Curve2D_um0rf")
+script = ExtResource("1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(856, 646)
+rotation = -1.51909
+progress = 4071.95
+
+[node name="Card" parent="PathFollow2D" instance=ExtResource("2")]
+material = SubResource("ShaderMaterial_u2q3e")
+offset_left = -86.4
+offset_top = -121.2
+offset_right = 86.4
+offset_bottom = 121.2
+rotation = 1.5708
+mouse_filter = 2

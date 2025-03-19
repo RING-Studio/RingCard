@@ -1,0 +1,120 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "10d",
+"color": Color(0.871094, 0.92749, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "confidence",
+"description": "",
+"display_name": "杉",
+"mirror": false,
+"nicknames": ["小杉"],
+"offset": Vector2(-300, 0),
+"portraits": {
+"angry": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/angry.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"close_eyes": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/close_eyes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"confidence": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/yes.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"confused": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/confused.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"desperate": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/desperate.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"fear": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/fear.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"happy": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/happy.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"sad": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/sad.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"serious": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/serious.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"shame": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/shame.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+},
+"shock": {
+"export_overrides": {
+"image": "\"res://heroine_portrait/shock.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+}
+},
+"scale": 0.55
+}

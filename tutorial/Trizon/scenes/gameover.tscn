@@ -1,0 +1,148 @@
+[gd_scene load_steps=13 format=3 uid="uid://bk0dy5v2qet1w"]
+
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://d14nmmxqupgb5" path="res://scripts/gameover.gd" id="2"]
+[ext_resource type="Shader" uid="uid://dv3mgn6fcr8wu" path="res://shader/blur_bg.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://b56p6k0p35g05" path="res://UI/gradient2.png" id="4"]
+[ext_resource type="Shader" uid="uid://cu4v3xb632yqq" path="res://shader/squish.gdshader" id="5"]
+[ext_resource type="Texture2D" uid="uid://ce8fuhor5vm04" path="res://UI/sad_cg.png" id="6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbek5"]
+shader = ExtResource("3")
+shader_parameter/lod = 3.0
+shader_parameter/alpha = 1.0
+shader_parameter/edge = 0.05
+shader_parameter/darken = 0.4
+
+[sub_resource type="Shader" id="Shader_qb3qj"]
+code = "shader_type canvas_item;
+uniform float offset = -1200.0;
+void vertex() {
+	VERTEX.y += offset;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htx73"]
+shader = SubResource("Shader_qb3qj")
+shader_parameter/offset = -1200.0
+
+[sub_resource type="Shader" id="Shader_jln1i"]
+code = "shader_type canvas_item;
+uniform float offset = -800.0;
+void vertex() {
+	VERTEX.y += offset;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_24thn"]
+shader = SubResource("Shader_jln1i")
+shader_parameter/offset = -800.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dliw4"]
+resource_local_to_scene = true
+shader = ExtResource("5")
+shader_parameter/uv_mode = false
+shader_parameter/x_factor = 2.0
+shader_parameter/bulge = 4.75e-08
+
+[node name="Gameover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pbek5")
+layout_mode = 0
+offset_left = -130.0
+offset_top = -62.0
+offset_right = 2105.0
+offset_bottom = 1160.0
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_htx73")
+position = Vector2(487.043, 559)
+scale = Vector2(0.725634, 0.984189)
+skew = -0.453786
+texture = ExtResource("4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_24thn")
+position = Vector2(1102.74, 156.273)
+scale = Vector2(0.535314, 0.663067)
+skew = -0.453786
+texture = ExtResource("4")
+
+[node name="cg" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_dliw4")
+layout_mode = 0
+offset_left = 838.0
+offset_top = 205.0
+offset_right = 1540.0
+offset_bottom = 1053.0
+pivot_offset = Vector2(736, 449)
+texture = ExtResource("6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Area2D" type="Area2D" parent="cg"]
+position = Vector2(725, 410)
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cg/Area2D"]
+position = Vector2(-172, -79)
+polygon = PackedVector2Array(57, 5, 41, -139, 97, -234, 165, -318, 311, -273, 398, -135, 379, 37, 360, 193, 401, 272, 401, 356, 427, 409, 429, 481, 306, 480, 197, 465, 120, 475, 54, 492, -21, 448, -69, 387, -166, 384, -181, 280, -193, 204, -130, 160, -39, 176, -38, 73, 7, 34)
+
+[node name="LeftStart" type="Label" parent="."]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 360.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 40
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 40.0
+offset_right = 1280.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "GAMEOVERAT"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 128.0
+offset_right = 1332.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 50
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 244.0
+offset_right = 1431.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 40
+text = "CLICKTOSPAWN"
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="input_event" from="cg/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="cg/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="cg/Area2D" to="." method="_on_area_2d_mouse_exited"]

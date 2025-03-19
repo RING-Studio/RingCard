@@ -1,0 +1,43 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=4 uid="uid://whfdalugj8yn"]
+
+[sub_resource type="Curve" id="Curve_icmtj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ossa"]
+curve = SubResource("Curve_icmtj")
+
+[sub_resource type="Curve" id="Curve_fibon"]
+min_value = -1.0
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tu4ac"]
+curve = SubResource("Curve_fibon")
+
+[sub_resource type="Curve" id="Curve_yhytm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.712030053138733, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qqghv"]
+curve = SubResource("Curve_yhytm")
+
+[resource]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 120, 1)
+angle_curve = SubResource("CurveTexture_tu4ac")
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.2, 0)
+spread = 64.0
+initial_velocity_min = 35.58000183105469
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.019999999552965164
+scale_max = 0.05000000074505806
+alpha_curve = SubResource("CurveTexture_2ossa")
+hue_variation_min = -0.05999999865889549
+hue_variation_max = -0.009999999776482582
+hue_variation_curve = SubResource("CurveTexture_qqghv")

@@ -1,0 +1,394 @@
+[gd_scene load_steps=43 format=3 uid="uid://cgq7dv3qbi1pc"]
+
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="1"]
+[ext_resource type="Script" uid="uid://co53qjulaq0wl" path="res://scripts/pick_from_deck.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dvogtnkoebwon" path="res://UI/gradient3.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://sqwmuqdhq8f4" path="res://scenes/deck_view.tscn" id="4"]
+[ext_resource type="Shader" uid="uid://bdarqlbs74ceo" path="res://shader/deck_view_mask.gdshader" id="5"]
+[ext_resource type="Shader" uid="uid://c0mntp1ygc7mn" path="res://shader/hivebg.gdshader" id="6"]
+[ext_resource type="PackedScene" uid="uid://dgxn5o0e3rakm" path="res://scenes/aura.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://b8tee5cidprli" path="res://scenes/card.tscn" id="8"]
+[ext_resource type="Shader" uid="uid://xxn1vfn5jas6" path="res://shader/dissolve.gdshader" id="9"]
+[ext_resource type="Texture2D" uid="uid://d0eswjpmr8815" path="res://shader/enchanted.png" id="10"]
+[ext_resource type="Shader" uid="uid://bd2kmn2mtspk2" path="res://shader/frost.gdshader" id="11"]
+
+[sub_resource type="Shader" id="Shader_w3noi"]
+code = "shader_type canvas_item;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform float lod: hint_range(0.0, 5) = 0.0;
+uniform float alpha: hint_range(0.0, 1.0) = 1.0;
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV, lod);
+	color.rgb = color.rgb * 0.4;
+	color.a = alpha;
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1twab"]
+resource_local_to_scene = true
+shader = SubResource("Shader_w3noi")
+shader_parameter/lod = 3.0
+shader_parameter/alpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bry8p"]
+resource_local_to_scene = true
+shader = ExtResource("5")
+shader_parameter/edge = 0.05
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyavb"]
+resource_local_to_scene = true
+shader = ExtResource("6")
+shader_parameter/shift = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jco23"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uo6q0"]
+resource_local_to_scene = true
+invert = true
+noise = SubResource("FastNoiseLite_jco23")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36q3u"]
+resource_local_to_scene = true
+shader = ExtResource("9")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_uo6q0")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/enchant = ExtResource("10")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.917647, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0117647, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = false
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.0
+shader_parameter/rainbow = false
+
+[sub_resource type="Shader" id="Shader_nbpeg"]
+code = "shader_type canvas_item;
+uniform sampler2D noise: repeat_enable;
+uniform float alpha: hint_range(0.0, 5.0) = 0;
+void fragment() {
+	vec4 main_texture = texture(TEXTURE, UV);
+	main_texture.a = 1.0;
+	vec4 noise_texture = texture(noise, UV + TIME/50.0);
+	//vec4 main_texture = texture(TEXTURE, UV+vec2(0.02, 0.02)) + texture(TEXTURE, UV+vec2(-0.02, -0.02)) +
+	//					texture(TEXTURE, UV+vec2(-0.02, 0.02)) + texture(TEXTURE, UV+vec2(0.02, -0.02));
+	main_texture.a = sign(main_texture.a);
+	main_texture.rbg = vec3(sin(TIME/0.4 + 3.14*UV[0])/1.5+0.55, cos(TIME/0.5 + 3.14*UV[1])/1.5+0.55, 0.1);
+	main_texture.rbg = main_texture.rbg + (noise_texture.rbg)/1.0;
+	main_texture.a = main_texture.a * noise_texture.x * alpha;
+	//main_texture.a = 1.0;
+	vec2 to_origin = vec2(smoothstep(0.0, 1.0, abs(UV[0]-0.5)), smoothstep(0.0, 1.0, abs(UV[1]-0.5)));
+	main_texture.a = main_texture.a * smoothstep(1.0, 0.0, 2.0*max(to_origin[0], to_origin[1]));
+	COLOR = main_texture;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_exq0w"]
+noise_type = 0
+seed = 5
+frequency = 0.0028
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5kbgf"]
+seamless = true
+noise = SubResource("FastNoiseLite_exq0w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4b86"]
+resource_local_to_scene = true
+shader = SubResource("Shader_nbpeg")
+shader_parameter/noise = SubResource("NoiseTexture2D_5kbgf")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b1rhf"]
+resource_local_to_scene = true
+seed = 9
+frequency = 0.0013
+offset = Vector3(60, -140, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w4ndn"]
+resource_local_to_scene = true
+noise = SubResource("FastNoiseLite_b1rhf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa0gy"]
+resource_local_to_scene = true
+shader = ExtResource("9")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_w4ndn")
+shader_parameter/dissolve_value = 0.0
+shader_parameter/enchant = ExtResource("10")
+shader_parameter/burn_size = 0.11
+shader_parameter/burn_color = Color(0.988235, 0.701961, 0.0431373, 1)
+shader_parameter/burn_color2 = Color(0.858824, 0.25098, 0.0117647, 1)
+shader_parameter/shiny = false
+shader_parameter/freeze_progress = 0.0
+shader_parameter/randomizer = 3.14
+shader_parameter/enable_burn = false
+shader_parameter/saturation = false
+shader_parameter/enrich = 1.0
+shader_parameter/rainbow = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfq8w"]
+resource_local_to_scene = true
+shader = ExtResource("11")
+shader_parameter/randomizer = 3.14
+shader_parameter/freeze_progress = 0.0
+
+[sub_resource type="Shader" id="Shader_r70l5"]
+code = "shader_type canvas_item;
+uniform float alpha : hint_range(0.0, 1.0);
+
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = alpha*COLOR.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cnlag"]
+resource_local_to_scene = true
+shader = SubResource("Shader_r70l5")
+shader_parameter/alpha = 0.0
+
+[sub_resource type="Curve" id="Curve_icmtj"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2ossa"]
+curve = SubResource("Curve_icmtj")
+
+[sub_resource type="Curve" id="Curve_fibon"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tu4ac"]
+curve = SubResource("Curve_fibon")
+
+[sub_resource type="Curve" id="Curve_yhytm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qqghv"]
+curve = SubResource("Curve_yhytm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5lc7h"]
+resource_local_to_scene = true
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 120, 1)
+angle_min = -253.4
+angle_max = -150.8
+angle_curve = SubResource("CurveTexture_tu4ac")
+inherit_velocity_ratio = 0.5
+direction = Vector3(1, -0.2, 0)
+spread = 25.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.02
+scale_max = 0.05
+alpha_curve = SubResource("CurveTexture_2ossa")
+hue_variation_min = -0.85
+hue_variation_max = -0.8
+hue_variation_curve = SubResource("CurveTexture_qqghv")
+
+[sub_resource type="Curve" id="Curve_l5kqc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ujhps"]
+curve = SubResource("Curve_l5kqc")
+
+[sub_resource type="Curve" id="Curve_mksw8"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.474654, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.956044), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ojdvp"]
+curve = SubResource("Curve_mksw8")
+
+[sub_resource type="Curve" id="Curve_qxftr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.71203, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sn6b1"]
+curve = SubResource("Curve_qxftr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsb6n"]
+resource_local_to_scene = true
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(80, 120, 1)
+angle_curve = SubResource("CurveTexture_ojdvp")
+inherit_velocity_ratio = 0.1
+direction = Vector3(0, -0.2, 0)
+spread = 64.0
+initial_velocity_min = 35.58
+initial_velocity_max = 146.25
+gravity = Vector3(0, 50, 0)
+scale_min = 0.0
+scale_max = 0.06
+alpha_curve = SubResource("CurveTexture_ujhps")
+hue_variation_min = -0.1
+hue_variation_max = 0.07
+hue_variation_curve = SubResource("CurveTexture_sn6b1")
+
+[node name="PickFromDeck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="buttonbgleft" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 0
+offset_left = -20.0
+offset_top = 915.0
+offset_right = 425.0
+offset_bottom = 1019.0
+texture = ExtResource("3")
+expand_mode = 1
+
+[node name="buttonbgright" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 0
+offset_left = 391.0
+offset_top = 915.0
+offset_right = 776.0
+offset_bottom = 1019.0
+texture = ExtResource("3")
+expand_mode = 1
+flip_h = true
+
+[node name="DeckView" parent="." instance=ExtResource("4")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 365.0
+offset_top = 83.0
+offset_right = 365.0
+
+[node name="BlurBg" parent="DeckView" index="1"]
+material = SubResource("ShaderMaterial_1twab")
+
+[node name="Mask" parent="DeckView" index="3"]
+material = SubResource("ShaderMaterial_bry8p")
+
+[node name="Event" type="Control" parent="."]
+anchors_preset = 0
+anchor_left = 0.0015625
+anchor_top = 0.00462963
+anchor_right = 0.401563
+anchor_bottom = 1.00556
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Event"]
+material = SubResource("ShaderMaterial_xyavb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.000915527
+offset_bottom = -191.005
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextEdit" type="Label" parent="Event"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0442708
+anchor_top = 0.730802
+anchor_right = 0.942707
+anchor_bottom = 0.791856
+theme_override_font_sizes/font_size = 25
+text = "Pick two creatures to combine them"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Event"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 97.0
+offset_right = 746.0
+offset_bottom = 765.0
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 915.0
+offset_right = 391.0
+offset_bottom = 1019.0
+theme_override_font_sizes/font_size = 30
+text = "CONFIRM"
+flat = true
+alignment = 0
+
+[node name="aura_logic" parent="Confirm" instance=ExtResource("7")]
+
+[node name="Skip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 915.0
+offset_right = 749.0
+offset_bottom = 1019.0
+theme_override_font_sizes/font_size = 30
+text = "SKIP"
+flat = true
+alignment = 2
+
+[node name="aura_logic" parent="Skip" instance=ExtResource("7")]
+
+[node name="Card" parent="." instance=ExtResource("8")]
+material = SubResource("ShaderMaterial_36q3u")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112812
+anchor_top = 0.196112
+anchor_right = 0.292814
+anchor_bottom = 0.645
+offset_left = 86.4
+offset_top = 121.2
+offset_right = -86.4019
+offset_bottom = -121.2
+scale = Vector2(2, 2)
+mouse_filter = 2
+movable = false
+metadata/_edit_use_anchors_ = true
+
+[node name="aura" parent="Card" index="0"]
+material = SubResource("ShaderMaterial_n4b86")
+
+[node name="CardIcon" parent="Card" index="1"]
+material = SubResource("ShaderMaterial_xa0gy")
+
+[node name="Frost" parent="Card" index="2"]
+material = SubResource("ShaderMaterial_jfq8w")
+
+[node name="hit" parent="Card" index="10"]
+material = SubResource("ShaderMaterial_cnlag")
+
+[node name="Particles" parent="Card" index="11"]
+process_material = SubResource("ParticleProcessMaterial_5lc7h")
+
+[node name="Enchanted" parent="Card" index="12"]
+process_material = SubResource("ParticleProcessMaterial_tsb6n")
+
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
+
+[editable path="DeckView"]
+[editable path="Card"]

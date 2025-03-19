@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://cndxgdo1treq7"]
+
+[ext_resource type="Script" uid="uid://c12end4uuhrkp" path="res://scripts/grid.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cw4km1sew7yq5" path="res://UI/dot.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0i57"]
+size = Vector2(74, 111)
+
+[sub_resource type="Curve" id="Curve_r5oir"]
+_data = [Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.01202, 1.4, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ujikr"]
+curve = SubResource("Curve_r5oir")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0kssp"]
+resource_local_to_scene = true
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(100, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_max = 225.29
+gravity = Vector3(0, 500, 0)
+scale_min = 0.1
+scale_max = 0.15
+alpha_curve = SubResource("CurveTexture_ujikr")
+
+[node name="Grid" type="Control"]
+z_index = -1
+custom_minimum_size = Vector2(170, 240)
+layout_mode = 3
+anchor_right = 0.0885417
+anchor_bottom = 0.222222
+mouse_filter = 2
+script = ExtResource("1")
+metadata/_edit_use_anchors_ = true
+
+[node name="frozen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -14.0
+offset_top = -18.0
+offset_right = 188.0
+offset_bottom = 258.0
+mouse_filter = 2
+color = Color(0, 1, 1, 0.545098)
+
+[node name="Gridbg" type="ColorRect" parent="."]
+z_index = -100
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 171.0
+offset_bottom = 241.0
+mouse_filter = 2
+color = Color(0.099986, 0.099986, 0.0999859, 0.560784)
+
+[node name="GridHitBox" type="Area2D" parent="."]
+z_index = -1
+
+[node name="Shape" type="CollisionShape2D" parent="GridHitBox"]
+position = Vector2(85, 127)
+shape = SubResource("RectangleShape2D_a0i57")
+
+[node name="LandParticle" type="GPUParticles2D" parent="."]
+position = Vector2(85, 240)
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_0kssp")
+texture = ExtResource("2")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+
+[connection signal="area_entered" from="GridHitBox" to="." method="_on_grid_hit_box_area_entered"]
+[connection signal="area_exited" from="GridHitBox" to="." method="_on_grid_hit_box_area_exited"]

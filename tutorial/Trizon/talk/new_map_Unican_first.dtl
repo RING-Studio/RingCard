@@ -1,0 +1,19 @@
+join character_test leftmost
+[signal arg="hunter"]
+hunter: 呃，\
+这是什么感觉？ #id:79
+join heroine (shock) rightmost
+heroine (shock): ……有股力量，正在拉扯我。\
+唔，仿佛一个无形的漩涡。 #id:7a
+[signal arg="hunter"]
+hunter: 远处有什么不得了的东西存在，\
+等等，\
+还有一股很淡的硫磺味。 #id:7b
+[signal arg="Bird"]
+Bird: 是喀迈拉，\
+那个混蛋也在这附近…… #id:7c
+[signal arg="hunter"]
+hunter: 唉，\
+我总有一种不好的预感。\
+希望咱们别再碰到它。 #id:7d
+leave heroine

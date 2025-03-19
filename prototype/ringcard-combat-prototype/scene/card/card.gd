@@ -6,16 +6,16 @@ class_name Card
 @onready var drop_area_detector: Area2D = $DropAreaDetector
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 
+@onready var card_visual: Control = $CardVisual
 @onready var template_sprite: Sprite2D = $CardVisual/TemplateSprite
 @onready var illust_sprite: Sprite2D = $CardVisual/IllustSprite
 @onready var back_sprite: Sprite2D = $CardVisual/BackSprite
 @onready var discription_label: Label = $CardVisual/DiscriptionLabel
 @onready var cost_label: Label = $CardVisual/CostLabel
 
-
-
 signal reparent_requested(card: Card)
 
+# card data
 var target_type: CardData.TargetType
 var target_num: int
 var targets: Array[Node] = []
@@ -29,6 +29,9 @@ var discription: String
 var type: CardData.Type
 var cost: int
 var duration: int = 0 # 政策卡持续回合
+
+# tween
+var scale_tween: Tween
 
 # debug
 var original_global_position
@@ -65,6 +68,36 @@ func update_card_visual():
 	cost_label.text = str(cost)
 
 
+func _on_mouse_entered():
+	z_index += 1
+	enlarge()
+
+func _on_mouse_exited():
+	z_index -= 1
+	shrink()
+
+func enlarge():
+	if scale_tween: 
+		scale_tween.kill()
+	change_scale(Vector2(1.2, 1.2))
+
+func shrink():
+	if scale_tween: 
+		scale_tween.kill()
+	change_scale(Vector2(1.0, 1.0))
+
+func change_scale(
+		end_scale: Vector2,
+		_last_time: float = 0.2,
+		_ease: Tween.EaseType = Tween.EASE_OUT,
+		_trans: Tween.TransitionType = Tween.TRANS_QUART
+	):
+	if scale_tween: 
+		scale_tween.kill()
+	scale_tween = create_tween().set_ease(_ease).set_trans(_trans)
+	scale_tween.tween_property(card_visual, "scale", end_scale, _last_time)
+
+
 func get_targets():
 	match target_type:
 		CardData.TargetType.SELF:
@@ -79,7 +112,7 @@ func get_targets():
 
 func choose_targets(target_type: CardData.TargetType):
 	targets = get_tree().get_nodes_in_group("player")
-	pass
+	return targets
 
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域

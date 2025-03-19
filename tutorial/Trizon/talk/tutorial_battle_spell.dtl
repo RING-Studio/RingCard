@@ -1,0 +1,6 @@
+join character_test leftmost
+join heroine (shock) rightmost
+[signal arg="Bird"]
+Bird:顺带一提，\
+除了生物之外，法术也是卡的一种类别。\
+来看看这张卡。 #id:b6

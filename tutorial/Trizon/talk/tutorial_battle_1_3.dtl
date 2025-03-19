@@ -1,0 +1,8 @@
+join character_test leftmost
+join heroine (confidence) rightmost
+[signal arg="Bird"]
+Bird:很好，你刚刚献给了这张卡一个祭品，\
+所以它的费用减少了。 #id:a9
+[signal arg="Bird"]
+Bird:你可以将自己的任何生物当作祭品使用，物尽其用。\
+再献给它一个祭品吧。 #id:aa

@@ -1,0 +1,15 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c7yayw0yycdvg"
+path="res://dialogic_translation/dialogic_tutorial_hello_translation.en.translation"
+
+[deps]
+
+source_file="res://dialogic_translation/dialogic_tutorial_hello_translation.csv"
+dest_files=["res://dialogic_translation/dialogic_tutorial_hello_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_hello_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_hello_translation.zh_CN.translation"]
+
+[params]
+
+dummy_value_ignore_me=0

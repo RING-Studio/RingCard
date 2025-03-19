@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ced8h36pjy8uv"
+path="res://.godot/imported/Default.svg-1fd3681b48a94e5c28322f2bd53da219.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Buttons/Square-Medium/Levels/Default.svg"
+dest_files=["res://.godot/imported/Default.svg-1fd3681b48a94e5c28322f2bd53da219.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

@@ -1,0 +1,6 @@
+join character_test leftmost
+join heroine (confidence) rightmost
+[signal arg="Bird"]
+Bird:法术卡没有攻击力或是生命值，也不能被部署到场上。\
+当你把一张法术卡拖到格子里时，它的效果会被释放到目标格子里。\
+试试把这张火球用出去。 #id:b8

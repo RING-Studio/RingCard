@@ -21,6 +21,10 @@ func _ready() -> void:
 	name_label.text = site_data.site_name
 	update_IF_label()
 
+	# TODO: 自适应texture形状
+	#texture_button.pivot_offset = texture_button.size / 2.0
+	#texture_button.texture_click_mask.create_from_image_alpha(texture_button.texture_normal.get_image())
+
 
 func change_pIF(value: int):
 	pIF += value

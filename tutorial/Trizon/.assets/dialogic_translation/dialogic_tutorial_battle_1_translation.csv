@@ -1,0 +1,33 @@
+﻿key,en,ja,zh_CN
+"<!MissingKey:The monster is here,>","The monster is here,
+... so annoying.
+Let's deal with it first.","モンスターが来た、
+……本当にうるさい。
+まずはこれを片付けよう。","怪物来了，
+……真是烦人。
+先把它解决吧。"
+"<!MissingKey:We have to defeat all the enemies on the opposite side to proceed,>","We have to defeat all the enemies on the opposite side to proceed,
+including that bear.","向こうの敵をすべて倒さないと進めません、
+あのクマも含めて。","我们得击败对面的所有敌人才能接着前进，
+也就是那头熊。"
+<!MissingKey:Wh-what should I do?>,Wh-what should I do?,ど、どうすればいいの？,我我我该怎么做？
+"<!MissingKey:Listen up,>","Listen up,
+the five squares near us are our field,
+and the five squares across from them are the enemy's field.","聞いて、
+この10マスのうち、私たちの5つのマスが私たちの場、
+向かいの5つのマスが敵の場です。","听好，
+这十个格子里靠近我们的五格是我们的场地，
+对面的那五格则是敌人的场地。"
+"<!MissingKey:First, get to know this card.>","First, get to know this card.",まずはこのカードを見てみよう。,你先来认识一下这张卡牌。
+<!MissingKey:The number at the top-left corner of each card represents the cost required to deploy the card.>,The number at the top-left corner of each card represents the cost required to deploy the card.,カードの左上の数字は、そのカードを展開するために必要な費用を示しています。,每张卡左上角的数字则代表着部署这张卡所需要的费用。
+<!MissingKey:You've never fought a monster before?>,"You've never fought a monster before?
+Alright, let me teach you.","モンスターと戦ったことがないのか？
+じゃあ、教えてあげる。","你从来没有和怪物战斗过吗？
+好吧，我来教你。"
+"<!MissingKey:Pay attention to the number at the bottom-left corner, which is its attack power. Each time it attacks, it deals damage equal to its attack value.>","Pay attention to the number at the bottom-left corner, which is its attack power. Each time it attacks, it deals damage equal to its attack value.
+The number at the bottom-right corner is its health, which represents the damage it can take.
+When its health reaches zero, the creature is destroyed, meaning it dies.","左下の数字に注目、それが攻撃力です。攻撃するたびにその攻撃力の分だけダメージを与えます。
+右下の数字はその生命力で、受けられるダメージの上限を示しています。
+生命力がゼロになったら、このクリーチャーは焼かれ、つまり死ぬことになります。","注意它左下角的数字，这是它的攻击力。它每次攻击时都将造成它攻击力数值的伤害
+右下角的数字则是它的生命值，代表它能承受的伤害上限。
+当它的生命值归零，这个生物就会被烧毁，也就是死亡。"

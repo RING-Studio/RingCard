@@ -1,0 +1,18 @@
+join character_test leftmost
+[signal arg="Bird"]
+Bird: 嘿，\
+醒醒。 #id:c4
+join heroine (sad) rightmost [animation="Fade In Up"]
+heroine: ……\
+呃，头好晕。\
+这里是哪？ #id:c5
+heroine (shock): 小，小鸟？\
+……我的身体，\
+变回来了。 #id:c6
+[signal]
+Bird: ……唉，\
+你看起来可真不靠谱……\
+为什么偏偏会是一个小鬼。 #id:c7
+heroine (confused): ……你好，\
+请问到底发生什么了？ #id:c8
+leave heroine

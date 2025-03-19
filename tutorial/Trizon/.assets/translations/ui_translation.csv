@@ -1,0 +1,102 @@
+﻿key,en,ja,zh_CN
+<!MissingKey:Graveyard>,Graveyard,墓地,墓地
+SAVEQUIT,Save & Quit,セーブして終了,保存并退出
+IMMUNE,Immune,免疫,免疫
+"<!MissingKey:At the end of battle, a random ally on the field gain +1 permanent attack>","At the end of battle, a random ally on the field gain +1 permanent attack",戦闘終了時、フィールド上のランダムな味方が永久に+1攻撃力を得る,战斗结束时，一个随机友方获得永久的1点攻击力
+ABANDON,Abandon current run,現在のプレイを放棄,放弃本局游戏
+TUTORIAL,Tutorial,チュートリアル,教程
+"<!MissingKey:When a creature with 0 attack enters the field, it gains 1 attack>","When a creature with 0 attack enters the field, it gains 1 attack",攻撃力0の生物が場に出た時、1点の攻撃力を得る,你的攻击力为0的生物入场时，获得1点攻击力
+NEXTLEVEL,Next Level,次のレベル,下一层
+FULLSCREEN,Fullscreen,全画面,全屏
+SHENZHEN,Cartridge,カートリッジ,弹匣
+FUSIONTIME,Fusion attempts:,融合回数:,融合次数：
+<!MissingKey:Freeze any creature entered the field>,Freeze any creature entered the field,生物が場に出た時、凍結状態になる,生物入场时，陷入冰冻状态
+STEINGATE,Christina,クリスティーナ,克里斯蒂娜
+LASTWAVE,Last Wave,最終ウェーブ,最后一波
+<!MissingKey:Any creature entered the field gain +1/+1>,Any creature entered the field gain +1/+1,生物が場に出た時、+1/+1を得る,生物入场时，获得+1/+1
+"<!MissingKey:At the end of the turn, your leftmost creature gains 3 health>","At the end of the turn, your leftmost creature gains 3 health",ターン終了時、最も左の味方が3点の体力を得る,回合结束时，最靠左的友方获得3点生命值
+WET,Soaked,びしょ濡れ,湿哒哒
+SYAMIKO,Statue,像,雕像
+ENEMYKILLED,Enemies killed:,撃破数:,击杀数：
+"<!MissingKey:At the start of the turn, if you have no creatures on the field, draw a card>","At the start of the turn, if you have no creatures on the field, draw a card",ターン開始時、フィールドに生物がいなければ、カードを1枚引く,回合开始时，如果你的场上没有生物，抽一张牌
+<!MissingKey:New game>,New game,新規ゲーム,新的一局
+CLICKTOSPAWN,Click on a blank space to respawn…,空白部分をクリックして再生…,点击空白处以重生……
+bSAFE,Mild,穏やか,温和
+SCISSOR,Scissor,はさみ,半片剪刀
+PASSEDNODE,Nodes passed:,通過ノード:,经过节点：
+DELETE,Delete,削除,删除
+AREA,Area,エリア,区域
+<!MissingKey:Prologue>,Prologue,序章,序章
+GAMEOVERAT,Stopped at,到達地点:,止步于
+"<!MissingKey:When an enemy dies, a random ally gain +2 attack>","When an enemy dies, a random ally gain +2 attack",敵が死亡した時、ランダムな味方が+2攻撃力を得る,敌人死亡时，一个随机友方获得+2攻击力
+MAP,Map,地図,地图
+BACKTOTITLE,Back to title,タイトル画面に戻る,返回标题画面
+bICE,Cold,寒冷,寒冷
+DECK,Deck,デッキ,卡组
+bFIRE,Arid,乾燥,干旱
+<!MissingKey:Creep>,Creep,不気味,诡异
+tNONE,Normal,森,森林
+RASENN,Drillbit,ドリル,小钻头
+BROCOLI,Divine Tree,神樹,神树
+CONFIRM,Confirm,確認,确认
+RELICFLAGinfo,Search point needed until getting next relic,この進捗を満たすと、次の遺物が得られる,填满此进度以获得下一个遗物
+EFFECT,Effect,効果,效果
+<!MissingKey:Deal 1 damage to any creature entered the field>,Deal 1 damage to any creature entered the field,生物が場に出た時、1点のダメージを受ける,生物入场时，受到一点伤害
+tWIDE,Plain,平野,平原
+"<!MissingKey:At the start of the turn, all creatures in your hand gain +1 atk and hp>","At the start of the turn, all creatures in your hand gain +1 atk and hp",ターン開始時、手札の全生物が1点の攻撃力と体力を得る,回合开始时，手牌中的所有生物获得1点攻击力与生命值
+PICKCHANCE,Chances to add a card to your deck,残りカード選択回数,剩余选卡次数
+SFXVOLUME,Sound effect volume,効果音音量,音效音量
+UNLOCKCARD, NEW CARDS HAVE BEEN UNLOCKED,新しいカードが解除されました, 张 新 卡 牌 已 解 锁
+BATTLEWON,Battles won:,勝利数:,胜场：
+PITCHCHANGE,Pitch Change,BGMピッチ揺れ,音高变化
+VSYNC,VSync,垂直同期,垂直同步
+PROTECT,Protect,保護,保护
+CONTINUE,Continue,続行,继续
+TRIBUTE4,"For each cost point of the selected card, gain +1 card selection attempt",選んだカードの費用1につき、カード選択回数+1,选择的卡每有一点费用，选卡次数+1
+<!MissingKey:Card reward>,Card reward,カード選択,选卡机会
+bHURT,Thorny,茨,荆棘
+TRIBUTE5,"For each health point of the selected card, restore 1 player health",選んだカードの体力1につき、プレイヤーのライフを1回復する,选择的卡每有一点生命值，回复一点玩家血量
+TRIBUTE6,+1 Relic,ランダムな遺物を1個獲得する,获得一个随机遗物
+REDPIG,Lone Ranger,ロンレンジャー,独行侠
+TRIBUTE0,You can perform one fusion when selecting a card next time,次のカード選択時に1回融合できる,下次选卡时可以进行一次融合
+bERODE,Polluted,呪い,诅咒
+TRIBUTE1,+2 card selection attempts,カード選択回数+2,选卡次数+2
+TRIBUTE2,Gain a ‘Capture’ card,『キャプチャー』カードを1枚獲得,获得一张逮捕
+TRIBUTE3,Creatures in your deck get +1/+1,デッキ内の生物は+1/+1を得る,卡组中的生物获得+1+1
+EVENT,Event,イベント,事件
+bNONE,Barren,荒廃,荒芜
+SCREENSHAKE,Screen Shake,画面揺れ,屏幕抖动
+CAMERAPANNING,Camera Panning,マウスに追従,镜头跟随鼠标
+<!MissingKey:Any creature entered the field get protected>,Any creature entered the field get protected,生物が場に出た時、保護を得る（次のダメージが0になる）,生物入场时，获得保护(受到的下一次伤害为0)
+NEXTAREA,Next Area,次のエリアへ,前往下一区域
+"<!MissingKey:At the end of your turn, burn the rightmost card in your hand>","At the end of your turn, burn the rightmost card in your hand",ターン終了時、手札の右端のカードを燃やす,回合结束时，烧毁你手牌中最右侧的卡
+SAGA,Swordless,剣なき者,无剑者
+"<!MissingKey:When one of your creatures dies, a random creature on your field gains +1/+1>","When one of your creatures dies, a random creature on your field gains +1/+1",あなたの生物が1体死亡した時、フィールド上のランダムな生物が+1/+1を得る,你的生物死亡后，你场上的一个随机生物获得+1+1
+STORYMODE,Main story,ストーリーモード,剧情模式
+HUMBIRD,Hummingbird,ハチドリ,蜂鸟
+PICKACARDFIRST,Pick A Card First,まず、デッキに加えるカードを選んでください,请先选择想要加入卡组的卡
+TURN,Turn,ターン,回合
+tLONG,Valley,渓谷,峡谷
+<!MissingKey:None effect>,None effect,効果なし,无效果
+<!MissingKey:Refresh>,Refresh,更新,刷新
+"<!MissingKey:When skipping a card selection, 20% chance to gain one selection attempt>","When skipping a card selection, 20% chance to gain one selection attempt",カード選択をスキップする際、20%の確率で1回カード選択回数を得る,跳过一次选卡时，20%获得一次选卡机会
+ENDTURN,End turn,ターン終了,结束回合
+RELICFLAG,Search point,探索進捗,寻宝进度
+MUSICVOLUME,Music volume,BGM音量,背景音乐音量
+CYOKO,Choco Shell,チョココロネ,巧克力螺
+<!MissingKey:Some nodes are already eroded>,Some nodes are already eroded,一部のマスは既に腐食している,部分地块已被腐蚀
+SKIP,Skip,スキップ,跳过
+WAVELEFT,Wave Left,残りウェーブ,剩余波次
+bGOOD,Lush,繁茂,繁茂
+PPOINT,P,P,P
+SETTINGS,Settings,設定,设置
+"<!MissingKey:If you have only one creature on the field, at the end of the turn, it gains +4 atk and hp>","If you have only one creature on the field, at the end of the turn, it gains +4 atk and hp",フィールドに生物が1体だけの場合、ターン終了時にその生物が+4攻撃と体力を得る,如果你的场上只有一个生物，回合结束时，使其获得+4攻击力与生命值
+"<!MissingKey:At the start of the turn, all allies gain +1 attack>","At the start of the turn, all allies gain +1 attack",ターン開始時、味方全員攻撃力+1,回合开始时，所有友方获得+1攻击力
+"<!MissingKey:When the player takes damage, a random enemy lose 1 attack>","When the player takes damage, a random enemy lose 1 attack",プレイヤーがダメージを受けた時、ランダムな敵が攻撃力-1される,玩家受到伤害后，一个随机敌人攻击力-1
+COLLECTION,Collection,コレクション,收藏
+<!MissingKey:>,,カードがプレイされた後、供物の必要数が+1になる,卡牌被打出后，其祭品需求+1
+HPBAR,Amount of your life points,残りライフ,剩余血量
+PLOTPOPUP,Plot node,ストーリーノード,剧情节点
+KORO,Super Creature,スーパークリーチャー,超生物
+LIBRARY,Library,図鑑,图鉴
+"<!MissingKey:When entering a campfire node, gain +2 card selection attempts>","When entering a campfire node, gain +2 card selection attempts",キャンプファイヤーノードに入ると、カード選択回数が+2される,进入营火节点时，选卡次数+2

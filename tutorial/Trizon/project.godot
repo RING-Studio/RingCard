@@ -1,0 +1,178 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Trizon"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=144
+boot_splash/fullsize=false
+boot_splash/image="res://UI/sunset.png"
+config/icon="res://icon.svg"
+config/windows_native_icon="res://UI/icon.ico"
+
+[autoload]
+
+zh_CN="*res://scenes/zh_cn.tscn"
+en="*res://scenes/en.tscn"
+ja="*res://scenes/ja.tscn"
+Global="*res://scripts/Global.gd"
+GlobalWorldEnvironment="*res://scripts/WorldEnvironment.gd"
+Popups="*res://scenes/popup.tscn"
+Music="*res://scenes/music.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+
+[dialogic]
+
+directories/dch_directory={
+"Aggres": "res://talk_character/Aggres.dch",
+"Bird": "res://talk_character/Bird.dch",
+"Mother": "res://talk_character/Mother.dch",
+"character_test": "res://talk_character/character_test.dch",
+"chimera": "res://talk_character/chimera.dch",
+"fire_bird": "res://talk_character/fire_bird.dch",
+"heroine": "res://talk_character/heroine.dch",
+"hunter": "res://talk_character/hunter.dch",
+"unkown": "res://talk_character/unkown.dch"
+}
+directories/dtl_directory={
+"chimera2_join_party": "res://talk/chimera2_join_party.dtl",
+"demo_clear": "res://talk/demo_clear.dtl",
+"hunter_bgtalk": "res://talk/hunter_bgtalk.dtl",
+"hunter_bgtalk_2": "res://talk_character/hunter_bgtalk_2.dtl",
+"huse_first_intro": "res://talk/huse_first_intro.dtl",
+"load_timeline": "res://talk/load_timeline.dtl",
+"meet_boss_1": "res://talk/meet_boss_1.dtl",
+"meet_boss_2": "res://talk/meet_boss_2.dtl",
+"meet_chimera": "res://talk/meet_chimera.dtl",
+"meet_fire_bird_first": "res://talk/meet_fire_bird_first.dtl",
+"meet_hunter": "res://talk/meet_hunter.dtl",
+"meet_hunter_2": "res://talk/meet_hunter_2.dtl",
+"new_map_Unican_first": "res://talk/new_map_Unican_first.dtl",
+"roffia_bird": "res://talk/roffia_bird.dtl",
+"run_start_1": "res://talk/run_start_1.dtl",
+"run_start_act2": "res://talk/run_start_act2.dtl",
+"run_start_lose_chimera": "res://talk/run_start_lose_chimera.dtl",
+"speedrun_chimera": "res://talk/speedrun_chimera.dtl",
+"tutorial_battle_1": "res://talk/tutorial_battle_1.dtl",
+"tutorial_battle_1_1": "res://talk/tutorial_battle_1_1.dtl",
+"tutorial_battle_1_2": "res://talk/tutorial_battle_1_2.dtl",
+"tutorial_battle_1_3": "res://talk/tutorial_battle_1_3.dtl",
+"tutorial_battle_1_4": "res://talk/tutorial_battle_1_4.dtl",
+"tutorial_battle_1_4_exception": "res://talk/tutorial_battle_1_4_exception.dtl",
+"tutorial_battle_1_5": "res://talk/tutorial_battle_1_5.dtl",
+"tutorial_battle_1_6": "res://talk/tutorial_battle_1_6.dtl",
+"tutorial_battle_spell": "res://talk/tutorial_battle_spell.dtl",
+"tutorial_battle_spell_1": "res://talk/tutorial_battle_spell_1.dtl",
+"tutorial_battle_spell_2": "res://talk/tutorial_battle_spell_2.dtl",
+"tutorial_battle_spell_3": "res://talk/tutorial_battle_spell_3.dtl",
+"tutorial_finish": "res://talk/tutorial_finish.dtl",
+"tutorial_hello": "res://talk/tutorial_hello.dtl",
+"win_boss_1": "res://talk/win_boss_1.dtl",
+"win_boss_2": "res://talk/win_boss_2.dtl",
+"win_chimera": "res://talk/win_chimera.dtl"
+}
+glossary/default_case_sensitive=true
+layout/style_list=["res://talk_style.tres", "res://premade_style.tres"]
+layout/default_style="res://talk_style.tres"
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=false
+animations/leave_default_length=0.5
+animations/leave_default_wait=false
+animations/cross_fade_default_length=0.2
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+variables={}
+translation/enabled=true
+translation/original_locale="zh_CN"
+translation/file_mode=1
+translation/translation_folder="res://dialogic_translation"
+translation/save_mode=0
+translation/add_separator=false
+translation/id_counter=301
+translation/locales=[]
+animations/join_default="Fade In Up"
+animations/leave_default="Fade Out Down"
+layout/end_behaviour=1
+text/autocolor_names=true
+audio/max_channels=4.0
+translation/intern/save_mode=0
+translation/intern/file_mode=1
+translation/intern/translation_folder="res://dialogic_translation"
+audio/type_sound_bus="VEF"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
+mouse_cursor/custom_image="res://UI/cursur.png"
+mouse_cursor/custom_image_hotspot=Vector2(4, 4)
+
+[dotnet]
+
+project/assembly_name="Trizon"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[gui]
+
+theme/custom="res://theme/base_theme.tres"
+theme/default_font_multichannel_signed_distance_field=true
+
+[input]
+
+Esc={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+test={
+"deadzone": 0.5,
+"events": []
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/ui_translation.zh_CN.translation", "res://translations/ui_translation.en.translation", "res://dialogic_translation/dialogic_character_translations.en.translation", "res://dialogic_translation/dialogic_character_translations.ja.translation", "res://dialogic_translation/dialogic_character_translations.zh_CN.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_2_translation.en.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_2_translation.ja.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_translation.en.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_translation.ja.translation", "res://dialogic_translation/dialogic_hunter_bgtalk_translation.zh_CN.translation", "res://dialogic_translation/dialogic_huse_first_intro_translation.en.translation", "res://dialogic_translation/dialogic_huse_first_intro_translation.ja.translation", "res://dialogic_translation/dialogic_huse_first_intro_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_boss_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_boss_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_chimera_translation.en.translation", "res://dialogic_translation/dialogic_meet_chimera_translation.ja.translation", "res://dialogic_translation/dialogic_meet_chimera_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_fire_bird_first_translation.en.translation", "res://dialogic_translation/dialogic_meet_fire_bird_first_translation.ja.translation", "res://dialogic_translation/dialogic_meet_fire_bird_first_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_hunter_2_translation.en.translation", "res://dialogic_translation/dialogic_meet_hunter_2_translation.ja.translation", "res://dialogic_translation/dialogic_meet_hunter_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_meet_hunter_translation.en.translation", "res://dialogic_translation/dialogic_meet_hunter_translation.ja.translation", "res://dialogic_translation/dialogic_meet_hunter_translation.zh_CN.translation", "res://dialogic_translation/dialogic_new_map_Unican_first_translation.en.translation", "res://dialogic_translation/dialogic_new_map_Unican_first_translation.ja.translation", "res://dialogic_translation/dialogic_new_map_Unican_first_translation.zh_CN.translation", "res://dialogic_translation/dialogic_run_start_1_translation.en.translation", "res://dialogic_translation/dialogic_run_start_1_translation.ja.translation", "res://dialogic_translation/dialogic_run_start_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_run_start_act2_translation.en.translation", "res://dialogic_translation/dialogic_run_start_act2_translation.ja.translation", "res://dialogic_translation/dialogic_run_start_act2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_run_start_lose_chimera_translation.en.translation", "res://dialogic_translation/dialogic_run_start_lose_chimera_translation.ja.translation", "res://dialogic_translation/dialogic_run_start_lose_chimera_translation.zh_CN.translation", "res://dialogic_translation/dialogic_speedrun_chimera_translation.en.translation", "res://dialogic_translation/dialogic_speedrun_chimera_translation.ja.translation", "res://dialogic_translation/dialogic_speedrun_chimera_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_1_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_1_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_2_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_2_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_3_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_3_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_3_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_exception_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_4_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_5_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_5_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_5_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_6_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_6_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_6_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_1_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_1_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_2_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_2_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_3_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_3_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_3_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_battle_spell_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_finish_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_finish_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_finish_translation.zh_CN.translation", "res://dialogic_translation/dialogic_tutorial_hello_translation.en.translation", "res://dialogic_translation/dialogic_tutorial_hello_translation.ja.translation", "res://dialogic_translation/dialogic_tutorial_hello_translation.zh_CN.translation", "res://dialogic_translation/dialogic_win_boss_1_translation.en.translation", "res://dialogic_translation/dialogic_win_boss_1_translation.ja.translation", "res://dialogic_translation/dialogic_win_boss_1_translation.zh_CN.translation", "res://dialogic_translation/dialogic_win_boss_2_translation.en.translation", "res://dialogic_translation/dialogic_win_boss_2_translation.ja.translation", "res://dialogic_translation/dialogic_win_boss_2_translation.zh_CN.translation", "res://dialogic_translation/dialogic_win_chimera_translation.en.translation", "res://dialogic_translation/dialogic_win_chimera_translation.ja.translation", "res://dialogic_translation/dialogic_win_chimera_translation.zh_CN.translation", "res://translations/ui_translation.ja.translation")
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
+textures/vram_compression/import_etc2_astc=true
+viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(0.145098, 0.145098, 0.145098, 1)

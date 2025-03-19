@@ -1,0 +1,144 @@
+join character_test leftmost
+[signal arg="hunter"]
+hunter: 老天爷啊，\
+我们居然真的赢了这头庞然巨物。 #id:d2
+[signal arg="Bird"]
+Bird: ……早知如此…… #id:d3
+[signal arg="chimera"]
+chimera: 咳，咳…… #id:d4
+
+join heroine (happy) rightmost
+[signal arg="Unican"]
+heroine (happy): ……伟旋……这一定就是权势卡。\
+我们成功了！ #id:d5
+
+heroine (sad): 等等，唔，\
+我突然好……困…… #id:d6
+leave heroine
+[signal arg="hunter"]
+hunter: 杉、快醒醒！\
+怎么回事？\
+这也是权势卡的影响吗？ #id:d7
+[signal arg="Aggres"]
+Aggres: 啧……\
+伟旋已经被吸收了吗？\
+看来我来晚了一步。 #id:d8
+[signal arg="Bird"]
+Bird: 什么人？ #id:d9
+[signal arg="Aggres"]
+Aggres: 哟，喀迈拉，\
+被一个小鬼打的落花流水，\
+你还是一如既往的不中用啊。 #id:da
+[signal arg="chimera"]
+chimera: 救……命……\
+阿，瑞，丝…… #id:db
+[signal arg="hunter"]
+hunter: 不妙，不妙啊，\
+看起来她和喀迈拉是一伙的。 #id:dc
+[signal arg="Aggres"]
+Aggres: 无脑的傀儡，我才懒得管你。\
+我只是来镇守权势卡的——\
+不过现在嘛，计划有变。 #id:dd
+[signal arg="hunter"]
+hunter: 杉，杉！\
+完蛋，她一点儿意识都没有了。\
+这次就到此为止了么…… #id:de
+[signal arg="chimera"]
+chimera: 呕…… #id:df
+[signal arg="Bird"]
+Bird: 喀迈拉，\
+它的样子不对劲——\
+简直像是要爆开来一样。 #id:e0
+[signal arg="chimera"]
+chimera: 噗噗、 #id:e1
+[signal arg="chimera_split"]
+[signal arg="hunter"]
+hunter: 哇……这可，真是盛大。\
+原来它体内有这么多怪物、\
+这就是这家伙强大的根源么？ #id:e2
+[signal arg="Aggres"]
+Aggres: 该死的蠢猪……\
+死了都要给我添麻烦。 #id:e3
+[signal arg="Aggres_attack"]
+[wait time="1.2"]
+[signal arg="hunter"]
+hunter: 她是在……清剿怪物吗？\
+为什么要这么做？\
+但凡一起冲上来，我们必死无疑啊。 #id:e4
+[signal arg="Bird"]
+Bird: 怪物……怪物会把我们团灭，\
+难道她不希望我们死在这里？ #id:e5
+
+[signal arg="fire_bird"]
+fire_bird: ……阿瑞丝，\
+你为什么在这里？ #id:e6
+[signal arg="Aggres"]
+Aggres: 好久不见，\
+洛菲亚小姐。\
+这只是个巧合。 #id:e7
+[signal arg="Aggres"]
+Aggres: 毕竟我还没找到权势卡，\
+刚刚只是听到这里有动静，\
+便赶了过来而已。 #id:e8
+[signal arg="fire_bird"]
+fire_bird: 伟旋已经被吸收了，\
+现在，回去做你该做的。 #id:e9
+[signal arg="Aggres"]
+Aggres: 别急啊，小姐，\
+你难道看不出眼前是个多么好的机会吗？\
+我想这同样是我应该做的事情。 #id:ea
+[signal arg="fire_bird"]
+fire_bird: ……\
+你们几个，立刻带着玩家离开这里。 #id:eb
+[signal arg="hunter"]
+hunter: 你是……之前那个怪人。\
+啊，我已经完全搞不清楚状况了…… #id:ec
+[signal arg="Bird"]
+Bird: 等等，先给我们一个解释。\
+有杉在，\
+最坏的结果不过是重新来过。 #id:ed
+[signal arg="Aggres"]
+Aggres: 小姐，\
+我最后警告你一次，\
+不要妨碍我。 #id:ee
+[signal arg="fire_bird"]
+fire_bird: ……\
+阿瑞丝想把失去意识的玩家给活捉回去， #id:ef
+[signal arg="fire_bird"]
+fire_bird: 为此，\
+她会先把这几只怪物杀光，\
+因为怪物们不懂得手下留情。 #id:f0
+[signal arg="fire_bird"]
+fire_bird: 然后轮到你们，\
+由于玩家没有赢得这场战斗，\
+玩家所有的卡也都暂时无法复原。 #id:f1
+[signal arg="Bird"]
+Bird: 该死的……也就是说……\
+最后只要给杉安排一场弹尽粮绝的战斗，\
+她就永远无法重新来过。 #id:f2
+[signal arg="hunter"]
+hunter: 可恶……\
+没有了杉，我们根本打不过这家伙…… #id:f3
+[signal arg="Aggres"]
+Aggres: 洛菲亚，你说的太多了。\
+得意忘形的家伙，\
+你真以为我不敢对你动手么？ #id:f4
+[signal arg="fire_bird"]
+fire_bird: ……\
+我会去向母亲告状的。 #id:f5
+[signal arg="Aggres"]
+Aggres: 哈哈哈，那又如何，\
+真是幼稚的恐吓。 #id:f6
+[signal arg="Aggres"]
+Aggres: 正是紧要关头，我可没工夫和你客气。\
+等这个小鬼被我软禁之后，\
+你母亲的一切后顾之忧都会烟消云散。 #id:f7
+[signal arg="Aggres"]
+Aggres: 现在，小姐，\
+请你先去死一死吧。 #id:f8
+
+do Global.save_meta_progress()
+[wait time="1.0"]
+leave heroine
+do Global.load.blur()
+do Global.abandon_current_run()

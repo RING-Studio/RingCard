@@ -12,12 +12,15 @@
 size = Vector2(14, 19)
 
 [node name="Card" type="Control"]
+custom_minimum_size = Vector2(140, 190)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1140.0
-offset_bottom = -530.0
+offset_left = -70.0
+offset_top = -95.0
+offset_right = -1210.0
+offset_bottom = -625.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(70, 95)
@@ -38,17 +41,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(70, 95)
 mouse_filter = 1
 
 [node name="TemplateSprite" type="Sprite2D" parent="CardVisual"]
+position = Vector2(70, 95)
 centered = false
+offset = Vector2(-70, -95)
 
 [node name="IllustSprite" type="Sprite2D" parent="CardVisual"]
-position = Vector2(70, 50)
+position = Vector2(70, 95)
 scale = Vector2(0.984375, 0.671875)
+offset = Vector2(0, -66.9767)
 
 [node name="BackSprite" type="Sprite2D" parent="CardVisual"]
 visible = false
+position = Vector2(70, 95)
+offset = Vector2(-70, -95)
 
 [node name="DiscriptionLabel" type="Label" parent="CardVisual"]
 layout_mode = 1
@@ -58,15 +67,17 @@ anchor_bottom = 1.0
 offset_top = 80.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(70, 15)
 text = "test card discription"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="CostSprite" type="Sprite2D" parent="CardVisual"]
-position = Vector2(12, 12)
+position = Vector2(70, 95)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_pa2gb")
+offset = Vector2(-116, -166)
 
 [node name="CostLabel" type="Label" parent="CardVisual"]
 layout_mode = 0
@@ -74,6 +85,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 32.0
 offset_bottom = 32.0
+pivot_offset = Vector2(78, 103)
 theme_override_font_sizes/font_size = 16
 text = "0"
 horizontal_alignment = 1
@@ -95,5 +107,7 @@ script = ExtResource("6_ri62e")
 state = 2
 
 [connection signal="gui_input" from="." to="CardStateMachine" method="_on_card_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="." to="CardStateMachine" method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="mouse_exited" from="." to="CardStateMachine" method="_on_card_mouse_exited"]

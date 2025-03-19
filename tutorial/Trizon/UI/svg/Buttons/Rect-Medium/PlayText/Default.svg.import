@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d2f1xo8llfuqj"
+path="res://.godot/imported/Default.svg-073a5b487ae85cd5175db37df3f1bcbe.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Buttons/Rect-Medium/PlayText/Default.svg"
+dest_files=["res://.godot/imported/Default.svg-073a5b487ae85cd5175db37df3f1bcbe.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

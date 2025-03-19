@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://c0x83gdpu8yxy"
+path="res://.godot/imported/SoundOff.svg-4ee67ffa839ea1724ed270da0e789608.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Icon/SoundOff.svg"
+dest_files=["res://.godot/imported/SoundOff.svg-4ee67ffa839ea1724ed270da0e789608.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

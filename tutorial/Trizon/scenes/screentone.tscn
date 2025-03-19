@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfb1hwaptpc2v"]
+
+[ext_resource type="Shader" uid="uid://bfi1sqx4fojg2" path="res://shader/screentone.gdshader" id="1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nr67m"]
+shader = ExtResource("1")
+shader_parameter/in_color = Color(0.729412, 0, 0.388235, 1)
+shader_parameter/out_color = Color(0.490196, 0.854902, 0, 1)
+shader_parameter/in_out = 0.0
+shader_parameter/position = -1.5
+shader_parameter/size = Vector2(64, 64)
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_nr67m")
+offset_left = -70.0
+offset_top = -52.0
+offset_right = 2308.0
+offset_bottom = 1121.0

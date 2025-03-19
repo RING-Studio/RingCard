@@ -1,0 +1,26 @@
+join character_test leftmost
+join heroine (sad) rightmost
+[signal arg="Bird"]
+Bird:怪物来了，\
+……真是烦人。\
+先把它解决吧。 #id:9e
+
+heroine (confused): 我我我该怎么做？ #id:9f
+[signal]
+Bird:你从来没有和怪物战斗过吗？\
+好吧，我来教你。 #id:a0
+[signal]
+Bird:听好，\
+这十个格子里靠近我们的五格是我们的场地，\
+对面的那五格则是敌人的场地。 #id:a1
+[signal]
+Bird:我们得击败对面的所有敌人才能接着前进，\
+也就是那头熊。 #id:a2
+[signal]
+Bird:你先来认识一下这张卡牌。 #id:a3
+[signal]
+Bird:注意它左下角的数字，这是它的攻击力。它每次攻击时都将造成它攻击力数值的伤害\
+右下角的数字则是它的生命值，代表它能承受的伤害上限。\
+当它的生命值归零，这个生物就会被烧毁，也就是死亡。 #id:a4
+[signal]
+Bird:每张卡左上角的数字则代表着部署这张卡所需要的费用。 #id:a5

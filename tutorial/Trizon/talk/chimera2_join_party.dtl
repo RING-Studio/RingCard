@@ -1,0 +1,23 @@
+join character_test leftmost
+join heroine
+[signal arg="chimera"]
+chimera: ！ #id:111
+heroine (shock): ……喀迈拉？ #id:112
+[signal arg="chimera"]
+Bird: 真见鬼，\
+你怎么还活着。 #id:113
+
+chimera: 不……两位，\
+我不认识你们，\
+也不是什么喀迈拉。 #id:114
+
+别装傻，\
+你这个该死的家伙，\
+我们之间的账还没算完呢！ #id:115
+
+chimera: 呜欸，不要打我，\
+我真的不知情…… #id:116
+
+……鸟先生，\
+别这么咄咄逼人，\
+先听听她的说法吧。 #id:117

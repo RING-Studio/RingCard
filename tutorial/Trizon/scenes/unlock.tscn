@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1r5tnm0t3xp"]
+
+[ext_resource type="Shader" uid="uid://dv3mgn6fcr8wu" path="res://shader/blur_bg.gdshader" id="1"]
+[ext_resource type="Theme" uid="uid://byjjitw1nl3mo" path="res://theme/base_theme.tres" id="2"]
+[ext_resource type="Script" uid="uid://cgjbp3omfx70k" path="res://scripts/unlock.gd" id="3"]
+[ext_resource type="Shader" uid="uid://b0wpxx0p3w4bk" path="res://shader/wavey_text.gdshader" id="4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbgge"]
+shader = ExtResource("1")
+shader_parameter/lod = 3.0
+shader_parameter/alpha = 0.0
+shader_parameter/edge = 0.05
+shader_parameter/darken = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_voo4c"]
+shader = ExtResource("4")
+shader_parameter/height = 10.0
+shader_parameter/frequency = 0.5
+shader_parameter/speed = 1.5
+shader_parameter/offset = 0.0
+shader_parameter/offset2 = 0.0
+
+[node name="Unlock" type="ColorRect"]
+material = SubResource("ShaderMaterial_xbgge")
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2")
+script = ExtResource("3")
+
+[node name="UnlockText" type="Label" parent="."]
+material = SubResource("ShaderMaterial_voo4c")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_top = 128.0
+offset_right = 960.0
+offset_bottom = 304.0
+grow_horizontal = 2
+pivot_offset = Vector2(960, 0)
+theme_override_font_sizes/font_size = 40
+text = "！ X 张 新 卡 牌 已 解 锁 ！"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

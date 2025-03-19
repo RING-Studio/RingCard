@@ -1,0 +1,22 @@
+[gd_resource type="Shader" format=4 uid="uid://bwwqmilqsaaom"]
+
+[resource]
+code = "shader_type canvas_item;
+uniform sampler2D noise: repeat_enable;
+uniform float alpha: hint_range(0.0, 5.0) = 0;
+void fragment() {
+	vec4 main_texture = texture(TEXTURE, UV);
+	main_texture.a = 1.0;
+	vec4 noise_texture = texture(noise, UV + TIME/50.0);
+	//vec4 main_texture = texture(TEXTURE, UV+vec2(0.02, 0.02)) + texture(TEXTURE, UV+vec2(-0.02, -0.02)) +
+	//					texture(TEXTURE, UV+vec2(-0.02, 0.02)) + texture(TEXTURE, UV+vec2(0.02, -0.02));
+	main_texture.a = sign(main_texture.a);
+	main_texture.rbg = vec3(sin(TIME/0.4 + 3.14*UV[0])/1.5+0.55, cos(TIME/0.5 + 3.14*UV[1])/1.5+0.55, 0.1);
+	main_texture.rbg = main_texture.rbg + (noise_texture.rbg)/1.0;
+	main_texture.a = main_texture.a * noise_texture.x * alpha;
+	//main_texture.a = 1.0;
+	vec2 to_origin = vec2(smoothstep(0.0, 1.0, abs(UV[0]-0.5)), smoothstep(0.0, 1.0, abs(UV[1]-0.5)));
+	main_texture.a = main_texture.a * smoothstep(1.0, 0.0, 2.0*max(to_origin[0], to_origin[1]));
+	COLOR = main_texture;
+}
+"

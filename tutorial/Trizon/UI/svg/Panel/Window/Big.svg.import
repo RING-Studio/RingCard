@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://vdqwr38uvxil"
+path="res://.godot/imported/Big.svg-e82734aa12c05b36e1c34f9ea08e3a87.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Panel/Window/Big.svg"
+dest_files=["res://.godot/imported/Big.svg-e82734aa12c05b36e1c34f9ea08e3a87.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

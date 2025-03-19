@@ -1,0 +1,19 @@
+join character_test leftmost
+join heroine rightmost
+[signal arg="Bird"]
+打完这场，我们就走出这片地区了。\
+……如果能赢的话。 #id:23
+[signal arg="hunter"]
+
+看来我们还是挺强的嘛。 #id:24
+
+heroine (sad): 看起来好强。\
+……我真的没问题么。 #id:25
+[signal arg="hunter"]
+
+大不了下次再战，\
+我们两个对于逃跑已经轻车熟路了。\
+当然，找到不省人事的你也不在话下。 #id:26
+
+heroine (close_eyes): 呜，虽然可以复活，\
+……但是真的很痛…… #id:27

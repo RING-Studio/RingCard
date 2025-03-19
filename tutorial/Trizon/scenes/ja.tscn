@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dowjjmmjglqnh"]
+
+[ext_resource type="Script" uid="uid://c3v1g74lwyq5k" path="res://translations_scripts/ja.gd" id="1"]
+
+[node name="ja" type="Node"]
+script = ExtResource("1")

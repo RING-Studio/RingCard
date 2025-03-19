@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cbp87lsdof07x"
+path="res://.godot/imported/Levels(A).svg-0b429ccfad36792ad821bf547d6a92d7.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Scene/Levels(A).svg"
+dest_files=["res://.godot/imported/Levels(A).svg-0b429ccfad36792ad821bf547d6a92d7.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ipmufa1be0fu"
+path="res://.godot/imported/Hover.svg-5c2a864ab3cf25a1b588f4d62569f043.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Buttons/Square-Medium/Pause/Hover.svg"
+dest_files=["res://.godot/imported/Hover.svg-5c2a864ab3cf25a1b588f4d62569f043.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

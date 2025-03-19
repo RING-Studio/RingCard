@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cw130p1wmgtct"
+path="res://.godot/imported/Hover.svg-c4962d73f150b8914c5db2fc1d8395c0.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Buttons/Square-Medium/ArrowLeft/Hover.svg"
+dest_files=["res://.godot/imported/Hover.svg-c4962d73f150b8914c5db2fc1d8395c0.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

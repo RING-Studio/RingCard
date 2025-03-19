@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cc024hs0xg3rf"
+path="res://.godot/imported/Loading.svg-5c4c57b5fcc4ad7e50275b16da90cfba.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/Scene/Loading.svg"
+dest_files=["res://.godot/imported/Loading.svg-5c4c57b5fcc4ad7e50275b16da90cfba.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

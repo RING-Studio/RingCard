@@ -1,0 +1,8 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=4 uid="uid://brpoqgnltqjl0"]
+
+[ext_resource type="FastNoiseLite" uid="uid://8e8b22podrj1" path="res://shader/burn_fast_noise_lite.tres" id="1"]
+
+[resource]
+resource_local_to_scene = true
+invert = true
+noise = ExtResource("1")

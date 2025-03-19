@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://ikvqw7xegquc"]
+
+[ext_resource type="Texture2D" uid="uid://cw4km1sew7yq5" path="res://UI/dot.png" id="1"]
+
+[sub_resource type="Curve" id="Curve_yl0bi"]
+_data = [Vector2(0, 0), 0.0, 7.15385, 0, 0, Vector2(0.248848, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.94191, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_um7mb"]
+curve = SubResource("Curve_yl0bi")
+
+[sub_resource type="Gradient" id="Gradient_y7lmm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lx174"]
+gradient = SubResource("Gradient_y7lmm")
+
+[sub_resource type="Curve" id="Curve_l7oip"]
+_data = [Vector2(0, 0.725275), 0.0, 2.11966, 0, 0, Vector2(1, 0.296703), -2.93491, 1.4, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xv0f"]
+curve = SubResource("Curve_l7oip")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5wavb"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 20, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 209.49
+gravity = Vector3(0, -98, 0)
+scale_min = 0.1
+scale_max = 0.22
+scale_curve = SubResource("CurveTexture_4xv0f")
+color_ramp = SubResource("GradientTexture1D_lx174")
+alpha_curve = SubResource("CurveTexture_um7mb")
+hue_variation_min = 0.11
+hue_variation_max = 0.2
+
+[node name="Trail" type="GPUParticles2D"]
+self_modulate = Color(0.729412, 0.729412, 0.729412, 0.733333)
+position = Vector2(-264, 544)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_5wavb")
+texture = ExtResource("1")

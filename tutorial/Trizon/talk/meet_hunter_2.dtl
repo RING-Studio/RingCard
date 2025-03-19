@@ -1,0 +1,55 @@
+join character_test leftmost
+join heroine (sad) rightmost
+[signal arg="Bird"]
+Bird: ……你到底还要尾随我们多少天？ #id:66
+[signal arg="hunter"]
+hunter: 直到你们同意我加入为止。 #id:67
+heroine (shock): …… #id:68
+[signal arg="Bird"]
+Bird: 不行就是不行。 #id:69
+[signal arg="hunter"]
+hunter: 拜托，至少给我个理由。\
+……不对，我何必和你废话，\
+你又不是玩家，这事可不是你说了算。 #id:6a
+[signal arg="hunter"]
+hunter: 亲爱的小杉，我想要成为你的左膀右臂，\
+你能否和你那位老顽固沟通一下？\
+当然，说服不了他也没关系，决定权在你。 #id:6b
+heroine (confused): 呃……鸟先生，\
+为什么你不想让她加入呢？ #id:6c
+[signal arg="Bird"]
+Bird: 哦，得了吧。 #id:6d
+[signal arg="Bird"]
+Bird: 让我猜猜，鉴于你认识休斯，\
+我想你早就有机会做出行动—— #id:6e
+[signal arg="Bird"]
+Bird: 但你没有，\
+并且出于某种原因又感到后悔，\
+现在才嚷嚷着要回到现实。 #id:6f
+[signal arg="hunter"]
+hunter: …… #id:70
+[signal arg="Bird"]
+Bird: 所以，死心吧。\
+我可不想和一个懦夫并肩作战。 #id:71
+[signal arg="hunter"]
+hunter: ……\
+我得承认，鸟兄，你很敏锐。\
+但我觉得我们在这件事上半斤八两。 #id:72
+[signal arg="hunter"]
+hunter: 既然你现在在这儿，并且知道的这么清楚，\
+你肯定也和我一样，错过了上路的机会。\
+咱们只是没那么勇敢，这无可厚非吧？ #id:73
+[signal arg="Bird"]
+Bird: …… #id:74
+heroine (sad): …… #id:75
+[signal arg="Bird"]
+Bird: ……好吧，\
+我无法反驳。\
+随你便吧，厚脸皮的家伙。 #id:76
+[signal arg="hunter"]
+hunter: 好极了。\
+你也没意见吧？ #id:77
+heroine (happy): 我……嗯，\
+我很欢迎！ #id:78
+do Global.add_to_constant_deck(Global.card_prototypes.get("hunter"))
+leave heroine

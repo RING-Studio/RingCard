@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1fp7shf62ip8"]
+
+[ext_resource type="Texture2D" uid="uid://ke40gwypx8t3" path="res://card_icons/fire_ball.png" id="1"]
+
+[node name="TextureRect" type="TextureRect"]
+use_parent_material = true
+offset_right = 63.0
+offset_bottom = 63.0
+mouse_filter = 2
+texture = ExtResource("1")
+expand_mode = 1
+stretch_mode = 6

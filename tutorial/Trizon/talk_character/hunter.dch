@@ -1,0 +1,19 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "10e",
+"color": Color(0.889099, 1, 0.820313, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "",
+"description": "",
+"display_name": "猎人",
+"mirror": false,
+"nicknames": ["塞泽尔"],
+"offset": Vector2(0, 0),
+"portraits": {},
+"scale": 1.0
+}

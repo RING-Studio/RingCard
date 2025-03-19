@@ -71,30 +71,40 @@ libraries = {
 }
 
 [node name="GameBoard" parent="." instance=ExtResource("1_7gynk")]
-offset_left = 24.0
-offset_top = 20.0
-offset_right = 24.0
-offset_bottom = 20.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="Hand" type="HBoxContainer" parent="CanvasLayer"]
-visible = false
-custom_minimum_size = Vector2(140, 190)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -190.0
-offset_right = 140.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 140
+[node name="Hand" type="Node2D" parent="HUD"]
 
-[node name="Card" parent="CanvasLayer" instance=ExtResource("2_ffvsa")]
-offset_left = 569.0
-offset_top = 551.0
-offset_right = -571.0
-offset_bottom = 22.0
+[node name="Card" parent="HUD/Hand" instance=ExtResource("2_ffvsa")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 558.0
+offset_top = 537.0
+offset_right = 698.0
+offset_bottom = 727.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Card2" parent="HUD/Hand" instance=ExtResource("2_ffvsa")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 558.0
+offset_top = 537.0
+offset_right = 698.0
+offset_bottom = 727.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Card3" parent="HUD/Hand" instance=ExtResource("2_ffvsa")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 558.0
+offset_top = 537.0
+offset_right = 698.0
+offset_bottom = 727.0
+grow_horizontal = 1
+grow_vertical = 1

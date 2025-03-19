@@ -1,0 +1,101 @@
+[gd_scene load_steps=16 format=3 uid="uid://cn3p810t6my4f"]
+
+[ext_resource type="Texture2D" uid="uid://cil51aj0kh23j" path="res://effect/left.png" id="1"]
+[ext_resource type="Script" uid="uid://cbqrb1kd0cqto" path="res://scripts/froze_particle.gd" id="2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e056h"]
+atlas = ExtResource("1")
+region = Rect2(10, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tub34"]
+atlas = ExtResource("1")
+region = Rect2(73, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpo38"]
+atlas = ExtResource("1")
+region = Rect2(136, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_betrx"]
+atlas = ExtResource("1")
+region = Rect2(199, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdhuk"]
+atlas = ExtResource("1")
+region = Rect2(262, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtd1o"]
+atlas = ExtResource("1")
+region = Rect2(325, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ave8i"]
+atlas = ExtResource("1")
+region = Rect2(388, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj1ww"]
+atlas = ExtResource("1")
+region = Rect2(451, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3kdn"]
+atlas = ExtResource("1")
+region = Rect2(514, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c08a8"]
+atlas = ExtResource("1")
+region = Rect2(577, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txyuu"]
+atlas = ExtResource("1")
+region = Rect2(640, 0, 63, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdgh4"]
+atlas = ExtResource("1")
+region = Rect2(703, 0, 63, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_stebm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e056h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tub34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpo38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_betrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdhuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtd1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ave8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj1ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3kdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c08a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txyuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdgh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FrozeParticle" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_stebm")
+frame = 1
+script = ExtResource("2")

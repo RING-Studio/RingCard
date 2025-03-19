@@ -1,0 +1,18 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://crf6pgq7ogsca"
+path="res://.godot/imported/ProgressBar.svg-fb1437d16f2921c52d97804708c32fce.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://UI/svg/@previews/ProgressBar.svg"
+dest_files=["res://.godot/imported/ProgressBar.svg-fb1437d16f2921c52d97804708c32fce.ctex"]
+
+[params]
+
+dummy_value_ignore_me=0

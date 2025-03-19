@@ -1,0 +1,24 @@
+join character_test leftmost
+join heroine (fear) rightmost
+heroine (sad): 呜…… #id:7e
+[signal arg="hunter"]
+hunter: 你总算醒了，\
+感觉如何？ #id:7f
+heroine (confused): 诶？\
+我只记得，\
+我们被攻击了…… #id:80
+[signal arg="Bird"]
+Bird: 是的，一击毙命。 #id:81
+heroine (shock): ……所以我真的可以复活。 #id:82
+[signal arg="hunter"]
+hunter: 那家伙简直强的离谱。\
+而且它明明不是怪物，\
+到底为什么要二话不说就攻击我们？ #id:83
+heroine (sad): 没有会说话的怪物吗？ #id:84
+[signal arg="hunter"]
+hunter: 不可能有。\
+既然它会说话，\
+那就说明有灵魂被困在那张卡里面。 #id:85
+heroine (sad): ……也就是说，\
+和我们一样都是人类？ #id:86
+leave heroine
