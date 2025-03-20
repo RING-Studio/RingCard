@@ -106,6 +106,10 @@ state = 1
 script = ExtResource("6_ri62e")
 state = 2
 
+[node name="CardTargetingState" type="Node" parent="CardStateMachine"]
+
+[node name="CardPlayingState" type="Node" parent="CardStateMachine"]
+
 [connection signal="gui_input" from="." to="CardStateMachine" method="_on_card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="." to="CardStateMachine" method="_on_card_mouse_entered"]

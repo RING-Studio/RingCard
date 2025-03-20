@@ -1,7 +1,7 @@
 extends Node
 class_name CardState
 
-enum StateName {IDLE, DRAGGING, RELEASED}
+enum StateName {IDLE, DRAGGING, RELEASED, TARGETING, PLAYING}
 
 signal transition_requested(from: CardState, to: CardState.StateName)
 

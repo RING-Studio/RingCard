@@ -98,20 +98,20 @@ func change_scale(
 	scale_tween.tween_property(card_visual, "scale", end_scale, _last_time)
 
 
-func get_targets():
+func choose_targets(target_type: CardData.TargetType):
 	match target_type:
 		CardData.TargetType.SELF:
-			return get_tree().get_nodes_in_group("player")
+			return get_tree().get_nodes_in_group("player")[0]
 		CardData.TargetType.OPPONENT:
-			return get_tree().get_nodes_in_group("opponent")
+			return get_tree().get_nodes_in_group("opponent")[0]
 		CardData.TargetType.SITE:
+			var sites = get_tree().get_nodes_in_group("site") as Array[Site]
+			Events.card_start_targeting.emit(self)
+			for site in sites:
+				site.outline_on()
 			return get_tree().get_nodes_in_group("site")
 		_:
 			return []
-
-
-func choose_targets(target_type: CardData.TargetType):
-	targets = get_tree().get_nodes_in_group("player")
 	return targets
 
 
@@ -124,7 +124,6 @@ func can_drop() -> bool: # 返回卡牌是否在drop区域
 
 func play() -> bool: # 返回是否成功打出卡牌
 	choose_targets(target_type)
-	put_center()
 	
 	card_data.apply_effects(targets)
 	

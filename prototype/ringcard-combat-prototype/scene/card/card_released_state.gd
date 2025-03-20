@@ -5,7 +5,8 @@ func enter():
 	print_debug(state," entered")
 	
 	if card.can_drop():
-		card.play()
+		card.put_center()
+		transition_requested.emit(self, StateName.TARGETING)
 	else:
 		transition_requested.emit(self, StateName.IDLE)
 

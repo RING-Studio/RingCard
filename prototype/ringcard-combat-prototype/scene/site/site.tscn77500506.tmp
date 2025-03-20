@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://fusraiemv1iq"]
+
+[ext_resource type="Script" uid="uid://b5vjuk4uidi2x" path="res://scene/site/site.gd" id="1_1q5xp"]
+[ext_resource type="Resource" uid="uid://ce08xp1n0merx" path="res://resources/site_data/test_site/test_site1.tres" id="2_l3cml"]
+
+[node name="Site" type="TextureButton" groups=["site"]]
+script = ExtResource("1_1q5xp")
+site_data = ExtResource("2_l3cml")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -59.0
+offset_top = -48.0
+offset_right = 59.0
+offset_bottom = -25.0
+text = "name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pIFLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 24.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.294118, 0.694118, 0.313726, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="cIFLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0.314316, 0.314316, 0.314316, 1)
+text = "2"
+horizontal_alignment = 1
