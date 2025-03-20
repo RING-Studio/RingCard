@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo4tlnofwiden"]
+
+[ext_resource type="Script" uid="uid://l18k60xmlpac" path="res://scene/site_select_hud/site_select_hud.gd" id="1_4k075"]
+
+[node name="SiteSelectHUD" type="CanvasLayer"]
+script = ExtResource("1_4k075")

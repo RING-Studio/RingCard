@@ -8,12 +8,14 @@ var states = {}
 
 
 func _ready() -> void:
+	await owner.ready
+	
 	for child in get_children():
 		if child is CardState:
 			states[child.state] = child
 			child.transition_requested.connect(_on_transition_requested)
+			child.card = owner
 			
-	await owner.ready
 	init_state.enter()
 	current_state = init_state
 

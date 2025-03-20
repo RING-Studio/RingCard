@@ -16,7 +16,7 @@
   
     ​	目前状态机
   
-  ![card_state_machine_map](prototype/ringcard-combat-prototype/card_state_machine_map.png)
+  <img src="prototype/ringcard-combat-prototype/card_state_machine_map.png" alt="card_state_machine_map" style="zoom:50%;" />
   
   - [ ] 实现打出功能
     - [ ] 目标获取 choose_targets

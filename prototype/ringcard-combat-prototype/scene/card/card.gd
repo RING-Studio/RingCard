@@ -98,22 +98,36 @@ func change_scale(
 	scale_tween.tween_property(card_visual, "scale", end_scale, _last_time)
 
 
-func choose_targets(target_type: CardData.TargetType):
+func get_targets(target_type: CardData.TargetType):
 	match target_type:
 		CardData.TargetType.SELF:
-			return get_tree().get_nodes_in_group("player")[0]
+			targets = get_tree().get_nodes_in_group("player")
 		CardData.TargetType.OPPONENT:
-			return get_tree().get_nodes_in_group("opponent")[0]
+			targets = get_tree().get_nodes_in_group("opponent")
 		CardData.TargetType.SITE:
-			var sites = get_tree().get_nodes_in_group("site") as Array[Site]
-			Events.card_start_targeting.emit(self)
-			for site in sites:
-				site.outline_on()
-			return get_tree().get_nodes_in_group("site")
+			select_targets()
 		_:
-			return []
+			targets = []
 	return targets
-
+	
+	
+func select_targets(target_num: int = target_num, random_select: bool = false):
+	get_tree().call_group("site", "outline_on")
+	
+	targets = []
+	if random_select:
+		var sites = get_tree().get_nodes_in_group("site") as Array[Site]
+		var site_count = sites.size()
+		if site_count < target_num:
+			print_debug("site_count < target_num ", card_data.card_name)
+			target_num = site_count
+		# 生成索引數組，shuffle並抽取
+		if site_count > 0:
+			var indices = range(site_count)
+			indices.shuffle()
+			for i in range(site_count):
+				targets.append(sites[indices[i]])
+	# TODO:
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域
 	var overlapping_areas = drop_area_detector.get_overlapping_areas()
@@ -123,8 +137,6 @@ func can_drop() -> bool: # 返回卡牌是否在drop区域
 
 
 func play() -> bool: # 返回是否成功打出卡牌
-	choose_targets(target_type)
-	
 	card_data.apply_effects(targets)
 	
 	Events.card_played.emit(self)

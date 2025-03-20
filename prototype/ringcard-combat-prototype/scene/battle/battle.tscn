@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc1hubuv4h24p"]
+[gd_scene load_steps=10 format=3 uid="uid://bc1hubuv4h24p"]
 
 [ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scene/game_board/game_board.tscn" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://byjjo1ssa2cgm" path="res://scene/battle/battle.gd" id="1_yjev4"]
 [ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scene/card/card.tscn" id="2_ffvsa"]
 [ext_resource type="Script" uid="uid://6wut77ldw337" path="res://scene/battle/card_drop_area.gd" id="3_53mgl"]
+[ext_resource type="Script" uid="uid://dtsmglmtgol8p" path="res://scene/battle/hud.gd" id="4_53mgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
 size = Vector2(800, 480)
@@ -73,6 +74,7 @@ libraries = {
 [node name="GameBoard" parent="." instance=ExtResource("1_7gynk")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_53mgl")
 
 [node name="Hand" type="Node2D" parent="HUD"]
 
@@ -108,3 +110,10 @@ offset_right = 698.0
 offset_bottom = 727.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="ConfirmButton" type="Button" parent="HUD"]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="HUD/ConfirmButton" to="HUD" method="_on_confirm_button_pressed"]
