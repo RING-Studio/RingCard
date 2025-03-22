@@ -19,11 +19,12 @@
   <img src="prototype/ringcard-combat-prototype/card_state_machine_map.png" alt="card_state_machine_map" style="zoom:50%;" />
   
   - [ ] 实现打出功能
-    - [ ] 目标获取 choose_targets
-      - [ ] 对自己 SELF
-      - [ ] 对对手 OPPONENT
+    - [ ] 目标获取 choose_targets，依据 target_type 参数
+      - [x] 对自己 SELF
+      - [x] 对对手 OPPONENT
       - [ ] 对地点 SITE，需要选取目标
-    - [ ] 施加卡牌效果
+      - [x] 无目标 NONE
+    - [ ] 施加基础卡牌效果
       - [ ] 修改影响力
       - [ ] 挂一个buff（直接print）
       - [ ] 抽卡
@@ -50,6 +51,13 @@
 
 次要任务或其他准备之后再进行的任务
 
+- [ ] card功能完善。目前card功能需求统计：
+  - [ ] 戒严：禁止ai影响力增长
+  - [ ] 修改稳定度
+  - [ ] 每回合多抽牌
+  - [ ] 每回合多行动力
+- [ ] 
+
 
 
 
@@ -57,4 +65,26 @@
 ## MAYBETODO
 
 一些还不知道要不要做的点子
+
+- 若是卡牌目标是三，但是地点还没开到三个，要考虑怎么处理
+
+
+
+
+
+## NOTE
+
+
+
+
+
+## THOUGHT
+
+- 单机好像没有必要player和opponent节点，而如果没有这两个节点就只有 target_type 为 SITE 的卡牌要调用选目标函数了（虽然没啥影响，但记录一下）
+
+
+
+
+
+## USELESS THOUGHT
 

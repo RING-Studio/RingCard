@@ -3,13 +3,22 @@ extends CardState
 
 func enter():
 	print_debug(state," entered")
+	
+	if !card.can_play():
+		return
+	
+	if card.target_type == CardData.TargetType.NONE:
+		transition_requested.emit(self, StateName.PLAYING)
+		return
+		
 	Events.card_start_targeting.emit(card)
 	
-	var targets = card.get_targets(card.target_type)
-	if targets.size() == 0:
-		transition_requested.emit(self, StateName.IDLE)
-	else:
+	card.get_targets()
+	if card.targets.size() > 0:
 		transition_requested.emit(self, StateName.PLAYING)
+	else:
+		print("Failed to play. No target")
+		transition_requested.emit(self, StateName.IDLE)
 	
 
 func exit():

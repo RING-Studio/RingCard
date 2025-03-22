@@ -10,7 +10,9 @@ class_name Card
 @onready var template_sprite: Sprite2D = $CardVisual/TemplateSprite
 @onready var illust_sprite: Sprite2D = $CardVisual/IllustSprite
 @onready var back_sprite: Sprite2D = $CardVisual/BackSprite
+@onready var name_label: Label = $CardVisual/NameLabel
 @onready var discription_label: Label = $CardVisual/DiscriptionLabel
+@onready var cost_sprite: Sprite2D = $CardVisual/CostSprite
 @onready var cost_label: Label = $CardVisual/CostLabel
 
 signal reparent_requested(card: Card)
@@ -19,6 +21,7 @@ signal reparent_requested(card: Card)
 var target_type: CardData.TargetType
 var target_num: int
 var targets: Array[Node] = []
+@export var fixed_targets: Array[Node] = [] # 事先固定的目标，有这个就不需要select
 
 var template: Texture # 卡牌模板
 var illust: Texture # 卡牌插画
@@ -44,9 +47,10 @@ func _ready() -> void:
 	target_type = card_data.target_type
 	target_num = card_data.target_num
 	
-	template = card_data.template
-	illust = card_data.illust
-	back = card_data.back
+	template_sprite.texture = card_data.template_texture
+	illust_sprite.texture = card_data.illust_texture
+	back_sprite.texture = card_data.back_texture
+	cost_sprite.texture = card_data.cost_texture
 	
 	card_name = card_data.card_name
 	discription = card_data.discription
@@ -61,9 +65,7 @@ func _ready() -> void:
 	
 
 func update_card_visual():
-	template_sprite.texture = template
-	illust_sprite.texture = illust
-	back_sprite.texture = back
+	name_label.text = card_name
 	discription_label.text = discription
 	cost_label.text = str(cost)
 
@@ -98,7 +100,9 @@ func change_scale(
 	scale_tween.tween_property(card_visual, "scale", end_scale, _last_time)
 
 
-func get_targets(target_type: CardData.TargetType):
+func get_targets(target_type: CardData.TargetType = target_type):
+	if fixed_targets.size() > 0:
+		targets = fixed_targets.duplicate()
 	match target_type:
 		CardData.TargetType.SELF:
 			targets = get_tree().get_nodes_in_group("player")
@@ -106,9 +110,10 @@ func get_targets(target_type: CardData.TargetType):
 			targets = get_tree().get_nodes_in_group("opponent")
 		CardData.TargetType.SITE:
 			select_targets()
-		_:
+		CardData.TargetType.NONE:
 			targets = []
-	return targets
+		_:
+			print_debug("target_type of card ", card_name, " : ", target_type, " error")
 	
 	
 func select_targets(target_num: int = target_num, random_select: bool = false):
@@ -127,6 +132,18 @@ func select_targets(target_num: int = target_num, random_select: bool = false):
 			indices.shuffle()
 			for i in range(site_count):
 				targets.append(sites[indices[i]])
+	else:
+		var sites = get_tree().get_nodes_in_group("site") as Array[Site]
+		var site_count = sites.size()
+		if site_count < target_num:
+			print_debug("site_count < target_num ", card_data.card_name)
+			target_num = site_count
+		# 生成索引數組，shuffle並抽取
+		if site_count > 0:
+			var indices = range(site_count)
+			indices.shuffle()
+			for i in range(site_count):
+				targets.append(sites[indices[i]])
 	# TODO:
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域
@@ -134,10 +151,14 @@ func can_drop() -> bool: # 返回卡牌是否在drop区域
 	if overlapping_areas.size():
 		return true
 	return false
-
+	
+func can_play() -> bool: # TODO:有费用才能打出
+	return true
 
 func play() -> bool: # 返回是否成功打出卡牌
 	card_data.apply_effects(targets)
+	
+	print_debug("targets: ", targets)
 	
 	Events.card_played.emit(self)
 	#char_stats.mana -= cost

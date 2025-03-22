@@ -61,6 +61,21 @@ visible = false
 position = Vector2(70, 95)
 offset = Vector2(-70, -95)
 
+[node name="NameLabel" type="Label" parent="CardVisual"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 25.0
+offset_right = -10.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DiscriptionLabel" type="Label" parent="CardVisual"]
 layout_mode = 1
 anchors_preset = 15
@@ -70,7 +85,7 @@ offset_top = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(70, 15)
-text = "test card discription"
+text = "discription"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
