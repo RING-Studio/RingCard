@@ -38,9 +38,9 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 0.210224, 0.466514),
+"transitions": PackedFloat32Array(0.435275, 1.68179, 0.965931),
 "update": 0,
-"values": [Color(0.352941, 0.607843, 0.647059, 0.431373), Color(0.352941, 0.607843, 0.647059, 0), Color(0.352941, 0.607843, 0.647059, 0.431373)]
+"values": [Color(0.352941, 0.607843, 0.647059, 0), Color(0.352941, 0.607843, 0.647059, 0.447059), Color(0.352941, 0.607843, 0.647059, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yjev4"]
@@ -135,4 +135,4 @@ offset_bottom = 8.0
 
 [node name="Player" type="Node2D" parent="." groups=["player"]]
 
-[node name="Node2D" type="Node2D" parent="." groups=["opponent"]]
+[node name="Opponent" type="Node2D" parent="." groups=["opponent"]]

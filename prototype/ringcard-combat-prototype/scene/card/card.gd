@@ -21,7 +21,8 @@ signal reparent_requested(card: Card)
 var target_type: CardData.TargetType
 var target_num: int
 var targets: Array[Node] = []
-@export var fixed_targets: Array[Node] = [] # 事先固定的目标，有这个就不需要select
+var random_target: bool = false
+var fixed_target_names: Array[String] = [] # 事先固定的目标，有这个就不需要select
 
 var template: Texture # 卡牌模板
 var illust: Texture # 卡牌插画
@@ -46,6 +47,8 @@ func _ready() -> void:
 		
 	target_type = card_data.target_type
 	target_num = card_data.target_num
+	random_target = card_data.random_target
+	fixed_target_names = card_data.fixed_target_names
 	
 	template_sprite.texture = card_data.template_texture
 	illust_sprite.texture = card_data.illust_texture
@@ -101,8 +104,12 @@ func change_scale(
 
 
 func get_targets(target_type: CardData.TargetType = target_type):
-	if fixed_targets.size() > 0:
-		targets = fixed_targets.duplicate()
+	if fixed_target_names.size() > 0:
+		if targets.size() > 0: # 已经获取过
+			pass
+		else:
+			targets = get_sites_by_name(fixed_target_names)
+		return
 	match target_type:
 		CardData.TargetType.SELF:
 			targets = get_tree().get_nodes_in_group("player")
@@ -114,8 +121,17 @@ func get_targets(target_type: CardData.TargetType = target_type):
 			targets = []
 		_:
 			print_debug("target_type of card ", card_name, " : ", target_type, " error")
+
+
+func get_sites_by_name(target_names: Array[String]) -> Array[Node]:
+	var targets = []
+	var sites = get_tree().get_nodes_in_group("site") as Array[Site]
+	for site in sites:
+		if site.site_data.site_name in target_names:
+			targets.append(site)
+	return targets
 	
-	
+
 func select_targets(target_num: int = target_num, random_select: bool = false):
 	get_tree().call_group("site", "outline_on")
 	

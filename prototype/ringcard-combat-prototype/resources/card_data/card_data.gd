@@ -19,6 +19,9 @@ enum TargetType { SELF, OPPONENT, SITE, NONE }
 @export_group("Info")
 @export var target_type: TargetType
 @export var target_num: int = 0
+@export var random_target: bool = false
+@export var fixed_target_name: Array[String] = [] # 事先固定的目标，有这个就不需要select
+
 #@export var sound: AudioStream
 
 
