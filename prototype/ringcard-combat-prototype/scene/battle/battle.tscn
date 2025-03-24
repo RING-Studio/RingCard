@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc1hubuv4h24p"]
+[gd_scene load_steps=14 format=3 uid="uid://bc1hubuv4h24p"]
 
 [ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scene/game_board/game_board.tscn" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://byjjo1ssa2cgm" path="res://scene/battle/battle.gd" id="1_yjev4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dk47dnhxdhqqc" path="res://resources/card_data/test_target/test_target_type_opponent.tres" id="6_6y0hr"]
 [ext_resource type="Resource" uid="uid://dm6vmc70unahw" path="res://resources/card_data/test_target/test_target_type_self.tres" id="7_5xu2w"]
 [ext_resource type="Resource" uid="uid://1poemw5b0crp" path="res://resources/card_data/test_target/test_target_type_site.tres" id="8_yfigx"]
+[ext_resource type="PackedScene" uid="uid://bo4tlnofwiden" path="res://scene/site_select_hud/site_select_hud.tscn" id="9_6y0hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
 size = Vector2(800, 480)
@@ -84,10 +85,10 @@ libraries = {
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 576.0
-offset_top = 530.0
-offset_right = 716.0
-offset_bottom = 720.0
+offset_left = 640.0
+offset_top = 600.0
+offset_right = 780.0
+offset_bottom = 790.0
 grow_horizontal = 1
 grow_vertical = 1
 card_data = ExtResource("5_twcql")
@@ -96,10 +97,10 @@ card_data = ExtResource("5_twcql")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 311.0
-offset_top = 528.0
-offset_right = 451.0
-offset_bottom = 718.0
+offset_left = 362.0
+offset_top = 600.0
+offset_right = 502.0
+offset_bottom = 790.0
 grow_horizontal = 1
 grow_vertical = 1
 card_data = ExtResource("6_6y0hr")
@@ -108,10 +109,10 @@ card_data = ExtResource("6_6y0hr")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 454.0
-offset_top = 532.0
-offset_right = 594.0
-offset_bottom = 722.0
+offset_left = 502.0
+offset_top = 600.0
+offset_right = 642.0
+offset_bottom = 790.0
 grow_horizontal = 1
 grow_vertical = 1
 card_data = ExtResource("7_5xu2w")
@@ -120,18 +121,15 @@ card_data = ExtResource("7_5xu2w")
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 716.0
-offset_top = 534.0
-offset_right = 856.0
-offset_bottom = 724.0
+offset_left = 778.0
+offset_top = 600.0
+offset_right = 918.0
+offset_bottom = 790.0
 grow_horizontal = 1
 grow_vertical = 1
 card_data = ExtResource("8_yfigx")
 
-[node name="ConfirmButton" type="Button" parent="HUD"]
-visible = false
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="SiteSelectHUD" parent="." instance=ExtResource("9_6y0hr")]
 
 [node name="Player" type="Node2D" parent="." groups=["player"]]
 

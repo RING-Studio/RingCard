@@ -18,8 +18,13 @@ shader_parameter/number_of_images = Vector2(1, 1)
 [sub_resource type="BitMap" id="BitMap_1q5xp"]
 
 [node name="Site" type="Control" groups=["site"]]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
-anchors_preset = 0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = -50.0
+offset_bottom = -50.0
+pivot_offset = Vector2(50, 50)
 script = ExtResource("1_1q5xp")
 site_data = ExtResource("2_l3cml")
 
@@ -31,6 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_t7q8j")
@@ -38,28 +47,30 @@ texture_click_mask = SubResource("BitMap_1q5xp")
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -59.0
-offset_top = -48.0
-offset_right = 59.0
-offset_bottom = -25.0
+offset_left = -9.0
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 25.0
 text = "name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="pIFLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -40.0
-offset_top = 24.0
-offset_bottom = 47.0
+offset_left = 10.0
+offset_top = 74.0
+offset_right = 50.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.294118, 0.694118, 0.313726, 1)
 text = "1"
 horizontal_alignment = 1
 
 [node name="cIFLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 24.0
-offset_right = 40.0
-offset_bottom = 47.0
+offset_left = 50.0
+offset_top = 74.0
+offset_right = 90.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(0.314316, 0.314316, 0.314316, 1)
 text = "2"
 horizontal_alignment = 1

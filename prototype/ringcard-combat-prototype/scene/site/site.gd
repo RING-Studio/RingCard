@@ -12,11 +12,16 @@ class_name Site
 var pIF: int
 var cIF: int
 
+var selected: bool = false
+
 
 func _ready() -> void:
 	pIF = site_data.init_pIF
 	cIF = site_data.init_cIF
+	update_visual()
 	
+	
+func update_visual():
 	texture_button.texture_normal = site_data.texture
 	name_label.text = site_data.site_name
 	update_IF_label()

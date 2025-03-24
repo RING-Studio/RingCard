@@ -14,12 +14,24 @@ scale = Vector2(0.699219, 0.654297)
 texture = ExtResource("1_xhck4")
 
 [node name="Site" parent="." instance=ExtResource("2_7bohx")]
-position = Vector2(418, 186)
+anchors_preset = 0
+offset_left = 350.0
+offset_top = 188.0
+offset_right = 450.0
+offset_bottom = 288.0
 
 [node name="Site2" parent="." instance=ExtResource("2_7bohx")]
-position = Vector2(852, 106)
+anchors_preset = 0
+offset_left = 784.0
+offset_top = 108.0
+offset_right = 884.0
+offset_bottom = 208.0
 site_data = ExtResource("3_aq4sx")
 
 [node name="Site3" parent="." instance=ExtResource("2_7bohx")]
-position = Vector2(805, 486)
+anchors_preset = 0
+offset_left = 737.0
+offset_top = 488.0
+offset_right = 837.0
+offset_bottom = 588.0
 site_data = ExtResource("4_fuav2")

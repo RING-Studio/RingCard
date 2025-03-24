@@ -20,7 +20,7 @@ enum TargetType { SELF, OPPONENT, SITE, NONE }
 @export var target_type: TargetType
 @export var target_num: int = 0
 @export var random_target: bool = false
-@export var fixed_target_name: Array[String] = [] # 事先固定的目标，有这个就不需要select
+@export var fixed_target_names: Array[String] = [] # 事先固定的目标，有这个就不需要select
 
 #@export var sound: AudioStream
 
@@ -31,4 +31,9 @@ func _ready():
 
 func apply_effects(targets: Array[Node]):
 	print_debug(card_name, " played")
-	pass
+	return
+
+	
+func card_play_animation():
+	await Utils.await_time(2)
+	return

@@ -19,4 +19,6 @@ back_texture = ExtResource("1_1vnea")
 cost_texture = ExtResource("2_mxw6j")
 target_type = 1
 target_num = 0
+random_target = false
+fixed_target_names = Array[String]([])
 metadata/_custom_type_script = "uid://csii22msjooo8"

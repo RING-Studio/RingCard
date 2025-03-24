@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://global/events.gd"
+Utils="*res://global/utils.gd"
 
 [display]
 
@@ -27,6 +28,10 @@ window/size/viewport_height=720
 [dotnet]
 
 project/assembly_name="新建游戏项目"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/label_font_auto_sizer/plugin.cfg")
 
 [global_group]
 

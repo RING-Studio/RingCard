@@ -133,7 +133,7 @@ func get_sites_by_name(target_names: Array[String]) -> Array[Node]:
 	
 
 func select_targets(target_num: int = target_num, random_select: bool = false):
-	get_tree().call_group("site", "outline_on")
+	#get_tree().call_group("site", "outline_on")
 	
 	targets = []
 	if random_select:
@@ -149,18 +149,9 @@ func select_targets(target_num: int = target_num, random_select: bool = false):
 			for i in range(site_count):
 				targets.append(sites[indices[i]])
 	else:
-		var sites = get_tree().get_nodes_in_group("site") as Array[Site]
-		var site_count = sites.size()
-		if site_count < target_num:
-			print_debug("site_count < target_num ", card_data.card_name)
-			target_num = site_count
-		# 生成索引數組，shuffle並抽取
-		if site_count > 0:
-			var indices = range(site_count)
-			indices.shuffle()
-			for i in range(site_count):
-				targets.append(sites[indices[i]])
-	# TODO:
+		Events.start_site_selecting.emit(self)
+		await Events.end_site_selecting
+
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域
 	var overlapping_areas = drop_area_detector.get_overlapping_areas()
@@ -169,15 +160,21 @@ func can_drop() -> bool: # 返回卡牌是否在drop区域
 	return false
 	
 func can_play() -> bool: # TODO:有费用才能打出
+	# 为简化，当前没有卡牌在选site才能打出（事实上应该是加入一个序列打出）
+	if Utils.get_site_select_current_card():
+		return false
 	return true
 
 func play() -> bool: # 返回是否成功打出卡牌
-	card_data.apply_effects(targets)
-	
 	print_debug("targets: ", targets)
 	
 	Events.card_played.emit(self)
 	#char_stats.mana -= cost
+	
+	card_data.apply_effects(targets)
+	
+	await card_data.card_play_animation()
+	call_deferred("queue_free")
 
 	return true
 
