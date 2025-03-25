@@ -186,4 +186,3 @@ func set_text(new_text: String) -> void:
 	text = new_text
 	call_deferred(_check_line_count.get_method())
 #endregion
-

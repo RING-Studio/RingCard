@@ -36,6 +36,10 @@ enabled=PackedStringArray("res://addons/label_font_auto_sizer/plugin.cfg")
 [global_group]
 
 battle=""
+discard_pile=""
+opponent=""
+player=""
+site=""
 
 [input]
 

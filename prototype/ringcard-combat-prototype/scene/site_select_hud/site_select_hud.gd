@@ -6,7 +6,8 @@ class_name SiteSelectHUD
 @onready var scroll_container: ScrollContainer = $SiteIconContainer/ScrollContainer
 @onready var h_box_container: HBoxContainer = $SiteIconContainer/ScrollContainer/HBoxContainer
 
-var current_card: Card
+var battle: Battle
+
 var target_num: int
 var random_select: bool = false
 
@@ -16,31 +17,31 @@ func _ready() -> void:
 	Events.start_site_selecting.connect(_on_start_site_selecting)
 	init()
 	visible = false
+	await owner.ready
+	battle = get_tree().get_first_node_in_group("battle")
 
 
 func init():
 	confirm_button.disabled = true
 	site_icon_container.visible = true
-	current_card = null
-	site_clear()
+	clear()
 
 func reset():
 	confirm_button.disabled = true
 	site_icon_container.visible = true
-	current_card = null
-	site_clear()
+	clear()
 	site_append()
 
 func clear():
 	visible = false
 	for site in selected_sites:
 		(site as Site).outline_off()
-	site_clear()
+	selected_sites = []
+	site_icon_clear()
 
-func site_clear():
+func site_icon_clear():
 	for child in h_box_container.get_children():
 		child.queue_free()
-	selected_sites = []
 
 func site_append():
 	var sites = get_tree().get_nodes_in_group("site") as Array[Site]
@@ -73,7 +74,6 @@ func _on_site_selected(site: Site):
 func _on_start_site_selecting(card: Card):
 	reset()
 	visible = true
-	current_card = card
 	target_num = card.target_num
 	random_select = card.random_target
 
@@ -83,6 +83,12 @@ func _on_hide_button_pressed() -> void:
 
 
 func _on_confirm_button_pressed() -> void:
-	current_card.targets = selected_sites
-	Events.end_site_selecting.emit(current_card.targets)
+	battle.current_card.targets = selected_sites
+	Events.end_site_selecting.emit(battle.current_card.targets)
+	clear()
+
+
+func _on_conceal_button_pressed() -> void:
+	battle.current_card.targeting_concealed = true
+	Events.end_site_selecting.emit(battle.current_card.targets)
 	clear()

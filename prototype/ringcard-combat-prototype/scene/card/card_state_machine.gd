@@ -16,6 +16,9 @@ func _ready() -> void:
 			child.transition_requested.connect(_on_transition_requested)
 			child.card = owner
 			
+	# debug
+	owner.original_global_position = owner.global_position
+			
 	init_state.enter()
 	current_state = init_state
 

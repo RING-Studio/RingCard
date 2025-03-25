@@ -6,6 +6,21 @@
 [node name="SiteSelectHUD" type="CanvasLayer"]
 script = ExtResource("1_4k075")
 
+[node name="HideButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -220.0
+offset_right = 234.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "隐藏"
+icon_alignment = 1
+
 [node name="ConfirmButton" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
@@ -21,19 +36,19 @@ grow_vertical = 0
 text = "确认"
 icon_alignment = 1
 
-[node name="HideButton" type="Button" parent="."]
+[node name="ConcealButton" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 114.0
+offset_left = -238.0
 offset_top = -220.0
-offset_right = 234.0
+offset_right = -118.0
 offset_bottom = -170.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "隐藏"
+text = "取消"
 icon_alignment = 1
 
 [node name="SiteIconContainer" type="ColorRect" parent="."]
@@ -93,5 +108,6 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="HideButton" to="." method="_on_hide_button_pressed"]
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="ConcealButton" to="." method="_on_conceal_button_pressed"]

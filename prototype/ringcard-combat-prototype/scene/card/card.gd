@@ -21,6 +21,7 @@ signal reparent_requested(card: Card)
 var target_type: CardData.TargetType
 var target_num: int
 var targets: Array[Node] = []
+var targeting_concealed: bool = false
 var random_target: bool = false
 var fixed_target_names: Array[String] = [] # 事先固定的目标，有这个就不需要select
 
@@ -63,8 +64,6 @@ func _ready() -> void:
 	
 	update_card_visual()
 	
-	# debug
-	original_global_position = global_position
 	
 
 func update_card_visual():
@@ -125,6 +124,8 @@ func get_targets(target_type: CardData.TargetType = target_type):
 
 func select_targets(target_num: int = target_num, random_select: bool = false):
 	#get_tree().call_group("site", "outline_on")
+	if target_num <= 0:
+		print_debug("wrong target_num in ", card_name)
 	
 	targets = []
 	if random_select:
@@ -144,31 +145,35 @@ func select_targets(target_num: int = target_num, random_select: bool = false):
 		Events.start_site_selecting.emit(self)
 		await Events.end_site_selecting
 	
-	print_debug(targets)
+	print_debug(targets.map(func lambda(site: Site): 
+			return site.site_data.site_name))
 
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域
 	var overlapping_areas = drop_area_detector.get_overlapping_areas()
+	#print_debug(overlapping_areas)
 	if overlapping_areas.size():
 		return true
 	return false
 	
 func can_play() -> bool: # TODO:有费用才能打出
 	# 为简化，当前没有卡牌在选site才能打出（事实上应该是加入一个序列打出）
-	if Utils.get_site_select_current_card():
+	if Utils.get_current_card():
 		return false
 	return true
 
 func play() -> bool: # 返回是否成功打出卡牌
 	print_debug("targets: ", targets)
 	
-	Events.card_played.emit(self)
+	Events.card_start_playing.emit(self)
 	#char_stats.mana -= cost
 	
 	card_data.apply_effects(targets)
 	
 	await card_data.card_play_animation()
-	call_deferred("queue_free")
+	Events.card_end_playing.emit(self)
+	
+	self.reparent(get_tree().get_first_node_in_group("discard_pile"))
 
 	return true
 
@@ -183,7 +188,7 @@ func put_center():
 		card_drop_area_center - size / 2.0, 0.1).set_trans(Tween.TRANS_CUBIC)
 	
 	await tween.finished
-	print_debug(global_position)
+	#print_debug(global_position)
 	pass
 
 
@@ -194,5 +199,5 @@ func put_back():
 		original_global_position, 0.1).set_trans(Tween.TRANS_CUBIC)
 		
 	await tween.finished
-	print_debug(global_position)
+	#print_debug(global_position)
 	pass
