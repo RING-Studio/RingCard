@@ -2,7 +2,7 @@ extends CardState
 
 
 func enter():
-	print_debug(state," entered")
+	#print_debug(state," entered")
 	
 	if card.can_drop():
 		card.put_center()

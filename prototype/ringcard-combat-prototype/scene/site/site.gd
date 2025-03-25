@@ -78,8 +78,9 @@ func _on_texture_button_gui_input(event: InputEvent) -> void:
 
 
 func _on_texture_button_mouse_entered() -> void:
-	outline_on()
-
+	#outline_on()
+	pass
 
 func _on_texture_button_mouse_exited() -> void:
-	outline_off()
+	#outline_off()
+	pass

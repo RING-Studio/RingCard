@@ -9,3 +9,11 @@ func get_site_select_current_card() -> Card:
 	if !battle:
 		return null
 	return battle.site_select_hud.current_card
+
+func get_sites_by_name(site_names: Array[String]) -> Array[Node]:
+	var targets = []
+	var sites = get_tree().get_nodes_in_group("site") as Array[Site]
+	for site in sites:
+		if site.site_data.site_name in site_names:
+			targets.append(site)
+	return targets

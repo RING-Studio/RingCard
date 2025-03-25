@@ -2,7 +2,7 @@ extends CardState
 
 
 func enter():
-	print_debug(state," entered")
+	#print_debug(state," entered")
 	
 	if !card.can_play():
 		return
@@ -13,7 +13,7 @@ func enter():
 		
 	Events.card_start_targeting.emit(card)
 	
-	card.get_targets()
+	await card.get_targets()
 	if card.targets.size() > 0:
 		transition_requested.emit(self, StateName.PLAYING)
 	else:

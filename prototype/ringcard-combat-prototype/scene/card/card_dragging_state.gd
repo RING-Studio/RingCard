@@ -2,7 +2,7 @@ extends CardState
 
 
 func enter():
-	print_debug(state," entered")
+	#print_debug(state," entered")
 	Events.card_start_dragging.emit(card)
 
 

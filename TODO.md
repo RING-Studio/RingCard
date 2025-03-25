@@ -12,22 +12,26 @@
   - [x] bug：卡牌放大缩小会导致位置偏移
     - 归类到Visual节点单独管理scale解决（这样不管怎么变visual都不会影响父节点的position）
   
-  - [ ] 卡牌状态机完善
+  - [x] 卡牌状态机完善
   
     ​	目前状态机
   
   <img src="prototype/ringcard-combat-prototype/card_state_machine_map.png" alt="card_state_machine_map" style="zoom:50%;" />
   
   - [ ] 实现打出功能
-    - [ ] 目标获取 choose_targets，依据 target_type 参数
+    - [x] 目标获取 choose_targets，依据 target_type 参数
       - [x] 对自己 SELF
       - [x] 对对手 OPPONENT
-      - [ ] 对地点 SITE，需要选取目标
+      - [x] 对地点 SITE，需要选取目标
+        - [ ] 选取过程中应可取消
       - [x] 无目标 NONE
     - [ ] 施加基础卡牌效果
       - [ ] 修改影响力
       - [ ] 挂一个buff（直接print）
       - [ ] 抽卡
+    - [ ] 检测卡牌当前是否能被打出 func can_play()
+      - [ ] 目前：有其他卡牌正在运作则不能打出
+        - [ ] 管理一个flag，目前由SiteSelectHUD管理
   - [ ] 阶段性检验：Policy、Measure卡各一个实例（test_*.tres）
   - [ ] Event卡实例，抽到时自动打出
   - [ ] 手牌 自动调整位置 以及 动画
@@ -36,7 +40,7 @@
 
   - [x] 基础UI
   - [x] 选中高亮以及函数框架
-  - [ ] card的choose_targets中需求等待选择一至多个site，需要给出对应方法
+  - [x] card的choose_targets中需求等待选择一至多个site，需要给出对应方法
   - [ ] 右键description卡片显示
 
 - [ ] BUFF类

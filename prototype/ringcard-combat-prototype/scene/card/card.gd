@@ -108,7 +108,7 @@ func get_targets(target_type: CardData.TargetType = target_type):
 		if targets.size() > 0: # 已经获取过
 			pass
 		else:
-			targets = get_sites_by_name(fixed_target_names)
+			targets = Utils.get_sites_by_name(fixed_target_names)
 		return
 	match target_type:
 		CardData.TargetType.SELF:
@@ -116,20 +116,11 @@ func get_targets(target_type: CardData.TargetType = target_type):
 		CardData.TargetType.OPPONENT:
 			targets = get_tree().get_nodes_in_group("opponent")
 		CardData.TargetType.SITE:
-			select_targets()
+			await select_targets()
 		CardData.TargetType.NONE:
 			targets = []
 		_:
 			print_debug("target_type of card ", card_name, " : ", target_type, " error")
-
-
-func get_sites_by_name(target_names: Array[String]) -> Array[Node]:
-	var targets = []
-	var sites = get_tree().get_nodes_in_group("site") as Array[Site]
-	for site in sites:
-		if site.site_data.site_name in target_names:
-			targets.append(site)
-	return targets
 	
 
 func select_targets(target_num: int = target_num, random_select: bool = false):
@@ -148,9 +139,12 @@ func select_targets(target_num: int = target_num, random_select: bool = false):
 			indices.shuffle()
 			for i in range(site_count):
 				targets.append(sites[indices[i]])
+		return
 	else:
 		Events.start_site_selecting.emit(self)
 		await Events.end_site_selecting
+	
+	print_debug(targets)
 
 
 func can_drop() -> bool: # 返回卡牌是否在drop区域
