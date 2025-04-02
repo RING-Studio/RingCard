@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://llqljv1ksi4u"]
 
 [ext_resource type="Script" uid="uid://by2fnxyd3ugk8" path="res://scene/card/card.gd" id="1_vtcvk"]
-[ext_resource type="Resource" uid="uid://bp846wfrv6hna" path="res://resources/card_data/test_policy/test_policy.tres" id="2_pa2gb"]
+[ext_resource type="Resource" uid="uid://dxr7o6eb6gscj" path="res://resources/card_data/test_target/test_target_type_none.tres" id="2_brbxf"]
 [ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="3_brbxf"]
 [ext_resource type="Script" uid="uid://bjq1or5qwivha" path="res://scene/card/card_state_machine.gd" id="3_g65cd"]
 [ext_resource type="Texture2D" uid="uid://bao75cgfyyeie" path="res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png" id="3_pa2gb"]
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(70, 95)
 script = ExtResource("1_vtcvk")
-card_data = ExtResource("2_pa2gb")
+card_data = ExtResource("2_brbxf")
 
 [node name="DropAreaDetector" type="Area2D" parent="."]
 collision_mask = 2
@@ -133,8 +133,5 @@ state = 3
 script = ExtResource("9_l0s36")
 state = 4
 
-[connection signal="gui_input" from="." to="CardStateMachine" method="_on_card_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_entered" from="." to="CardStateMachine" method="_on_card_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_exited" from="." to="CardStateMachine" method="_on_card_mouse_exited"]

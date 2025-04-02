@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2hd84y8eeev0"]
+[gd_scene load_steps=3 format=3 uid="uid://d2hd84y8eeev0"]
 
 [ext_resource type="Script" uid="uid://bys3ox6eclfy4" path="res://scene/discard_pile_hud/discard_plie.gd" id="1_bvsdt"]
 [ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scene/card/card.tscn" id="1_ybftj"]
-[ext_resource type="Resource" uid="uid://dxr7o6eb6gscj" path="res://resources/card_data/test_target/test_target_type_none.tres" id="2_unm5a"]
 
 [node name="DiscardPileHUD" type="CanvasLayer"]
-visible = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchors_preset = 8
@@ -32,100 +30,75 @@ script = ExtResource("1_bvsdt")
 
 [node name="Card" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card2" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card3" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card4" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card5" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card6" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card7" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card8" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card9" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card10" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card11" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card12" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card13" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card14" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card15" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card16" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card17" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card18" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card19" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card20" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card21" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card22" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card23" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card24" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")
 
 [node name="Card25" parent="ScrollContainer/DiscardPlie" instance=ExtResource("1_ybftj")]
 layout_mode = 2
-card_data = ExtResource("2_unm5a")

@@ -15,3 +15,7 @@ func get_sites_by_name(site_names: Array[String]) -> Array[Node]:
 		if site.site_data.site_name in site_names:
 			targets.append(site)
 	return targets
+
+func apply_buff(target: Node, buff):
+	print("buff ", buff, " applied to ", target)
+	pass

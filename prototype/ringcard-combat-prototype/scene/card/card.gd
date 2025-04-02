@@ -3,6 +3,11 @@ class_name Card
 
 @export var card_data: CardData
 
+@export var controllable: bool = true: # 可操作，不可操作就没有状态机
+	set(value):
+		controllable = value
+		on_controllable_change()
+
 @onready var drop_area_detector: Area2D = $DropAreaDetector
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 
@@ -45,7 +50,7 @@ var original_global_position
 func _ready() -> void:
 	for state in card_state_machine.states.values():
 		state.card = self
-		
+	
 	target_type = card_data.target_type
 	target_num = card_data.target_num
 	random_target = card_data.random_target
@@ -201,3 +206,21 @@ func put_back():
 	await tween.finished
 	#print_debug(global_position)
 	pass
+
+
+func on_controllable_change():
+	if card_state_machine:
+		if controllable:
+			if !gui_input.is_connected(card_state_machine._on_card_gui_input):
+				gui_input.connect(card_state_machine._on_card_gui_input)
+			if !gui_input.is_connected(card_state_machine._on_card_mouse_entered):
+				mouse_entered.connect(card_state_machine._on_card_mouse_entered)
+			if !gui_input.is_connected(card_state_machine._on_card_mouse_exited):
+				mouse_exited.connect(card_state_machine._on_card_mouse_exited)
+		else:
+			if gui_input.is_connected(card_state_machine._on_card_gui_input):
+				gui_input.disconnect(card_state_machine._on_card_gui_input)
+			if gui_input.is_connected(card_state_machine._on_card_mouse_entered):
+				mouse_entered.disconnect(card_state_machine._on_card_mouse_entered)
+			if gui_input.is_connected(card_state_machine._on_card_mouse_exited):
+				mouse_exited.disconnect(card_state_machine._on_card_mouse_exited)

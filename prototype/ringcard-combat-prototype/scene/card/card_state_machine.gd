@@ -6,24 +6,35 @@ class_name CardStateMachine
 var current_state: CardState
 var states = {}
 
+var card: Card
 
 func _ready() -> void:
 	await owner.ready
+	card = owner
+	
+	if card.controllable:
+		card.gui_input.connect(_on_card_gui_input)
+		card.mouse_entered.connect(_on_card_mouse_entered)
+		card.mouse_exited.connect(_on_card_mouse_exited)
 	
 	for child in get_children():
 		if child is CardState:
 			states[child.state] = child
 			child.transition_requested.connect(_on_transition_requested)
-			child.card = owner
+			child.card = card
 			
 	# debug
+	#await owner.owner.ready
 	owner.original_global_position = owner.global_position
 			
-	init_state.enter()
+	#init_state.enter()
 	current_state = init_state
 
 
 func _on_transition_requested(from: CardState, to: CardState.StateName):
+	if !card.controllable:
+		return
+	
 	if current_state != from:
 		print_debug("卡牌状态不符", current_state, from)
 		return

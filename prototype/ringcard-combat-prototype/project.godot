@@ -31,7 +31,7 @@ project/assembly_name="新建游戏项目"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/label_font_auto_sizer/plugin.cfg")
+enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg", "res://addons/label_font_auto_sizer/plugin.cfg")
 
 [global_group]
 
