@@ -48,9 +48,9 @@ var original_global_position
 
 
 func _ready() -> void:
-	for state in card_state_machine.states.values():
-		state.card = self
-	
+	init()
+
+func init():
 	target_type = card_data.target_type
 	target_num = card_data.target_num
 	random_target = card_data.random_target
@@ -69,13 +69,10 @@ func _ready() -> void:
 	
 	update_card_visual()
 	
-	
-
 func update_card_visual():
 	name_label.text = card_name
 	discription_label.text = discription
 	cost_label.text = str(cost)
-
 
 func _on_mouse_entered():
 	z_index += 1
@@ -178,7 +175,8 @@ func play() -> bool: # 返回是否成功打出卡牌
 	await card_data.card_play_animation()
 	Events.card_end_playing.emit(self)
 	
-	self.reparent(get_tree().get_first_node_in_group("discard_pile"))
+	var battle = Utils.get_battle() as Battle
+	battle.discard_pile.add_card(self)
 
 	return true
 

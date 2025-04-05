@@ -36,10 +36,10 @@ enabled=PackedStringArray("res://addons/ReorderableContainer/plugin.cfg", "res:/
 [global_group]
 
 battle=""
-discard_pile=""
 opponent=""
 player=""
 site=""
+card_pile=""
 
 [input]
 

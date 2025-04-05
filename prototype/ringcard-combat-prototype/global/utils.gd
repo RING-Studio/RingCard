@@ -3,10 +3,18 @@ extends Node
 func await_time(time: int):
 	await get_tree().create_timer(time).timeout
 	return
+	
+func get_battle():
+	var battle = get_tree().get_first_node_in_group("battle") as Battle
+	return battle
 
 func get_current_card():
-	var battle = get_tree().get_first_node_in_group("battle") as Battle
-	return battle.current_card
+	var battle = get_battle()
+	if battle:
+		return battle.current_card
+	else:
+		print_debug("no battle node")
+		return null
 
 func get_sites_by_name(site_names: Array[String]) -> Array[Node]:
 	var targets = []

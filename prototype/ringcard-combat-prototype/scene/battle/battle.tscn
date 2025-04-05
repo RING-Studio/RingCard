@@ -1,16 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://bc1hubuv4h24p"]
+[gd_scene load_steps=18 format=3 uid="uid://bc1hubuv4h24p"]
 
 [ext_resource type="PackedScene" uid="uid://bo4g6cjlvlhlp" path="res://scene/game_board/game_board.tscn" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://byjjo1ssa2cgm" path="res://scene/battle/battle.gd" id="1_yjev4"]
 [ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scene/card/card.tscn" id="2_ffvsa"]
 [ext_resource type="Script" uid="uid://6wut77ldw337" path="res://scene/battle/card_drop_area.gd" id="3_53mgl"]
-[ext_resource type="PackedScene" uid="uid://d2hd84y8eeev0" path="res://scene/discard_pile_hud/discard_pile_hud.tscn" id="4_5xu2w"]
+[ext_resource type="PackedScene" uid="uid://d2hd84y8eeev0" path="res://scene/card_pile/discard_pile.tscn" id="4_5xu2w"]
+[ext_resource type="PackedScene" uid="uid://bpuoexm5fhw1p" path="res://scene/card_pile/draw_pile.tscn" id="4_yhj4q"]
 [ext_resource type="Resource" uid="uid://dk47dnhxdhqqc" path="res://resources/card_data/test_target/test_target_type_opponent.tres" id="6_6y0hr"]
 [ext_resource type="Resource" uid="uid://dm6vmc70unahw" path="res://resources/card_data/test_target/test_target_type_self.tres" id="7_5xu2w"]
 [ext_resource type="Resource" uid="uid://1poemw5b0crp" path="res://resources/card_data/test_target/test_target_type_site.tres" id="8_yfigx"]
 [ext_resource type="Resource" uid="uid://bp846wfrv6hna" path="res://resources/card_data/test_effect/test_IF_measure.tres" id="9_5xu2w"]
 [ext_resource type="PackedScene" uid="uid://bo4tlnofwiden" path="res://scene/site_select_hud/site_select_hud.tscn" id="9_6y0hr"]
 [ext_resource type="Resource" uid="uid://dytwyaj4ppamt" path="res://resources/card_data/test_effect/test_buff_policy.tres" id="10_yfigx"]
+[ext_resource type="Resource" uid="uid://cvrrs75gulvy2" path="res://resources/card_data/test_effect/test_draw_card.tres" id="12_74lao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffvsa"]
 size = Vector2(800, 480)
@@ -55,6 +57,14 @@ _data = {
 [node name="Battle" type="Node2D" groups=["battle"]]
 script = ExtResource("1_yjev4")
 
+[node name="DrawPile" parent="." instance=ExtResource("4_yhj4q")]
+layer = 3
+visible = false
+
+[node name="DiscardPile" parent="." instance=ExtResource("4_5xu2w")]
+layer = 3
+visible = false
+
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
@@ -78,12 +88,7 @@ libraries = {
 }
 
 [node name="GameBoard" parent="." instance=ExtResource("1_7gynk")]
-
-[node name="DiscardPileHUD" parent="." instance=ExtResource("4_5xu2w")]
-visible = false
-
-[node name="DrawPileHUD" parent="." instance=ExtResource("4_5xu2w")]
-visible = false
+layer = 0
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -157,10 +162,38 @@ offset_right = 0.0
 offset_bottom = 190.0
 card_data = ExtResource("10_yfigx")
 
+[node name="Card7" parent="HUD/Hand" instance=ExtResource("2_ffvsa")]
+layout_mode = 1
+offset_left = 792.0
+offset_top = -208.0
+offset_right = 42.0
+offset_bottom = -18.0
+card_data = ExtResource("12_74lao")
+
+[node name="DrawPileButton" type="Button" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 14.0
+offset_top = 462.0
+offset_right = 113.0
+offset_bottom = 703.0
+text = "draw pile"
+
+[node name="DiscardPileButton" type="Button" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 1165.0
+offset_top = 465.0
+offset_right = 1270.0
+offset_bottom = 696.0
+text = "discard pile"
+
 [node name="SiteSelectHUD" parent="." instance=ExtResource("9_6y0hr")]
+layer = 2
 
 [node name="Player" type="Node2D" parent="." groups=["player"]]
 visible = false
 
 [node name="Opponent" type="Node2D" parent="." groups=["opponent"]]
 visible = false
+
+[connection signal="pressed" from="HUD/DrawPileButton" to="." method="_on_draw_pile_button_pressed"]
+[connection signal="pressed" from="HUD/DiscardPileButton" to="." method="_on_discard_pile_button_pressed"]

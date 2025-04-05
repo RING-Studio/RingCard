@@ -11,10 +11,10 @@ enum TargetType { SELF, OPPONENT, SITE, NONE }
 @export var duration: int = 0 # 政策卡持续回合
 
 @export_subgroup("Texture")
-@export var template_texture: Texture = preload("res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png") # 卡牌模板 
-@export var illust_texture: Texture = preload("res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_border10.png") # 卡牌插画
-@export var back_texture: Texture = preload("res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green5.png") # 卡背
-@export var cost_texture: Texture = preload("res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png") # 费用背景图
+@export var template_texture: Texture2D = preload("res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png") # 卡牌模板 
+@export var illust_texture: Texture2D = preload("res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_border10.png") # 卡牌插画
+@export var back_texture: Texture2D = preload("res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green5.png") # 卡背
+@export var cost_texture: Texture2D = preload("res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png") # 费用背景图
 
 @export_group("Info")
 @export var target_type: TargetType

@@ -26,27 +26,34 @@
 
   <img src="prototype/ringcard-combat-prototype/card_state_machine_map.png" alt="card_state_machine_map" style="zoom:50%;" />
 
-  - [ ] 实现打出功能
+  - [x] 实现打出功能
     - [x] 目标获取 choose_targets，依据 target_type 参数
       - [x] 对自己 SELF
       - [x] 对对手 OPPONENT
       - [x] 对地点 SITE，需要选取目标
         - [x] 选取过程中应可取消
       - [x] 无目标 NONE
-    - [ ] 施加基础卡牌效果
+    - [x] 施加基础卡牌效果接口
       - [x] 修改影响力
-      - [ ] 挂一个buff（直接print）
-      - [ ] 抽卡
+      - [x] 挂一个buff（直接print）
+      - [x] 抽卡
+        - [x] 需要优先实现：抽牌堆、手牌（战损版）
     - [x] 检测卡牌当前是否能被打出 func can_play()
       - [x] 目前：有其他卡牌正在运作则不能打出
         - [x] battle管理current_card
-  - [x] 阶段性检验：Policy、Measure卡各一个实例（test_*.tres）
-  - [ ] 需要优先实现1：抽牌堆、弃牌堆、手牌
-    - [x] 布尔值Controllable控制卡牌是否能被操控（状态机运行与否）
-    - [ ] 抽弃牌堆基类，需要做个reparent
-  - [ ] 需要优先实现2：buff类
+  - [x] 阶段性检验：Measure卡实例
+  - [x] 布尔值Controllable控制卡牌是否能被操控（状态机运行与否）
+  - [ ] 阶段性检验：Policy卡实例
   - [ ] Event卡实例，抽到时自动打出
-  - [ ] 手牌 自动调整位置 以及 动画
+
+- [ ] 抽牌堆、弃牌堆、手牌
+
+  - [x] 抽弃牌堆基类 CardPile
+    - [x] 基本UI功能
+    - [x] 基本抽牌弃牌接口
+  - [ ] 手牌
+    - [ ] 是否需要管理手牌
+    - [ ] 如何自动调整手牌位置
 
 - [ ] 地点类 Site 以及 地点信息 SiteData 等相关基类实现
 
@@ -68,9 +75,10 @@
   - [ ] 修改稳定度
   - [ ] 每回合多抽牌
   - [ ] 每回合多行动力
-- [ ] 
+- [ ] 抽牌弃牌堆
+  - [ ] 抽牌数量大于抽牌堆数量处理方法
 
-
+- [ ] 动画
 
 
 
@@ -80,7 +88,7 @@
 
 - 若是卡牌目标是三，但是地点还没开到三个，要考虑怎么处理
 
-
+- 洗牌
 
 
 

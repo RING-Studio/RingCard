@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2hd84y8eeev0"]
+
+[ext_resource type="Script" uid="uid://b3prypii0f2vu" path="res://scene/card_pile/discard_pile.gd" id="1_hkeaa"]
+[ext_resource type="PackedScene" uid="uid://llqljv1ksi4u" path="res://scene/card/card.tscn" id="1_ybftj"]
+
+[node name="DiscardPile" type="CanvasLayer" groups=["card_pile"]]
+script = ExtResource("1_hkeaa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.458824)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -404.0
+offset_top = -300.0
+offset_right = 404.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CardPileContainer" type="HFlowContainer" parent="ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="Card" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card2" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card3" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card4" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card5" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card6" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card7" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card8" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card9" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card10" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card11" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card12" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card13" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card14" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card15" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card16" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card17" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card18" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card19" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card20" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card21" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card22" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card23" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card24" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="Card25" parent="ScrollContainer/MarginContainer/CardPileContainer" instance=ExtResource("1_ybftj")]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -33.0
+offset_right = -65.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "return"

@@ -56,6 +56,7 @@ func _on_site_selected(site: Site):
 	if site in selected_sites:
 		site.outline_off()
 		selected_sites.erase(site)
+		confirm_button.disabled = true
 		return
 		
 	if selected_sites.size() >= target_num:
