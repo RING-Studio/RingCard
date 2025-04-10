@@ -211,9 +211,9 @@ func on_controllable_change():
 		if controllable:
 			if !gui_input.is_connected(card_state_machine._on_card_gui_input):
 				gui_input.connect(card_state_machine._on_card_gui_input)
-			if !gui_input.is_connected(card_state_machine._on_card_mouse_entered):
+			if !mouse_entered.is_connected(card_state_machine._on_card_mouse_entered):
 				mouse_entered.connect(card_state_machine._on_card_mouse_entered)
-			if !gui_input.is_connected(card_state_machine._on_card_mouse_exited):
+			if !mouse_exited.is_connected(card_state_machine._on_card_mouse_exited):
 				mouse_exited.connect(card_state_machine._on_card_mouse_exited)
 		else:
 			if gui_input.is_connected(card_state_machine._on_card_gui_input):
