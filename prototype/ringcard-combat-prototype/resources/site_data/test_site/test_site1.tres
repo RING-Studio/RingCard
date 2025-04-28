@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SiteData" load_steps=3 format=3 uid="uid://ce08xp1n0merx"]
 
 [ext_resource type="Script" uid="uid://fpdcv4gl4mn3" path="res://resources/site_data/site_data.gd" id="1_h40xr"]
-[ext_resource type="Texture2D" uid="uid://b7c70o221laak" path="res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_multi06.png" id="2_b2y5o"]
+[ext_resource type="Texture2D" uid="uid://c2yedui3nu4ge" path="res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_multi06.png" id="2_b2y5o"]
 
 [resource]
 script = ExtResource("1_h40xr")

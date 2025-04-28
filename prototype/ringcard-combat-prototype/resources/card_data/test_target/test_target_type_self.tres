@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=6 format=3 uid="uid://dm6vmc70unahw"]
 
-[ext_resource type="Texture2D" uid="uid://hiimjwtx6mf2" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green5.png" id="1_88u8e"]
-[ext_resource type="Texture2D" uid="uid://bao75cgfyyeie" path="res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png" id="1_lkyc0"]
-[ext_resource type="Texture2D" uid="uid://dda34arxwgno8" path="res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_border10.png" id="3_17era"]
+[ext_resource type="Texture2D" uid="uid://x27uu1vr82ud" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green5.png" id="1_88u8e"]
+[ext_resource type="Texture2D" uid="uid://cq86iat6soitm" path="res://asset/kenney_boardgame-pack/PNG/Chips/chipGreen_border.png" id="1_lkyc0"]
+[ext_resource type="Texture2D" uid="uid://ct77jp371je75" path="res://asset/kenney_boardgame-pack/PNG/Pieces (White)/pieceWhite_border10.png" id="3_17era"]
 [ext_resource type="Script" uid="uid://csii22msjooo8" path="res://resources/card_data/card_data.gd" id="3_nqsva"]
-[ext_resource type="Texture2D" uid="uid://dht7obsyv00os" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="4_3n11b"]
+[ext_resource type="Texture2D" uid="uid://15bvdyg4ejkt" path="res://asset/kenney_boardgame-pack/PNG/Cards/cardBack_green1.png" id="4_3n11b"]
 
 [resource]
 script = ExtResource("3_nqsva")
