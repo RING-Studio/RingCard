@@ -5,7 +5,9 @@
 [ext_resource type="Resource" uid="uid://cgx6ocejm2rvl" path="res://resources/site_data/test_site/test_site2.tres" id="3_aq4sx"]
 [ext_resource type="Resource" uid="uid://bms2rlq1ohe3s" path="res://resources/site_data/test_site/test_site3.tres" id="4_fuav2"]
 
-[node name="GameBoard" type="CanvasLayer"]
+[node name="GameBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Map" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.509804)

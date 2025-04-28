@@ -45,11 +45,11 @@ func _on_card_end_playing(card: Card):
 	
 
 func _on_draw_pile_button_pressed() -> void:
-	if is_viewing_discard_pile():
-		return
-	draw_pile.show()
+	if is_viewing_draw_pile():
+		draw_pile.hide_pile()
+	draw_pile.show_pile()
 
 func _on_discard_pile_button_pressed() -> void:
-	if is_viewing_draw_pile():
-		return
-	discard_pile.show()
+	if is_viewing_discard_pile():
+		discard_pile.hide_pile()
+	discard_pile.show_pile()

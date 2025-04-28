@@ -1,7 +1,9 @@
 extends CanvasLayer
 class_name SiteSelectHUD
 
+@onready var hide_button: Button = $HideButton
 @onready var confirm_button: Button = $ConfirmButton
+@onready var conceal_button: Button = $ConcealButton
 @onready var site_icon_container: ColorRect = $SiteIconContainer
 @onready var scroll_container: ScrollContainer = $SiteIconContainer/ScrollContainer
 @onready var h_box_container: HBoxContainer = $SiteIconContainer/ScrollContainer/HBoxContainer
@@ -81,7 +83,10 @@ func _on_start_site_selecting(card: Card):
 
 func _on_hide_button_pressed() -> void:
 	site_icon_container.visible = !site_icon_container.visible
-
+	confirm_button.visible = !confirm_button.visible
+	conceal_button.visible = !conceal_button.visible
+	hide_button.text = "隐藏" if site_icon_container.visible else "显示"
+	
 
 func _on_confirm_button_pressed() -> void:
 	battle.current_card.targets = selected_sites
